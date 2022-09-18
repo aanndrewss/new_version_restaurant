@@ -23,16 +23,13 @@ export class User extends Model<User, UserCreationsAttrs> {
 	@Column({ type: DataTypes.STRING, allowNull: false })
 	password: string
 
-	@Column({ type: DataTypes.STRING })
+	@Column({ type: DataTypes.STRING, allowNull: true })
 	city: string
 
-	@Column({ type: DataTypes.STRING })
+	@Column({ type: DataTypes.STRING, allowNull: true })
 	avatarPath: string
 
-	@Column({ type: DataTypes.STRING })
-	birthDate: string
-
-	@Column({ type: DataTypes.ENUM('Male', 'Female') })
+	@Column({ type: DataTypes.ENUM('Male', 'Female'), allowNull: true })
 	gender: genderStatus
 
 

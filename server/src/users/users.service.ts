@@ -1,7 +1,8 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common'
 import { InjectModel } from '@nestjs/sequelize'
-import { User } from './users.models'
+import { User } from './users.model'
 import { CreateUserDto } from './dto/create-user.dto'
+import { UpdateUserDto } from './dto/update-user.dto'
 
 @Injectable()
 export class UsersService {
@@ -10,10 +11,11 @@ export class UsersService {
 	}
 
 	async createUser(dto: CreateUserDto) {
-
+		const user = await this.userRepository.create(dto)
+		return user
 	}
 
-	/*async updateUser(dto:) {
+	/*async updateUser(dto: UpdateUserDto) {
 
 	}*/
 
@@ -23,13 +25,13 @@ export class UsersService {
 	}
 
 	async getUserByID(id: number) {
-		const user = this.userRepository.findByPk(id)
+		const user = await this.userRepository.findByPk(id)
 		if (!user) throw new UnauthorizedException('User not found')
 		return user
 	}
 
 	async getUserByEmail(email: string) {
-		const user = this.userRepository.findOne({where: {email}})
+		const user = await this.userRepository.findOne({where: {email}})
 		return user
 	}
 
