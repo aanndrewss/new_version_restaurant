@@ -3,12 +3,15 @@ import { DishController } from './dish.controller'
 import { DishService } from './dish.service'
 import { SequelizeModule } from '@nestjs/sequelize'
 import { Dish } from './dish.model'
+import { FilesModule } from '../files/files.module'
+import { Type } from '../type/type.model'
 
 @Module({
   controllers: [DishController],
   providers: [DishService],
   imports: [
-    SequelizeModule.forFeature([Dish])
+    SequelizeModule.forFeature([Dish, Type]),
+    FilesModule
   ]
 })
 export class DishModule {}

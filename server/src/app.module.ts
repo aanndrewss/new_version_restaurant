@@ -8,6 +8,9 @@ import { DishModule } from './dish/dish.module'
 import { Dish } from './dish/dish.model'
 import { TypeModule } from './type/type.module'
 import { Type } from './type/type.model'
+import { FilesModule } from './files/files.module';
+import { ServeStaticModule } from '@nestjs/serve-static'
+import * as path from 'path'
 
 @Module({
 	controllers: [],
@@ -15,6 +18,9 @@ import { Type } from './type/type.model'
 	imports: [
 		ConfigModule.forRoot({
 			envFilePath: `.${process.env.NODE_ENV}.env`
+		}),
+		ServeStaticModule.forRoot({
+			rootPath: path.resolve(__dirname, 'static')
 		}),
 		SequelizeModule.forRoot({
 			dialect: 'postgres',
@@ -29,7 +35,8 @@ import { Type } from './type/type.model'
 		AuthModule,
 		UsersModule,
 		DishModule,
-		TypeModule
+		TypeModule,
+		FilesModule
 	],
 
 })

@@ -1,14 +1,16 @@
-import { BelongsTo, Column, Model, Table } from 'sequelize-typescript'
+import { BelongsTo, Column, ForeignKey, Model, Table } from 'sequelize-typescript'
 import { ApiProperty } from '@nestjs/swagger'
 import { DataTypes } from 'sequelize'
 import { Type } from '../type/type.model'
 
 interface DishCreationsAttrs {
-	name: string;
-	grams: number;
-	price: number;
-	img: string;
+	name: string
+	grams: number
+	price: number
+	typeId: number
+	img: string
 }
+
 
 @Table({ tableName: 'dish' })
 export class Dish extends Model<Dish, DishCreationsAttrs> {
@@ -33,6 +35,11 @@ export class Dish extends Model<Dish, DishCreationsAttrs> {
 	@Column({ type: DataTypes.STRING, allowNull: false })
 	img: string
 
+	@ApiProperty({ example: '2', description: 'ID of type' })
+	@ForeignKey(() => Type)
+	@Column({ type: DataTypes.INTEGER })
+	typeId: number
+
 	@BelongsTo(() => Type)
-	types: Type
+	type: Type
 }
