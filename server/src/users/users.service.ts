@@ -4,6 +4,7 @@ import { User } from './users.model'
 import { CreateUserDto } from './dto/create-user.dto'
 import { UpdateUserDto } from './dto/update-user.dto'
 import { Basket } from '../basket/basket.model'
+import { Addresses } from '../addresses/addresses.model'
 
 @Injectable()
 export class UsersService {
@@ -14,7 +15,7 @@ export class UsersService {
 
 	async createUser(dto: CreateUserDto) {
 		const user = await this.userRepository.create(dto)
-		const basket = await this.basketRepository.create({userId: user.id})
+		const basket = await this.basketRepository.create({ userId: user.id })
 		return user
 	}
 
@@ -28,13 +29,16 @@ export class UsersService {
 	}
 
 	async getUserByID(id: number) {
-		const user = await this.userRepository.findByPk(id)
+		const user = await this.userRepository.findOne({
+			where: { id },
+			include: [{ model: Addresses, as: 'addresses' }]
+		})
 		if (!user) throw new UnauthorizedException('User not found')
 		return user
 	}
 
 	async getUserByEmail(email: string) {
-		const user = await this.userRepository.findOne({where: {email}})
+		const user = await this.userRepository.findOne({ where: { email } })
 		return user
 	}
 

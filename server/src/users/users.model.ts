@@ -1,6 +1,7 @@
-import { Column, Model, Table } from 'sequelize-typescript'
+import { Column, HasMany, Model, Table } from 'sequelize-typescript'
 import { DataTypes } from 'sequelize'
 import { ApiProperty } from '@nestjs/swagger'
+import { Addresses } from '../addresses/addresses.model'
 
 type genderStatus = 'Male' | 'Female'
 
@@ -30,5 +31,8 @@ export class User extends Model<User, UserCreationsAttrs> {
 
 	@Column({ type: DataTypes.ENUM('Male', 'Female'), allowNull: true })
 	gender: genderStatus
+
+	@HasMany(() => Addresses)
+	addresses: Addresses[]
 
 }

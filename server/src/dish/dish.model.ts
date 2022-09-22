@@ -35,7 +35,7 @@ export class Dish extends Model<Dish, DishCreationsAttrs> {
 	@Column({ type: DataTypes.STRING, allowNull: false })
 	img: string
 
-	@ApiProperty({ example: '2', description: 'ID of type' })
+	@ApiProperty({ example: '2', description: 'Type ID' })
 	@ForeignKey(() => Type)
 	@Column({ type: DataTypes.INTEGER })
 	typeId: number
