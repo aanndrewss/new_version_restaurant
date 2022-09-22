@@ -16,7 +16,6 @@ export class User extends Model<User, UserCreationsAttrs> {
 	@Column({ type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true, unique: true })
 	id: number
 
-
 	@Column({ type: DataTypes.STRING, unique: true, allowNull: false })
 	email: string
 
@@ -31,6 +30,5 @@ export class User extends Model<User, UserCreationsAttrs> {
 
 	@Column({ type: DataTypes.ENUM('Male', 'Female'), allowNull: true })
 	gender: genderStatus
-
 
 }

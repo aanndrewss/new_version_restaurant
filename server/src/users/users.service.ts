@@ -3,15 +3,18 @@ import { InjectModel } from '@nestjs/sequelize'
 import { User } from './users.model'
 import { CreateUserDto } from './dto/create-user.dto'
 import { UpdateUserDto } from './dto/update-user.dto'
+import { Basket } from '../basket/basket.model'
 
 @Injectable()
 export class UsersService {
 
-	constructor(@InjectModel(User) private userRepository: typeof User) {
+	constructor(@InjectModel(User) private userRepository: typeof User,
+							@InjectModel(Basket) private basketRepository: typeof Basket) {
 	}
 
 	async createUser(dto: CreateUserDto) {
 		const user = await this.userRepository.create(dto)
+		const basket = await this.basketRepository.create({userId: user.id})
 		return user
 	}
 

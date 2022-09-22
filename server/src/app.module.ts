@@ -10,7 +10,11 @@ import { TypeModule } from './type/type.module'
 import { Type } from './type/type.model'
 import { FilesModule } from './files/files.module';
 import { ServeStaticModule } from '@nestjs/serve-static'
+import { BasketModule } from './basket/basket.module';
 import * as path from 'path'
+import { Basket } from './basket/basket.model'
+import { BasketDishModule } from './basket-dish/basket-dish.module';
+import { BasketDish } from './basket-dish/basket-dish.model'
 
 @Module({
 	controllers: [],
@@ -29,14 +33,16 @@ import * as path from 'path'
 			username: process.env.POSTGRES_USER,
 			password: process.env.POSTGRES_PASSWORD,
 			database: process.env.POSTGRES_DB,
-			models: [User, Dish, Type],
+			models: [User, Dish, Type, Basket, BasketDish],
 			autoLoadModels: true
 		}),
 		AuthModule,
 		UsersModule,
 		DishModule,
 		TypeModule,
-		FilesModule
+		FilesModule,
+		BasketModule,
+		BasketDishModule
 	],
 
 })
