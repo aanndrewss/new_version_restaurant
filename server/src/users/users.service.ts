@@ -5,12 +5,14 @@ import { CreateUserDto } from './dto/create-user.dto'
 import { UpdateUserDto } from './dto/update-user.dto'
 import { Basket } from '../basket/basket.model'
 import { Addresses } from '../addresses/addresses.model'
+import { FilesService } from '../files/files.service'
 
 @Injectable()
 export class UsersService {
 
 	constructor(@InjectModel(User) private userRepository: typeof User,
-							@InjectModel(Basket) private basketRepository: typeof Basket) {
+							@InjectModel(Basket) private basketRepository: typeof Basket,
+							private fileService: FilesService) {
 	}
 
 	async createUser(dto: CreateUserDto) {
@@ -19,9 +21,24 @@ export class UsersService {
 		return user
 	}
 
-	/*async updateUser(dto: UpdateUserDto) {
+	async updateUser(dto: UpdateUserDto, id: number, avatarPath: any) {
+		const fileName = await this.fileService.createFile(avatarPath)
+		const user = await this.userRepository.update(
+			{
+				email: dto.email,
+				password: dto.password,
+				gender: dto.gender,
+				avatarPath: fileName
+			},
+			{
+				where: {
+					id: id
+				}
+			}
+		)
+		return user
+	}
 
-	}*/
 
 	async getAllUsers() {
 		const users = await this.userRepository.findAll()

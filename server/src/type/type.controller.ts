@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common'
+import { Body, Controller, Delete, Param, Post } from '@nestjs/common'
 import { TypeService } from './type.service'
 import { CreateTypeDto } from './dto/create-type.dto'
 
@@ -11,6 +11,11 @@ export class TypeController {
 	@Post()
 	createType(@Body() dto: CreateTypeDto) {
 		return this.typeService.createType(dto)
+	}
+
+	@Delete('/:id')
+	deleteType(@Param('id') id: number) {
+		return this.typeService.deleteType(id)
 	}
 
 }

@@ -2,22 +2,22 @@ import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common'
 import { AddressesService } from './addresses.service'
 import { CreateAddressDto } from './dto/create-address.dto'
 
-@Controller('addresses')
+@Controller()
 export class AddressesController {
 	constructor(private addressesService: AddressesService) {
 	}
 
-	@Post()
+	@Post('/:id')
 	createAddress(@Param('id') id: number, @Body() dto: CreateAddressDto) {
 		return this.addressesService.createAddress(dto, id)
 	}
 
-	@Put()
+	@Put('/:id')
 	updateAddress(@Param('id') id: number, @Body() dto: CreateAddressDto) {
 		return this.addressesService.updateAddress(dto, id)
 	}
 
-	@Delete()
+	@Delete('/:id')
 	deleteAddress(@Param('id') id: number) {
 		return this.addressesService.deleteAddress(id)
 	}

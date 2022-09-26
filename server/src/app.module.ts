@@ -17,6 +17,8 @@ import { BasketDishModule } from './basket-dish/basket-dish.module';
 import { BasketDish } from './basket-dish/basket-dish.model'
 import { AddressesModule } from './addresses/addresses.module';
 import { Addresses } from './addresses/addresses.model'
+import { DishInfoModule } from './dish-info/dish-info.module'
+import { DishInfo } from './dish-info/dish-info.model'
 
 @Module({
 	controllers: [],
@@ -35,7 +37,7 @@ import { Addresses } from './addresses/addresses.model'
 			username: process.env.POSTGRES_USER,
 			password: process.env.POSTGRES_PASSWORD,
 			database: process.env.POSTGRES_DB,
-			models: [User, Dish, Type, Basket, BasketDish, Addresses],
+			models: [User, Dish, Type, Basket, BasketDish, Addresses, DishInfo],
 			autoLoadModels: true
 		}),
 		AuthModule,
@@ -45,7 +47,8 @@ import { Addresses } from './addresses/addresses.model'
 		FilesModule,
 		BasketModule,
 		BasketDishModule,
-		AddressesModule
+		AddressesModule,
+		DishInfoModule
 	],
 
 })

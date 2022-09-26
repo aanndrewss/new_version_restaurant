@@ -1,8 +1,10 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common'
+import { Body, Controller, Get, Param, Post, Put, UploadedFile, UseInterceptors } from '@nestjs/common'
 import { UsersService } from './users.service'
 import { ApiOperation, ApiResponse } from '@nestjs/swagger'
 import { User } from './users.model'
 import { CreateUserDto } from './dto/create-user.dto'
+import { UpdateUserDto } from './dto/update-user.dto'
+import { FileInterceptor } from '@nestjs/platform-express'
 
 @Controller('users')
 export class UsersController {
@@ -28,6 +30,12 @@ export class UsersController {
 	@Get('/:id')
 	getUserById(@Param('id') id: number) {
 		return this.userService.getUserByID(id)
+	}
+
+	@Put('/:id')
+	@UseInterceptors(FileInterceptor('avatarPath'))
+	updateProfile(@Param('id') id: number, @Body() dto: UpdateUserDto, @UploadedFile() avatarPath) {
+		return this.userService.updateUser(dto, id, avatarPath)
 	}
 
 }

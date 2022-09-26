@@ -1,7 +1,8 @@
-import { BelongsTo, Column, ForeignKey, Model, Table } from 'sequelize-typescript'
+import { BelongsTo, Column, ForeignKey, HasMany, Model, Table } from 'sequelize-typescript'
 import { ApiProperty } from '@nestjs/swagger'
 import { DataTypes } from 'sequelize'
 import { Type } from '../type/type.model'
+import { DishInfo } from '../dish-info/dish-info.model'
 
 interface DishCreationsAttrs {
 	name: string
@@ -39,6 +40,9 @@ export class Dish extends Model<Dish, DishCreationsAttrs> {
 	@ForeignKey(() => Type)
 	@Column({ type: DataTypes.INTEGER })
 	typeId: number
+
+	@HasMany(() => DishInfo)
+	dishInfo: DishInfo[]
 
 	@BelongsTo(() => Type)
 	type: Type

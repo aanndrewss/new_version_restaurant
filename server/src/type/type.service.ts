@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common'
 import { InjectModel } from '@nestjs/sequelize'
 import { Type } from './type.model'
 import { CreateTypeDto } from './dto/create-type.dto'
@@ -12,6 +12,10 @@ export class TypeService {
 	async createType(dto: CreateTypeDto) {
 		const type = await this.typeRepository.create(dto)
 		return type
+	}
+
+	async deleteType(id: number) {
+		await this.typeRepository.destroy({ where: { id: id } })
 	}
 
 }
