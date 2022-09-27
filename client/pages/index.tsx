@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Meta
-        title='Social Network'
+        title='Restaurant'
         description='Description'
       />
 
