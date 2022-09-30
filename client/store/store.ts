@@ -1,13 +1,24 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit'
+import { combineReducers, configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
 import dishReducer from './reducers/DishSlice'
+import userReducer from './reducers/UserSlice'
+import typeReducer from './reducers/TypeSlice'
+import { userAPI } from '../services/UserService'
+import { dishAPI } from '../services/DishService'
+import { typeAPI } from '../services/TypeService'
 
 const rootReducer = combineReducers({
-	dishReducer
+	dishReducer,
+	userReducer,
+	typeReducer,
+	[userAPI.reducerPath]: userAPI.reducer,
+	[dishAPI.reducerPath]: dishAPI.reducer,
+	[typeAPI.reducerPath]: typeAPI.reducer
 })
 
 export const setupStore = () => {
 	return configureStore({
-		reducer: rootReducer
+		reducer: rootReducer,
+		middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(userAPI.middleware)
 	})
 }
 
