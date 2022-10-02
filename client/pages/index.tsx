@@ -2,9 +2,12 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.scss'
 import Meta from '../app/Meta'
+import Header from '../components/Header'
 
 export default function Home() {
   return (
+    <>
+    <Header/>
     <div className={styles.container}>
       <Meta
         title='Restaurant'
@@ -65,5 +68,6 @@ export default function Home() {
         </a>
       </footer>
     </div>
+    </>
   )
 }

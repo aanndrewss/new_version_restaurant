@@ -1,0 +1,29 @@
+.wrapper {
+  @apply max-w-7xl m-auto shadow-2xl w-full;
+
+  .wrapperHeader {
+    @apply bg-cyan-300;
+
+    .header {
+      @apply flex items-center justify-around;
+
+      .brandName {
+        @apply flex items-center
+      }
+
+      .headerLinks {
+        @apply flex items-center h-9;
+        .btnLinks {
+          @apply font-bold text-xl text-gray-500 px-10 hover:text-gray-700 transition-all;
+        }
+      }
+
+      .enterLinks {
+        @apply flex items-center;
+        .btnEnter {
+          @apply bg-green-400 text-white py-1 px-2 rounded-2xl transition-colors hover:bg-green-600;
+        }
+      }
+    }
+  }
+}
