@@ -44,11 +44,11 @@ const Auth = () => {
 					<div className={styles.footerCard}>
 						{isLogin ?
 							<div className={styles.text}>
-								Have not account? <Link className={styles.link} href={REGISTRATION_ROUTE}>Create</Link>
+								Have not account? <Link className={styles.link} href={REGISTRATION_ROUTE}><div className={styles.link}>Create</div></Link>
 							</div>
 							:
 							<div className={styles.text}>
-								Have account? <Link className={styles.link} href={LOGIN_ROUTE}>Sign in</Link>
+								Have account? <Link className={styles.link} href={LOGIN_ROUTE}><div className={styles.link}>Sign in</div></Link>
 							</div>
 						}
 						<button type='submit' className={styles.enterButton}>
