@@ -1,10 +1,11 @@
-import { Body, Controller, Get, Param, Post, Put, UploadedFile, UseInterceptors } from '@nestjs/common'
+import { Body, Controller, Get, Param, Post, Put, UploadedFile, UseGuards, UseInterceptors } from '@nestjs/common'
 import { UsersService } from './users.service'
 import { ApiOperation, ApiResponse } from '@nestjs/swagger'
 import { User } from './users.model'
 import { CreateUserDto } from './dto/create-user.dto'
 import { UpdateUserDto } from './dto/update-user.dto'
 import { FileInterceptor } from '@nestjs/platform-express'
+import { JwtAuthGuard } from '../auth/decorators/jwt-auth.guard'
 
 @Controller('users')
 export class UsersController {
@@ -20,6 +21,7 @@ export class UsersController {
 
 	@ApiOperation({ summary: 'Get all users' })
 	@ApiResponse({ status: 200, type: [User] })
+	@UseGuards(JwtAuthGuard)
 	@Get()
 	getAll() {
 		return this.userService.getAllUsers()
@@ -27,12 +29,14 @@ export class UsersController {
 
 	@ApiOperation({ summary: 'Get one user by ID' })
 	@ApiResponse({ status: 200, type: User })
+	@UseGuards(JwtAuthGuard)
 	@Get('/:id')
 	getUserById(@Param('id') id: number) {
 		return this.userService.getUserByID(id)
 	}
 
 	@Put('/:id')
+	@UseGuards(JwtAuthGuard)
 	@UseInterceptors(FileInterceptor('avatarPath'))
 	updateProfile(@Param('id') id: number, @Body() dto: UpdateUserDto, @UploadedFile() avatarPath) {
 		return this.userService.updateUser(dto, id, avatarPath)

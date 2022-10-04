@@ -18,9 +18,17 @@ export const userAPI = createApi({
 			}),
 			providesTags: result => ['user']
 		}),
-		setUser: build.mutation<setIUser, setIUser>({
+		setRegistration: build.mutation<setIUser, setIUser>({
 			query: (user) => ({
-				url: '/registration',
+				url: '/auth/registration',
+				method: 'POST',
+				body: user
+			}),
+			invalidatesTags: ['user']
+		}),
+		setLogin: build.mutation<setIUser, setIUser>({
+			query: (user) => ({
+				url: '/auth/login',
 				method: 'POST',
 				body: user
 			}),

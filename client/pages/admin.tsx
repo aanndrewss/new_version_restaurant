@@ -20,7 +20,7 @@ function Admin(props) {
 	})
 
 	const onSubmit = async ({name}) => {
-		await createType({name, body: name} as IType)
+		await createType({name} as IType)
 	}
 
 	return (
