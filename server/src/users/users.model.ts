@@ -29,6 +29,8 @@ export class User extends Model<User, UserCreationsAttrs> {
 	@Column({ type: DataTypes.STRING, allowNull: true })
 	gender: string
 
+
+
 	@HasMany(() => Addresses)
 	addresses: Addresses[]
 

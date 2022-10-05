@@ -30,9 +30,7 @@ const Auth = () => {
 		mode: 'onBlur'
 	})
 
-	if (isError) {
-		return <div>{JSON.stringify(error.data.message)}</div>
-	}
+
 
 	return (
 		<div className={styles.wrapper}>
@@ -46,14 +44,15 @@ const Auth = () => {
 									 required: 'Field is required!'
 								 })}
 								 placeholder='Email'
-
 					/>
 					<input className={styles.textField}
 								 {...register('password', {
 									 required: 'Field is required!'
 								 })}
 								 placeholder='Password'
+								 type='Password'
 					/>
+					{isError && <div className={styles.errorMessage}>{error.data.message}</div>}
 					<div className={styles.footerCard}>
 						{isLogin ?
 							<div className={styles.text}>

@@ -19,7 +19,7 @@ export class AuthService {
 	async registration(userDto: CreateUserDto) {
 		const candidate = await this.usersService.getUserByEmail(userDto.email)
 		if (candidate) {
-			throw new HttpException('User already exist', HttpStatus.BAD_REQUEST)
+			throw new HttpException('User already exist!', HttpStatus.BAD_REQUEST)
 		}
 		const hashPassword = await bcrypt.hash(userDto.password, 5)
 		const user = await this.usersService.createUser({...userDto, password: hashPassword})
@@ -32,11 +32,11 @@ export class AuthService {
 		if (user && passwordEquals) {
 			return user
 		}
-		throw new UnauthorizedException({message: 'Incorrect password or email'})
+		throw new UnauthorizedException({message: 'Incorrect password or email!'})
 	}
 
 	private async generateToken(user: User) {
-		const payload = {email: user.email, id: user.id}
+		const payload = {email: user.email, id: user.id, gender: user?.gender}
 		return {
 			token: this.jwtService.sign(payload)
 		}
