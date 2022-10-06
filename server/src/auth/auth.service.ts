@@ -4,16 +4,37 @@ import { JwtService } from '@nestjs/jwt'
 import * as bcrypt from 'bcryptjs'
 import { CreateUserDto } from '../users/dto/create-user.dto'
 import { User } from '../users/users.model'
+import { TokenService } from '../tokens/token.service'
+import { RefreshTokenDto } from '../tokens/refresh-token.dto'
+
+
+export interface AuthenticationPayload {
+	user: User
+	payload: {
+		type: string
+		token: string
+		refresh_token?: string
+	}
+}
 
 @Injectable()
 export class AuthService {
 
 	constructor(private usersService: UsersService,
-							private jwtService: JwtService) {}
+							private tokenService: TokenService) {
+	}
 
 	async login(userDto: CreateUserDto) {
 		const user = await this.validateUser(userDto)
-		return this.generateToken(user)
+		const token = await this.tokenService.generateAccessToken(user)
+		const refresh = await this.tokenService.generateRefreshToken(user, 60 * 60 * 24 * 30)
+
+		const payload = this.buildResponsePayload(user, token, refresh)
+
+		return {
+			status: 'success',
+			data: payload
+		}
 	}
 
 	async registration(userDto: CreateUserDto) {
@@ -22,8 +43,27 @@ export class AuthService {
 			throw new HttpException('User already exist!', HttpStatus.BAD_REQUEST)
 		}
 		const hashPassword = await bcrypt.hash(userDto.password, 5)
-		const user = await this.usersService.createUser({...userDto, password: hashPassword})
-		return this.generateToken(user)
+		const user = await this.usersService.createUser({ ...userDto, password: hashPassword })
+		const token = await this.tokenService.generateAccessToken(user)
+		const refresh = await this.tokenService.generateRefreshToken(user, 60 * 60 * 24 * 30)
+
+		const payload = this.buildResponsePayload(user, token, refresh)
+
+		return {
+			status: 'success',
+			data: payload
+		}
+	}
+
+	async refresh(tokenDto: RefreshTokenDto) {
+		const { user, token } = await this.tokenService.createAccessTokenFromRefreshToken(tokenDto.refresh_token)
+
+		const payload = this.buildResponsePayload(user, token)
+
+		return {
+			status: 'success',
+			data: payload
+		}
 	}
 
 	private async validateUser(userDto: CreateUserDto) {
@@ -32,13 +72,17 @@ export class AuthService {
 		if (user && passwordEquals) {
 			return user
 		}
-		throw new UnauthorizedException({message: 'Incorrect password or email!'})
+		throw new UnauthorizedException({ message: 'Incorrect password or email!' })
 	}
 
-	private async generateToken(user: User) {
-		const payload = {email: user.email, id: user.id, gender: user?.gender}
+	private buildResponsePayload(user: User, accessToken: string, refreshToken?: string): AuthenticationPayload {
 		return {
-			token: this.jwtService.sign(payload)
+			user: user,
+			payload: {
+				type: 'bearer',
+				token: accessToken,
+				...(refreshToken ? { refresh_token: refreshToken } : {})
+			}
 		}
 	}
 }

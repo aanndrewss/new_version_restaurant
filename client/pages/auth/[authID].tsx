@@ -45,6 +45,7 @@ const Auth = () => {
 								 })}
 								 placeholder='Email'
 					/>
+
 					<input className={styles.textField}
 								 {...register('password', {
 									 required: 'Field is required!'
@@ -52,7 +53,7 @@ const Auth = () => {
 								 placeholder='Password'
 								 type='Password'
 					/>
-					{isError && <div className={styles.errorMessage}>{error.data.message}</div>}
+
 					<div className={styles.footerCard}>
 						{isLogin ?
 							<div className={styles.text}>

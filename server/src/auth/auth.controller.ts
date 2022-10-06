@@ -3,6 +3,7 @@ import { AuthService } from './auth.service'
 import { ApiTags } from '@nestjs/swagger'
 import { CreateUserDto } from '../users/dto/create-user.dto'
 import { ValidationPipe } from '../pipes/validation.pipe'
+import { RefreshTokenDto } from '../tokens/refresh-token.dto'
 
 @ApiTags('Registration')
 @Controller('auth')
@@ -23,9 +24,9 @@ export class AuthController {
 		return this.authService.registration(userDto)
 	}
 
-	@Get('/refresh')
-	refresh() {
-
+	@Post('/refresh')
+	refresh(@Body() tokenDto: RefreshTokenDto) {
+		return this.refresh(tokenDto)
 	}
 
 	@Post('/logout')
