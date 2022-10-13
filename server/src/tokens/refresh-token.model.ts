@@ -13,10 +13,7 @@ export class RefreshToken extends Model<RefreshToken> {
 	@Column({ type: DataTypes.INTEGER })
 	userId: number
 
-	@Column({ type: DataTypes.BOOLEAN })
-	is_revoked: boolean
-
-	@Column({ type: DataTypes.DATE })
-	expires: Date
+	@Column({type: DataTypes.STRING(1000)})
+	refreshToken: string
 
 }

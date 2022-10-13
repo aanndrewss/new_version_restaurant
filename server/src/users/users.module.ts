@@ -7,10 +7,12 @@ import { AuthModule } from '../auth/auth.module'
 import { Basket } from '../basket/basket.model'
 import { Addresses } from '../addresses/addresses.model'
 import { FilesModule } from '../files/files.module'
+import { JWTGuard } from '../auth/decorators/jwt-auth.guard'
+import { AtStrategy } from '../auth/strategies/at.strategy'
 
 @Module({
   controllers: [UsersController],
-  providers: [UsersService],
+  providers: [UsersService, JWTGuard, AtStrategy],
   imports: [
     SequelizeModule.forFeature([User, Basket, Addresses]),
     forwardRef(() => AuthModule),

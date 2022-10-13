@@ -28,7 +28,8 @@ export class UsersService {
 				email: dto.email,
 				password: dto.password,
 				gender: dto.gender,
-				avatarPath: fileName
+				avatarPath: fileName,
+				phone: dto.phone
 			},
 			{
 				where: {
@@ -49,6 +50,14 @@ export class UsersService {
 		const user = await this.userRepository.findOne({
 			where: { id },
 			include: [{ model: Addresses, as: 'addresses' }]
+		})
+		if (!user) throw new UnauthorizedException('User not found')
+		return user
+	}
+
+	async findUserByID(id: number) {
+		const user = await this.userRepository.findOne({
+			where: {id}
 		})
 		if (!user) throw new UnauthorizedException('User not found')
 		return user

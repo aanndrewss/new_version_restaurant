@@ -29,7 +29,14 @@ export class User extends Model<User, UserCreationsAttrs> {
 	@Column({ type: DataTypes.STRING, allowNull: true })
 	gender: string
 
+	@Column({ type: DataTypes.STRING, allowNull: true })
+	phone: string
 
+	@Column({ type: DataTypes.BOOLEAN, defaultValue: false })
+	isActivated: boolean
+
+	@Column({type: DataTypes.STRING(1000), allowNull: true})
+	refreshToken: string
 
 	@HasMany(() => Addresses)
 	addresses: Addresses[]
