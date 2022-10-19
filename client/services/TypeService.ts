@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { IType } from '../models/IType'
+import { ITypes } from '../models/ITypes'
 
 
 export const typeAPI = createApi({
@@ -7,7 +8,7 @@ export const typeAPI = createApi({
 	baseQuery: fetchBaseQuery({baseUrl: 'http://localhost:5000' }),
 	tagTypes: ['type'],
 	endpoints: (build) => ({
-		fetchTypes: build.query<IType, any>({
+		fetchTypes: build.query<ITypes, any>({
 			query: () => ({
 				url: '/type'
 			}),

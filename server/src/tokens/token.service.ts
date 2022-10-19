@@ -54,6 +54,14 @@ export class TokenService {
 		})
 	}
 
+	/*async validateRefreshToken(token: string) {
+		try{
+			const userData = this.jwtService.verify({token}, {secret: process.env.SECRET_KEY_REFRESH_TOKEN})
+		} catch (e) {
+			return null
+		}
+	}*/
+
 	/*
 		async generateAccessToken(user: User): Promise<string> {
 

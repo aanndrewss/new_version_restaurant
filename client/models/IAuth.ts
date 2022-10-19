@@ -1,7 +1,7 @@
 import { IUser } from './IUser'
 
 export interface IAuth {
-	access_token: string
-	refresh_token: string
+	accessToken: string
+	refreshToken: string
 	user: IUser
 }

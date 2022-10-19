@@ -1,5 +1,7 @@
 import { IUser } from '../../models/IUser'
 import { createSlice } from '@reduxjs/toolkit'
+import { userAPI } from '../../services/UserService'
+import { useDispatch } from 'react-redux'
 
 
 interface UserState {
@@ -28,8 +30,8 @@ export const userSlice = createSlice({
 			state.users = action.payload
 			state.error = ''
 		},
-		setIsAuth(state) {
-			state.isAuth = true
+		setIsAuth(state, action) {
+			state.isAuth = action.payload
 		},
 		setError(state, action) {
 			state.error = action.payload
@@ -37,5 +39,8 @@ export const userSlice = createSlice({
 		}
 	}
 })
+
+
+export const { setIsAuth, setUser } = userSlice.actions
 
 export default userSlice.reducer

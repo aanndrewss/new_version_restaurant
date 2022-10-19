@@ -3,5 +3,6 @@ export interface IDish {
 	name: string
 	grams: number
 	price: number
+	typeId: number
 	img: string
 }

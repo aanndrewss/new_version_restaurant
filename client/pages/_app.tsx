@@ -1,15 +1,19 @@
 import '../styles/globals.scss'
 import { Provider } from 'react-redux'
-import { setupStore } from '../store/store'
+import store from '../store/store'
 import Header from '../components/Header'
+import { userAPI } from '../services/UserService'
+import { useEffect } from 'react'
 
-function MyApp({ Component, pageProps }) {
+export default function MyApp({ Component, pageProps }) {
+
+
+
 	return (
-		<Provider store={setupStore()}>
-			<Header/>
+		<Provider store={store}>
+			<Header />
 			<Component {...pageProps} />
 		</Provider>
 	)
 }
 
-export default MyApp

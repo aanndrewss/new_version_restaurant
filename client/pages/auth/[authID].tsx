@@ -3,24 +3,28 @@ import { useRouter } from 'next/router'
 import styles from './../../styles/Auth.module.scss'
 import { useForm } from 'react-hook-form'
 import Link from 'next/link'
-import { LOGIN_ROUTE, REGISTRATION_ROUTE } from '../../utils/contstants'
+import { HOME_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE } from '../../utils/contstants'
 import { userAPI } from '../../services/UserService'
 import { setIUser } from '../../models/IUser'
+import { useDispatch } from 'react-redux'
 
 const Auth = () => {
 
 	const router = useRouter()
+	const dispatch = useDispatch()
 	const authID = router.query.authID
 	const isLogin = authID === 'login'
 	const [loginUser, {}] = userAPI.useSetLoginMutation()
 	const [registrateUser, {isError, error}] = userAPI.useSetRegistrationMutation()
 
 	const onSubmit = async ({ email, password }) => {
+		console.log(email, password)
 		if (isLogin) {
 			await loginUser({ email, password } as setIUser)
 		} else {
 			await registrateUser({ email, password } as setIUser)
 		}
+		router.push(HOME_ROUTE)
 	}
 
 	const {

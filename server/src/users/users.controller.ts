@@ -6,6 +6,7 @@ import { CreateUserDto } from './dto/create-user.dto'
 import { UpdateUserDto } from './dto/update-user.dto'
 import { FileInterceptor } from '@nestjs/platform-express'
 import { JWTGuard } from '../auth/decorators/jwt-auth.guard'
+import { AuthGuard } from '@nestjs/passport'
 
 @Controller('users')
 export class UsersController {
@@ -21,22 +22,22 @@ export class UsersController {
 
 	@ApiOperation({ summary: 'Get all users' })
 	@ApiResponse({ status: 200, type: [User] })
-	/*@UseGuards(JWTGuard)*/
+	@UseGuards(AuthGuard('jwt'))
 	@Get()
-	getAll(@Req() request) {
+	getAll() {
 		return this.userService.getAllUsers()
 	}
 
 	@ApiOperation({ summary: 'Get one user by ID' })
 	@ApiResponse({ status: 200, type: User })
-	@UseGuards(JWTGuard)
+	@UseGuards(AuthGuard('jwt'))
 	@Get('/:id')
 	getUserById(@Param('id') id: number) {
 		return this.userService.getUserByID(id)
 	}
 
 	@Put('/:id')
-	@UseGuards(JWTGuard)
+	@UseGuards(AuthGuard('jwt'))
 	@UseInterceptors(FileInterceptor('avatarPath'))
 	updateProfile(@Param('id') id: number, @Body() dto: UpdateUserDto, @UploadedFile() avatarPath) {
 		return this.userService.updateUser(dto, id, avatarPath)

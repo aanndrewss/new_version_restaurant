@@ -6,6 +6,7 @@ const MyComponent = () => {
 
 	const { data: dishes, error, isLoading } = dishAPI.useFetchDishesQuery(2)
 
+
 	return (
 		<div>
 			<div>

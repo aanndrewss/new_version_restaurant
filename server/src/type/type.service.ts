@@ -18,4 +18,8 @@ export class TypeService {
 		await this.typeRepository.destroy({ where: { id: id } })
 	}
 
+	async getTypes(){
+		return await this.typeRepository.findAll()
+	}
+
 }
