@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
 import styles from './../styles/Header.module.scss'
-import { FaAccessibleIcon } from 'react-icons/fa'
 import Link from 'next/link'
 import { HOME_ROUTE, LOGIN_ROUTE, MENU_ROUTE, PROFILE_ROUTE } from '../utils/contstants'
 import { useAppSelector } from '../hooks/redux'
 import { userAPI } from '../services/UserService'
-import { log } from 'util'
+import IconShoppingCart from '../icons/Cart'
+import IconUser from '../icons/User'
 
 const Header = () => {
 
@@ -24,7 +24,7 @@ const Header = () => {
 	return (
 		<div className={styles.header}>
 			<div className={styles.brandName}>
-				<FaAccessibleIcon />
+
 				LI
 			</div>
 			<div className={styles.headerLinks}>
@@ -42,10 +42,13 @@ const Header = () => {
 			<div className={styles.enterLinks}>
 				{isAuth ?
 					<>
+						<div className={styles.cart}>
+							<IconShoppingCart />
+						</div>
 						<Link href={PROFILE_ROUTE + `/${users.id}`}>
-							<button className={styles.btnEnter}>
-								profile
-							</button>
+							<div className={styles.user}>
+								<IconUser/>
+							</div>
 						</Link>
 						<button onClick={() => logOut('')} className={styles.btnEnter}>
 							logout

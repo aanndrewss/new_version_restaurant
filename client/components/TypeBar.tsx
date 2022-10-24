@@ -9,7 +9,9 @@ const TypeBar = () => {
 	return (
 			<div className={styles.types}>
 				{types && types.map(type =>
-					<div className={styles.type}>{type.name}</div>
+					<div className={styles.type}>
+						{type.name}
+					</div>
 				)}
 			</div>
 	)
