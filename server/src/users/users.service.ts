@@ -6,6 +6,7 @@ import { UpdateUserDto } from './dto/update-user.dto'
 import { Basket } from '../basket/basket.model'
 import { Addresses } from '../addresses/addresses.model'
 import { FilesService } from '../files/files.service'
+import { CreateTokenDto } from '../tokens/create-token.dto'
 
 @Injectable()
 export class UsersService {
@@ -52,7 +53,8 @@ export class UsersService {
 			include: [{ model: Addresses, as: 'addresses' }]
 		})
 		if (!user) throw new UnauthorizedException('User not found')
-		return user
+		const dtoUser = new CreateTokenDto(user)
+		return {user: dtoUser}
 	}
 
 	async findUserByID(id: number) {

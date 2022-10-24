@@ -30,10 +30,10 @@ export class TokenService {
 
 	async generateTokens(payload: CreateTokenDto) {
 		const [at, rt] = await Promise.all([
-			this.jwtService.signAsync({ ...payload }, { secret: process.env.SECRET_KEY_ACCESS_TOKEN, expiresIn: 60 * 15 }),
+			this.jwtService.signAsync({ ...payload }, { secret: process.env.SECRET_KEY_ACCESS_TOKEN, expiresIn: '15m'}),
 			this.jwtService.signAsync({ ...payload }, {
 				secret: process.env.SECRET_KEY_REFRESH_TOKEN,
-				expiresIn: 60 * 60 * 24 * 7
+				expiresIn: '7d'
 			})
 		])
 

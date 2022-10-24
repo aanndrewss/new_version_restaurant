@@ -1,7 +1,8 @@
 import React, { FC } from 'react'
 import { IDish } from '../../models/IDish'
-import { IUser } from '../../models/IUser'
-import Image from 'next/image'
+import styles from '../../styles/DishItem.module.scss'
+import Link from 'next/link'
+import { DISH_ROUTE } from '../../utils/contstants'
 
 interface DishItemProps {
 	dish: IDish
@@ -11,10 +12,14 @@ const DishItem: FC<DishItemProps> = ({dish}) => {
 
 
 	return (
-		<div style={{color: 'red', fontSize: 13}}>
-			{dish.id}
-			{dish.name}
-			{dish.price}
+		<div className={styles.card}>
+
+
+			<Link href={DISH_ROUTE + `/${dish.id}`}>
+				<img className={styles.img} src={'http://localhost:5000/' + dish.img} alt='' />
+			</Link>
+			<div className={styles.name}>{dish.name}</div>
+			<div className={styles.price}>{dish.price}</div>
 
 		</div>
 	)

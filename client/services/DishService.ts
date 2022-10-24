@@ -10,12 +10,12 @@ export const dishAPI = createApi({
 	tagTypes: ['dish'],
 	endpoints: (build) => ({
 		fetchDish: build.query<IDish, any>({
-			query: () => ({
-				url: '/:id'
+			query: (id: number) => ({
+				url: `/dish/${id}`
 			})
 		}),
 		fetchDishes: build.query<IDishes, number>({
-			query: (limit: number = 5) => ({
+			query: (limit: number) => ({
 				url: '/dish',
 				params: {
 					_limit: limit

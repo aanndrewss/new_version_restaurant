@@ -17,14 +17,11 @@ export const userAPI = createApi({
 	}),
 	tagTypes: ['user'],
 	endpoints: (build) => ({
-		fetchUser: build.query<IUser, any>({
-			query: () => ({
-				url: '/:id',
-				onSuccess: async (dispatch, data) => {
-					const response = data as IUser
-					dispatch(setUser(response))
-				}
-			})
+		fetchUser: build.query<IUser, number>({
+			query: (id: number) => ({
+				url: `/users/${id}`
+			}),
+			providesTags: result => ['user']
 		}),
 		fetchUsers: build.query<IUser[], any>({
 			query: () => ({

@@ -41,7 +41,7 @@ export class Dish extends Model<Dish, DishCreationsAttrs> {
 	@Column({ type: DataTypes.INTEGER })
 	typeId: number
 
-	@HasMany(() => DishInfo)
+	@HasMany(() => DishInfo, { as: 'info' })
 	dishInfo: DishInfo[]
 
 	@BelongsTo(() => Type)

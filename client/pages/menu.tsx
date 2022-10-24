@@ -9,7 +9,6 @@ function Menu(props) {
 
 	return (
 		<div>
-			<div>menu</div>
 			<TypeBar/>
 			<DishList/>
 		</div>

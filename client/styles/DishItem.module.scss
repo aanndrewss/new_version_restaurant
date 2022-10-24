@@ -1,0 +1,12 @@
+.card {
+  @apply rounded-2xl hover:scale-105 transition-all shadow-md;
+  .name {
+    @apply font-bold text-lg text-blue-600 text-center;
+  }
+  .price {
+    @apply font-bold;
+  }
+  .img {
+    @apply lg:w-52 xl:w-80 flex justify-center cursor-pointer rounded-2xl;
+  }
+}

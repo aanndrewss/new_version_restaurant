@@ -12,55 +12,51 @@ const Header = () => {
 	const [refresh, {}] = userAPI.useCheckAuthMutation()
 
 	useEffect(() => {
-		if(localStorage.getItem('token')) {
+		if (localStorage.getItem('token')) {
 			refresh(null)
 		}
 	}, [])
 
-	const { isAuth } = useAppSelector(state => state.userReducer)
+	const { isAuth, users } = useAppSelector(state => state.userReducer)
 
 	const [logOut, {}] = userAPI.useLogoutMutation()
 
 	return (
-		<div className={styles.wrapper}>
-			<div className={styles.wrapperHeader}>
-				<div className={styles.header}>
-					<div className={styles.brandName}>
-						<FaAccessibleIcon />
-						LI
-					</div>
-					<div className={styles.headerLinks}>
-						<Link href={HOME_ROUTE}>
-							<button className={styles.btnLinks}>
-								home
+		<div className={styles.header}>
+			<div className={styles.brandName}>
+				<FaAccessibleIcon />
+				LI
+			</div>
+			<div className={styles.headerLinks}>
+				<Link href={HOME_ROUTE}>
+					<button className={styles.btnLinks}>
+						home
+					</button>
+				</Link>
+				<Link href={MENU_ROUTE}>
+					<button className={styles.btnLinks}>
+						menu
+					</button>
+				</Link>
+			</div>
+			<div className={styles.enterLinks}>
+				{isAuth ?
+					<>
+						<Link href={PROFILE_ROUTE + `/${users.id}`}>
+							<button className={styles.btnEnter}>
+								profile
 							</button>
 						</Link>
-						<Link href={MENU_ROUTE}>
-							<button className={styles.btnLinks}>
-								menu
-							</button>
-						</Link>
-					</div>
-					<div className={styles.enterLinks}>
-						{isAuth ?
-							<>
-								<Link href={PROFILE_ROUTE}>
-									<button className={styles.btnEnter}>
-										profile
-									</button>
-								</Link>
-								<button onClick={() => logOut('')} className={styles.btnEnter}>
-									logout
-								</button>
-							</> :
-							<Link href={LOGIN_ROUTE}>
-								<button className={styles.btnEnter}>
-									LOGIN
-								</button>
-							</Link>
-						}
-					</div>
-				</div>
+						<button onClick={() => logOut('')} className={styles.btnEnter}>
+							logout
+						</button>
+					</> :
+					<Link href={LOGIN_ROUTE}>
+						<button className={styles.btnEnter}>
+							LOGIN
+						</button>
+					</Link>
+				}
 			</div>
 		</div>
 	)

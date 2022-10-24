@@ -1,0 +1,7 @@
+
+.types {
+  @apply flex flex-row justify-center mt-3 mb-5 gap-2;
+  .type {
+    @apply text-green-500 text-lg m-1 rounded-xl shadow-md bg-amber-50 p-1.5;
+  }
+}
