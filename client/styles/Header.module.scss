@@ -1,6 +1,6 @@
 
 .header {
-  @apply flex items-center justify-around h-11 bg-[#f4fbef] shadow-md;
+  @apply flex items-center justify-evenly h-14 bg-transparent shadow-md;
 
   .brandName {
     @apply flex items-center tracking-[0.5em] font-extrabold text-xl cursor-pointer;
@@ -9,13 +9,14 @@
   .headerLinks {
     @apply flex items-center;
     .btnLinks {
-      @apply relative font-bold tracking-[0.2em] text-xl mx-10 no-underline;
+      @apply relative font-bold tracking-[0.1em] text-lg mx-10 no-underline ;
       &:after {
         @apply content-[''] block absolute text-green-500 underline decoration-solid right-0 w-0 h-[2px] bottom-[-3px] transition-all duration-500;
       }
       &:hover:after {
         @apply content-[''] w-full block absolute left-0 h-[2px] bg-green-400 bottom-[-3px] transition-all duration-500;
       }
+
     }
   }
 

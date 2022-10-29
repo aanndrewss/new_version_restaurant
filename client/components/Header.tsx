@@ -30,12 +30,12 @@ const Header = () => {
 			<div className={styles.headerLinks}>
 				<Link href={HOME_ROUTE}>
 					<button className={styles.btnLinks}>
-						home
+						Home
 					</button>
 				</Link>
 				<Link href={MENU_ROUTE}>
 					<button className={styles.btnLinks}>
-						menu
+						Menu
 					</button>
 				</Link>
 			</div>

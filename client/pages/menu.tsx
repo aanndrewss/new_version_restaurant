@@ -7,7 +7,7 @@ function Menu(props) {
 
 	return (
 		<div>
-			<TypeBar/>
+
 			<DishList/>
 		</div>
 	)

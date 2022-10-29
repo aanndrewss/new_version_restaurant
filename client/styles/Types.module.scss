@@ -1,7 +1,40 @@
-
-.types {
-  @apply flex flex-row justify-center mt-3 mb-5 gap-2;
+.hiddenMenu {
+  @apply block fixed p-[10px] mt-0 box-border w-[200px] bg-white h-[100%] top-0 left-[-200px] transition-all duration-[0.33s] z-10 translate-x-0 shadow-md shadow-gray-600;
   .type {
-    @apply text-green-500 text-lg m-1 rounded-xl shadow-md bg-amber-50 p-1.5;
+    @apply flex flex-col justify-center items-start cursor-pointer hover:opacity-30 transition-all text-[20px] tracking-wider ml-[60px];
   }
+}
+.menuBar {
+  @apply flex fixed box-border w-[40px] bg-black h-[100%] top-0 left-0 z-[12] text-center justify-center;
+  .menuTitle {
+    @apply rotate-180 text-green-500 font-bold tracking-[5px] text-[18px] cursor-default;
+    writing-mode: tb-rl;
+  }
+}
+.hiddenMenuTicker {
+  @apply hidden
+}
+.menuBtn {
+  @apply bg-transparent p-[5px] fixed top-[5px] left-[5px] cursor-pointer transition-all duration-[0.33s] z-50 w-[30px] translate-x-0
+}
+.menuBtn span {
+  @apply block h-[3px] bg-green-400 mt-[5px] transition-all duration-[0.33s] relative
+}
+.menuBtn span.first {
+  @apply mt-0
+}
+.hiddenMenuTicker:checked ~ .menuBtn {
+  @apply left-[5px]
+}
+.hiddenMenuTicker:checked ~ .hiddenMenu {
+  @apply left-0
+}
+.hiddenMenuTicker:checked ~ .menuBtn span.first {
+  @apply rotate-45 top-[8px]
+}
+.hiddenMenuTicker:checked ~ .menuBtn span.second {
+  @apply opacity-0
+}
+.hiddenMenuTicker:checked ~ .menuBtn span.third {
+  @apply -rotate-45 -top-[8px]
 }
