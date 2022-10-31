@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import styles from './../styles/Header.module.scss'
+import wrapper from './../styles/Home.module.scss'
 import Link from 'next/link'
 import { HOME_ROUTE, LOGIN_ROUTE, MENU_ROUTE, PROFILE_ROUTE } from '../utils/contstants'
 import { useAppSelector } from '../hooks/redux'
@@ -23,45 +24,50 @@ const Header = () => {
 
 	return (
 		<div className={styles.header}>
-			<div className={styles.brandName}>
-
-				LI
-			</div>
-			<div className={styles.headerLinks}>
-				<Link href={HOME_ROUTE}>
-					<button className={styles.btnLinks}>
-						Home
-					</button>
-				</Link>
-				<Link href={MENU_ROUTE}>
-					<button className={styles.btnLinks}>
-						Menu
-					</button>
-				</Link>
-			</div>
-			<div className={styles.enterLinks}>
-				{isAuth ?
-					<>
-						<div className={styles.cart}>
-							<IconShoppingCart />
-						</div>
-						<Link href={PROFILE_ROUTE + `/${users.id}`}>
-							<div className={styles.user}>
-								<IconUser/>
-							</div>
+			<div className={wrapper.wrapper}>
+				<div className={styles.headerWrapper}>
+					<div className={styles.brandName}>
+						TAI PHO
+					</div>
+					<div className={styles.headerLinks}>
+						<Link href={HOME_ROUTE}>
+							<button className={styles.btnLinks}>
+								Home
+							</button>
 						</Link>
-						<button onClick={() => logOut('')} className={styles.btnEnter}>
-							logout
-						</button>
-					</> :
-					<Link href={LOGIN_ROUTE}>
-						<button className={styles.btnEnter}>
-							LOGIN
-						</button>
-					</Link>
-				}
+						<Link href={'/'}>
+							<button className={styles.btnLinks}>
+								Stock
+							</button>
+						</Link>
+					</div>
+					<div className={styles.enterLinks}>
+						{isAuth ?
+							<>
+								<div className={styles.cart}>
+									<IconShoppingCart />
+								</div>
+								<Link href={PROFILE_ROUTE + `/${users.id}`}>
+									<div className={styles.user}>
+										<IconUser/>
+									</div>
+								</Link>
+								<button onClick={() => logOut('')} className={styles.btnEnter}>
+									logout
+								</button>
+							</> :
+							<Link href={LOGIN_ROUTE}>
+								<button className={styles.btnEnter}>
+									LOGIN
+								</button>
+							</Link>
+						}
+					</div>
+				</div>
 			</div>
 		</div>
+
+
 	)
 }
 

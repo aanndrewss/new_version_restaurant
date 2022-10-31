@@ -1,11 +1,33 @@
 .card {
-  @apply rounded-2xl hover:scale-[1.02] transition-all shadow-md;
-  .name {
-    @apply font-bold text-lg text-blue-600 text-center;
+  @apply rounded-2xl hover:scale-[1.01] transition-all flex flex-col justify-center items-center;
+  .cardInfoWrapper {
+    @apply max-w-[220px] w-[220px];
+    .name {
+      @apply font-extrabold text-lg tracking-[2px] p-2;
+    }
+
+    .btnWrapper {
+      @apply flex flex-row justify-between items-center;
+      .gramPriceWrap {
+        @apply flex flex-col justify-between;
+        .price {
+          @apply font-bold p-2;
+        }
+
+        .grams {
+          @apply font-light p-2;
+        }
+      }
+      .btnAddToCart {
+        @apply border-green-500 border-2 rounded-[10px] text-black font-bold hover:bg-green-500 transition-all duration-[0.33s] h-[40px];
+        .btnText {
+          @apply p-1.5 text-[15px] hover:text-white transition-all duration-[0.33s];
+        }
+      }
+    }
+
   }
-  .price {
-    @apply font-bold;
-  }
+
   .img {
     @apply lg:w-52 xl:w-80 flex justify-center cursor-pointer rounded-2xl;
   }

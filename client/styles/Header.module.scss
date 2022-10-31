@@ -1,9 +1,12 @@
 
 .header {
-  @apply flex items-center justify-evenly h-14 bg-transparent shadow-md;
+  @apply flex items-center h-14 bg-white shadow-md fixed w-full z-10;
+  .headerWrapper {
+    @apply flex justify-between items-center;
+  }
 
   .brandName {
-    @apply flex items-center tracking-[0.5em] font-extrabold text-xl cursor-pointer;
+    @apply flex items-center tracking-[0.5em] font-extrabold text-xl cursor-pointer hover:scale-[1.03] transition-all duration-[0.33s];
   }
 
   .headerLinks {

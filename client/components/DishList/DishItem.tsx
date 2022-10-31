@@ -8,7 +8,7 @@ interface DishItemProps {
 	dish: IDish
 }
 
-const DishItem: FC<DishItemProps> = ({dish}) => {
+const DishItem: FC<DishItemProps> = ({ dish }) => {
 
 
 	return (
@@ -18,8 +18,27 @@ const DishItem: FC<DishItemProps> = ({dish}) => {
 			<Link href={DISH_ROUTE + `/${dish.id}`}>
 				<img className={styles.img} src={'http://localhost:5000/' + dish.img} alt='' />
 			</Link>
-			<div className={styles.name}>{dish.name}</div>
-			<div className={styles.price}>{dish.price}</div>
+			<div className={styles.cardInfoWrapper}>
+				<div className={styles.name}>{dish.name}</div>
+				<div className={styles.btnWrapper}>
+					<div className={styles.gramPriceWrap}>
+						<div className={styles.price}>
+							{dish.price}₽
+						</div>
+						<div className={styles.grams}>
+							{dish.grams}g
+						</div>
+					</div>
+					<button className={styles.btnAddToCart}>
+						<div className={styles.btnText}>
+							Add to cart
+						</div>
+
+					</button>
+				</div>
+
+			</div>
+
 
 		</div>
 	)
