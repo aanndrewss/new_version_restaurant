@@ -3,10 +3,13 @@ import { typeAPI } from '../services/TypeService'
 import styles from '../styles/Types.module.scss'
 import IconArrowRightCircle from '../icons/Arrow'
 import IconSquare from '../icons/Square'
+import { useDispatch } from 'react-redux'
+import { setSelectedType } from '../store/reducers/TypeSlice'
 
 const TypeBar = () => {
 
 	const { data: types, error, isLoading } = typeAPI.useFetchTypesQuery('')
+	const dispatch = useDispatch()
 
 	return (
 		<>
@@ -30,12 +33,12 @@ const TypeBar = () => {
 
 					{types && types.map(type =>
 						<>
-							<li className={styles.type}>
+							<button onClick={() => dispatch(setSelectedType(type))} className={styles.type}>
 								<div className={styles.typeWrapper}>
 									<div className={styles.arrow}><IconArrowRightCircle/></div>{type.name}
 								</div>
 
-							</li>
+							</button>
 							<span className={styles.separator}></span>
 						</>
 					)}

@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { IDish } from '../models/IDish'
 import { IDishes } from '../models/IDishes'
-import { setDishes, setTotalCount } from '../store/reducers/DishSlice'
+import { setDishes } from '../store/reducers/DishSlice'
 
 
 export const dishAPI = createApi({
@@ -14,20 +14,36 @@ export const dishAPI = createApi({
 				url: `/dish/${id}`
 			})
 		}),
-		fetchDishes: build.query<IDishes, number>({
-			query: (limit: number) => ({
-				url: '/dish',
-				params: {
-					_limit: limit
+		fetchDishes: build.query<IDishes, {
+			typeId: number;
+			searchValue: string;
+			limit: number;
+			page: number;
+		}>({
+			query: (arg) => {
+				const {
+					typeId,
+					page,
+					limit,
+					searchValue: name1
+				} = arg
+				return {
+					url: '/dish',
+					params: {
+						name1,
+						page,
+						limit,
+						typeId
+					}
 				}
-			}),
-			async onQueryStarted(arg, {queryFulfilled, dispatch}) {
+			},
+			/*async onQueryStarted(arg, {queryFulfilled, dispatch}) {
 				try {
 					const response = await queryFulfilled
 					dispatch(setDishes(response.data.rows))
 					dispatch(setTotalCount(response.data.count))
 				} catch{}
-			},
+			},*/
 			providesTags: result => ['dish']
 		}),
 		createDish: build.mutation<IDish, IDish>({

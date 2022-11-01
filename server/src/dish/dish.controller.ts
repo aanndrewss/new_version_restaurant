@@ -1,8 +1,7 @@
-import { Body, Controller, Delete, Get, Param, Post, UploadedFile, UseInterceptors } from '@nestjs/common'
+import { Body, Controller, Delete, Get, Param, Post, Query, UploadedFile, UseInterceptors } from '@nestjs/common'
 import { DishService } from './dish.service'
 import { CreateDishDto } from './dto/create-dish.dto'
 import { FileInterceptor } from '@nestjs/platform-express'
-import { GetDishDto } from './dto/get-dish.dto'
 import { CreateDishInfoDto } from '../dish-info/create-dish-info.dto'
 
 @Controller('dish')
@@ -19,8 +18,13 @@ export class DishController {
 	}
 
 	@Get()
-	getAll(@Body() dto: GetDishDto) {
-		return this.dishService.getAll(dto)
+	getAll(
+		@Query('typeId') typeId: number,
+		@Query('name1') name1: string,
+		@Query('limit') limit: number,
+		@Query('page') page: number,
+	) {
+		return this.dishService.getAll(typeId, name1, limit, page)
 	}
 
 	@Get('/:id')

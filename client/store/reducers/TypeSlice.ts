@@ -6,14 +6,14 @@ interface TypeState {
 	types: IType[],
 	error: string,
 	isLoading: boolean,
-	selectedType: IType
+	selectedType: object
 }
 
 const initialState: TypeState = {
 	types: [],
 	error: '',
 	isLoading: false,
-	selectedType: {id: 0, name: ''}
+	selectedType: {}
 }
 
 export const typeSlice = createSlice({
@@ -37,5 +37,7 @@ export const typeSlice = createSlice({
 		}
 	}
 })
+
+export const {setSelectedType} = typeSlice.actions
 
 export default typeSlice.reducer

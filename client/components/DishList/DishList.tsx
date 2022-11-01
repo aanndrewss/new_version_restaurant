@@ -3,16 +3,26 @@ import DishItem from './DishItem'
 import { dishAPI } from '../../services/DishService'
 import styles from '../../styles/DishList.module.scss'
 import wrapper from '../../styles/Home.module.scss'
+import { useAppSelector } from '../../hooks/redux'
 
 const MyComponent = () => {
 
-	const { data: dishes, error, isLoading } = dishAPI.useFetchDishesQuery(2)
+	const { selectedType } = useAppSelector(state => state.typeReducer)
+	const { page, limit, searchValue } = useAppSelector(state => state.dishReducer)
+	const values = {
+		page: page,
+		limit: limit,
+		name1: searchValue,
+		typeId: selectedType.id
+	}
+	const { data: dishes, error, isLoading } = dishAPI.useFetchDishesQuery(values)
+
 
 	return (
 		<div className={wrapper.wrapper}>
 			<div className={styles.spanWrapper}>
 				<div className={styles.type}>
-					TYPE OF DISH
+					{selectedType.name}
 				</div>
 				<span className={styles.sep}></span>
 			</div>
