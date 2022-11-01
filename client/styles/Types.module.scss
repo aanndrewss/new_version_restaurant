@@ -1,16 +1,16 @@
 .hiddenMenu {
   @apply block fixed p-[10px] mt-0 box-border w-[230px] bg-white h-[100%] top-0 left-[-230px] transition-all duration-[0.33s] z-10 translate-x-0 shadow-md shadow-gray-600;
   .hiddenMenuTitleWrapper {
-    @apply flex flex-row items-center justify-center gap-2;
+    @apply flex flex-row items-center justify-center gap-2 ml-[28px];
     .hiddenMenuTitle {
-      @apply text-[24px] font-bold;
+      @apply text-[24px] font-bold tracking-[2px];
     }
     .square {
-      @apply text-black text-[8px] ml-1.5;
+      @apply text-green-500 text-[10px];
     }
   }
   .type {
-    @apply flex flex-col justify-center items-start cursor-pointer hover:opacity-40 transition-all text-[18px] tracking-wider ml-[60px] mt-[40px];
+    @apply flex flex-col justify-center items-start cursor-pointer hover:opacity-40 transition-all text-[18px] tracking-wider ml-[60px] mt-[20px];
     .typeWrapper {
       @apply flex flex-row items-center gap-[10px];
       .arrow {
@@ -23,7 +23,7 @@
 .menuBar {
   @apply flex fixed box-border w-[40px] bg-black h-[100%] top-0 left-0 z-[12] text-center justify-center;
   .menuTitle {
-    @apply rotate-180 text-white font-bold tracking-[5px] text-[18px] cursor-default;
+    @apply rotate-180 text-white font-bold tracking-[5px] text-[18px] cursor-default tracking-[3px];
     writing-mode: tb-rl;
   }
 }
