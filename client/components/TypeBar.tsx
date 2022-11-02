@@ -2,9 +2,11 @@ import React from 'react'
 import { typeAPI } from '../services/TypeService'
 import styles from '../styles/Types.module.scss'
 import IconArrowRightCircle from '../icons/Arrow'
-import IconSquare from '../icons/Square'
 import { useDispatch } from 'react-redux'
 import { setSelectedType } from '../store/reducers/TypeSlice'
+import Link from 'next/link'
+import { MENU_ROUTE } from '../utils/contstants'
+import IconSilverwareForkKnife from '../icons/Cutlery'
 
 const TypeBar = () => {
 
@@ -25,7 +27,7 @@ const TypeBar = () => {
 				</div>
 				<ul className={styles.hiddenMenu}>
 					<div className={styles.hiddenMenuTitleWrapper}>
-						<div className={styles.square}><IconSquare/></div>
+						<div className={styles.square}><IconSilverwareForkKnife /></div>
 						<div className={styles.hiddenMenuTitle}>
 							Menu
 						</div>
@@ -33,12 +35,14 @@ const TypeBar = () => {
 
 					{types && types.map(type =>
 						<>
-							<button onClick={() => dispatch(setSelectedType(type))} className={styles.type}>
-								<div className={styles.typeWrapper}>
-									<div className={styles.arrow}><IconArrowRightCircle/></div>{type.name}
-								</div>
-
-							</button>
+							<Link href={MENU_ROUTE}>
+								<button onClick={() => dispatch(setSelectedType(type))} className={styles.type}>
+									<div className={styles.typeWrapper}>
+										<div className={styles.arrow}><IconArrowRightCircle /></div>
+										{type.name}
+									</div>
+								</button>
+							</Link>
 							<span className={styles.separator}></span>
 						</>
 					)}

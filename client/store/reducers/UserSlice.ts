@@ -5,14 +5,14 @@ import { useDispatch } from 'react-redux'
 
 
 interface UserState {
-	users: IUser[]
+	user: IUser
 	isLoading: boolean
 	error: string
 	isAuth: boolean
 }
 
 const initialState: UserState = {
-	users: [],
+	user: {id: null, email: null, avatarPath: null, gender: null},
 	isLoading: false,
 	error: '',
 	isAuth: false
@@ -27,7 +27,7 @@ export const userSlice = createSlice({
 		},
 		setUser(state, action) {
 			state.isLoading = false
-			state.users = action.payload
+			state.user = action.payload
 			state.error = ''
 		},
 		setIsAuth(state, action) {

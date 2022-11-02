@@ -1,12 +1,12 @@
 .hiddenMenu {
-  @apply block fixed p-[10px] mt-0 box-border w-[230px] bg-white h-[100%] top-0 left-[-230px] transition-all duration-[0.33s] z-10 translate-x-0 shadow-md shadow-gray-600;
+  @apply block fixed p-[10px] mt-0 box-border w-[230px] bg-white h-[100%] top-0 left-[-230px] transition-all duration-[0.33s] z-30 translate-x-0 shadow-md shadow-gray-600;
   .hiddenMenuTitleWrapper {
     @apply flex flex-row items-center justify-center gap-2 ml-[28px];
     .hiddenMenuTitle {
       @apply text-[24px] font-bold tracking-[2px];
     }
     .square {
-      @apply text-green-500 text-[10px];
+      @apply text-green-500 text-[23px];
     }
   }
   .type {
@@ -21,7 +21,7 @@
 }
 
 .menuBar {
-  @apply flex fixed box-border w-[40px] bg-black h-[100%] top-0 left-0 z-[12] text-center justify-center;
+  @apply flex fixed box-border w-[40px] bg-black h-[100%] top-0 left-0 z-50 text-center justify-center;
   .menuTitle {
     @apply rotate-180 text-white font-bold tracking-[5px] text-[18px] cursor-default tracking-[3px];
     writing-mode: tb-rl;
@@ -33,7 +33,7 @@
 }
 
 .menuBtn {
-  @apply bg-transparent p-[5px] fixed top-[13px] left-[5px] cursor-pointer transition-all duration-[0.33s] z-50 w-[30px] translate-x-0
+  @apply bg-transparent p-[5px] fixed top-[13px] left-[5px] cursor-pointer transition-all duration-[0.33s] z-[55] w-[30px] translate-x-0
 }
 
 .menuBtn span {

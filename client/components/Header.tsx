@@ -18,7 +18,7 @@ const Header = () => {
 		}
 	}, [])
 
-	const { isAuth, users } = useAppSelector(state => state.userReducer)
+	const { isAuth, user } = useAppSelector(state => state.userReducer)
 
 	const [logOut, {}] = userAPI.useLogoutMutation()
 
@@ -47,18 +47,20 @@ const Header = () => {
 								<div className={styles.cart}>
 									<IconShoppingCart />
 								</div>
-								<Link href={PROFILE_ROUTE + `/${users.id}`}>
+								<div className={styles.dropdown}>
 									<div className={styles.user}>
 										<IconUser/>
 									</div>
-								</Link>
-								<button onClick={() => logOut('')} className={styles.btnEnter}>
-									logout
-								</button>
+									<div className={styles.dropdownContent}>
+										<Link href={PROFILE_ROUTE + `/${user.id}`}><button className={styles.btnContent}>Profile</button></Link>
+										<button className={styles.btnContent}>Settings</button>
+										<button onClick={() => logOut('')} className={styles.btnContent}>Logout</button>
+									</div>
+								</div>
 							</> :
 							<Link href={LOGIN_ROUTE}>
 								<button className={styles.btnEnter}>
-									LOGIN
+									Login
 								</button>
 							</Link>
 						}

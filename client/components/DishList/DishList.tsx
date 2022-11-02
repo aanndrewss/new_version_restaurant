@@ -12,7 +12,7 @@ const MyComponent = () => {
 	const values = {
 		page: page,
 		limit: limit,
-		name1: searchValue,
+		searchValue: searchValue,
 		typeId: selectedType.id
 	}
 	const { data: dishes, error, isLoading } = dishAPI.useFetchDishesQuery(values)

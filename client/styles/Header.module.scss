@@ -3,37 +3,52 @@
   @apply flex items-center h-14 bg-white shadow-md fixed w-full z-10;
   .headerWrapper {
     @apply flex justify-between items-center;
-  }
-
-  .brandName {
-    @apply flex items-center tracking-[0.5em] font-extrabold text-xl cursor-pointer hover:scale-[1.03] transition-all duration-[0.33s];
-  }
-
-  .headerLinks {
-    @apply flex items-center;
-    .btnLinks {
-      @apply relative font-bold tracking-[0.1em] text-lg mx-10 no-underline ;
-      &:after {
-        @apply content-[''] block absolute text-green-500 underline decoration-solid right-0 w-0 h-[2px] bottom-[-3px] transition-all duration-500;
-      }
-      &:hover:after {
-        @apply content-[''] w-full block absolute left-0 h-[2px] bg-green-400 bottom-[-3px] transition-all duration-500;
-      }
-
+    .brandName {
+      @apply flex items-center tracking-[0.5em] font-extrabold text-xl cursor-pointer hover:scale-[1.03] transition-all duration-[0.33s];
     }
-  }
 
-  .user {
-    @apply cursor-pointer hover:text-green-500 transition-all duration-300;
-  }
-  .enterLinks {
-    @apply flex items-center gap-2;
-    .btnEnter {
-      @apply bg-green-400 text-white py-1 px-2 rounded-2xl transition-colors hover:bg-green-600;
+    .headerLinks {
+      @apply flex items-center;
+      .btnLinks {
+        @apply relative font-bold tracking-[0.1em] text-lg mx-10 no-underline ;
+        &:after {
+          @apply content-[''] block absolute text-green-500 underline decoration-solid right-0 w-0 h-[2px] bottom-[-3px] transition-all duration-500;
+        }
+        &:hover:after {
+          @apply content-[''] w-full block absolute left-0 h-[2px] bg-green-400 bottom-[-3px] transition-all duration-500;
+        }
+
+      }
     }
+
+
+
+  }
+}
+
+.enterLinks {
+  @apply flex items-center gap-2;
+  .btnEnter {
+    @apply bg-green-400 text-white py-1 px-2 rounded-2xl transition-colors hover:bg-green-600;
   }
   .cart {
     @apply cursor-pointer hover:text-green-500 transition-all duration-300;
   }
+
+}
+.dropdown {
+  @apply relative inline-block;
+  .user {
+    @apply cursor-pointer hover:text-green-500 transition-all duration-300;
+  }
+  .dropdownContent {
+    @apply invisible absolute z-50 shadow-md max-w-[160px] bg-white rounded-xl -translate-y-[10px] opacity-0 transition-all duration-[0.33s];
+    .btnContent {
+      @apply p-2 block rounded-xl w-full hover:bg-green-500 transition-all duration-[0.33s];
+    }
+  }
+}
+.dropdown:hover .dropdownContent {
+  @apply visible opacity-100 translate-y-0;
 }
 
