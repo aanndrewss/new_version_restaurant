@@ -16,13 +16,14 @@ const MyComponent = () => {
 		typeId: selectedType.id
 	}
 	const { data: dishes, error, isLoading } = dishAPI.useFetchDishesQuery(values)
+	const isEmpty = !Object.keys(selectedType).length
 
 
 	return (
 		<div className={wrapper.wrapper}>
 			<div className={styles.spanWrapper}>
 				<div className={styles.type}>
-					{selectedType.name}
+					{isEmpty ? 'All' : selectedType.name}
 				</div>
 				<span className={styles.sep}></span>
 			</div>

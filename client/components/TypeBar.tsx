@@ -32,7 +32,14 @@ const TypeBar = () => {
 							Menu
 						</div>
 					</div>
-
+					<Link href={MENU_ROUTE}>
+						<button onClick={() => dispatch(setSelectedType({}))} className={styles.type}>
+							<div className={styles.typeWrapper}>
+								<div className={styles.arrow}><IconArrowRightCircle /></div>
+								All
+							</div>
+						</button>
+					</Link>
 					{types && types.map(type =>
 						<>
 							<Link href={MENU_ROUTE}>
