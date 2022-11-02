@@ -36,7 +36,7 @@ const TypeBar = () => {
 						<button onClick={() => dispatch(setSelectedType({}))} className={styles.type}>
 							<div className={styles.typeWrapper}>
 								<div className={styles.arrow}><IconArrowRightCircle /></div>
-								All
+								ALL
 							</div>
 						</button>
 					</Link>

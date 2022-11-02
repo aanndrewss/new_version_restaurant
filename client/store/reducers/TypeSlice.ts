@@ -6,14 +6,14 @@ interface TypeState {
 	types: IType[],
 	error: string,
 	isLoading: boolean,
-	selectedType: IType
+	selectedType: IType | object
 }
 
 const initialState: TypeState = {
 	types: [],
 	error: '',
 	isLoading: false,
-	selectedType: {id: null, name: null}
+	selectedType: {}
 }
 
 export const typeSlice = createSlice({

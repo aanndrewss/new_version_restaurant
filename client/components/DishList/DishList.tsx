@@ -23,7 +23,7 @@ const MyComponent = () => {
 		<div className={wrapper.wrapper}>
 			<div className={styles.spanWrapper}>
 				<div className={styles.type}>
-					{isEmpty ? 'All' : selectedType.name}
+					{isEmpty ? 'ALL' : selectedType.name}
 				</div>
 				<span className={styles.sep}></span>
 			</div>
