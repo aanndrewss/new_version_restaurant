@@ -44,27 +44,85 @@
 .stockWrapper {
   @apply flex flex-row items-center mt-8 gap-[70px];
   .stockHeading {
-    @apply text-black text-[36px] font-extrabold;
+    @apply text-black text-[36px] font-extrabold pt-[87px] -mt-[87px];
+
   }
   .spanStock {
-    @apply h-[2px] w-[700px] bg-gray-300 mt-2;
+    @apply h-[1px] w-[calc(100%-35.6%)] bg-black opacity-30 mt-2 ml-[230px] absolute;
   }
 }
-.cardWrapper {
-  @apply flex flex-col mt-12;
-  .card {
-    @apply border-slate-300 border-[1px] rounded-xl max-w-[450px];
-    .cardWrapperContent {
-      @apply flex flex-col pl-4 pt-6 pb-6;
-      .cardHeading {
-        @apply text-black text-[24px] font-bold;
+.imgAndCardsWrapper {
+  @apply flex-row flex justify-between mt-12;
+  .cardWrapper {
+    @apply flex flex-col gap-8;
+    .card1 {
+      @apply border-slate-300 border-[1px] rounded-xl w-[400px] max-w-[550px];
+      .cardWrapperContent {
+        @apply flex flex-col pl-4 pt-6 pb-6;
+        .cardHeading {
+          @apply text-black text-[24px] font-bold;
+        }
+        .secondText {
+          @apply text-black opacity-70 text-[14px];
+        }
       }
-      .timeForPickUp {
-        @apply text-black opacity-70 text-[14px];
+    }
+    .card {
+      @apply rounded-xl max-w-[550px];
+      .cardWrapperContent {
+        @apply flex flex-col pl-4 pt-6 pb-6;
+        .cardHeading {
+          @apply text-black text-[24px] font-bold;
+        }
+        .secondText {
+          @apply text-black opacity-70 text-[14px];
+        }
+      }
+    }
+  }
+  .images {
+    @apply object-contain;
+  }
+}
+
+.termsAndCityWrapper {
+  @apply flex flex-row justify-start mt-12;
+  .termsWrapper {
+    @apply flex flex-col gap-10;
+    .term{
+      @apply flex flex-row gap-6 items-center max-w-[550px];
+      .termSvg {
+        @apply text-[27px] text-green-500;
+      }
+      .termHeadings {
+        @apply flex flex-col gap-2;
+        .termHeading1 {
+          @apply font-bold text-[24px];
+        }
+        .termHeading2 {
+          @apply font-light text-[16px] opacity-80;
+        }
+      }
+    }
+  }
+  .mapsWrapper {
+    @apply flex flex-col gap-6 ml-32;
+    .mapsHeading {
+      @apply text-[30px] font-bold;
+    }
+    .citiesWrapper {
+      @apply flex flex-col gap-4;
+      .cityWrapper {
+        @apply flex flex-row gap-2;
+        .mapSvg {
+          @apply text-green-500 text-[26px];
+        }
+        .city {
+          @apply text-black font-bold text-[18px] cursor-pointer;
+        }
       }
     }
   }
 }
-
 
 

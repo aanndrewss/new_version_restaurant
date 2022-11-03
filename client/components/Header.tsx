@@ -35,9 +35,14 @@ const Header = () => {
 								Home
 							</button>
 						</Link>
-						<Link href={'/'}>
+						<Link href={HOME_ROUTE+'#stock'}>
 							<button className={styles.btnLinks}>
 								Stock
+							</button>
+						</Link>
+						<Link href={HOME_ROUTE+'#delivery'}>
+							<button className={styles.btnLinks}>
+								Delivery
 							</button>
 						</Link>
 					</div>
