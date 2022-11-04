@@ -123,6 +123,82 @@
       }
     }
   }
+  .sep {
+    @apply h-[1px] bg-black opacity-30 w-[350px];
+  }
+}
+.aboutUs {
+  @apply mt-24;
+  .deliveryAboutWrapper {
+    @apply flex flex-row items-center justify-end mt-8 gap-[70px];
+    .deliveryInfoHeadingWrapper {
+      @apply flex flex-row items-center gap-6;
+      .homeMapMarker{
+        @apply text-green-500 text-[56px]
+      }
+      .deliveryInfoHeading {
+        @apply text-black text-[16px] w-[270px] pt-[87px] -mt-[87px];
+      }
+    }
+    .spanDelivery {
+      @apply h-[1px] w-[calc(100%-30%)] bg-black opacity-30 mt-2 mr-[390px] absolute;
+    }
+  }
+  .aboutUsWrapper {
+    @apply flex flex-row mt-20;
+    .shef {
+      @apply z-[3] mt-14;
+      .imgShef {
+        @apply w-full block absolute w-[442px];
+      }
+    }
+    .heroBlockAndBookButtonWrapper {
+      @apply flex flex-col;
+      .heroBlockAboutUsWrapper {
+        @apply z-[2] ml-[340px];
+        .heroBlockAboutUs {
+          @apply w-full bg-cover w-[690px] h-[675px];
+          background-image: url('https://thumb.tildacdn.com/tild6335-3862-4863-b831-626632613538/-/cover/840x675/left/top/-/format/webp/onas2.jpg');
+          .textWrapperAboutUs {
+            @apply flex flex-col ml-[150px] pt-[60px] mr-[80px];
+            .headingAboutUs {
+              @apply text-white font-bold text-[36px];
+            }
+            .aboutUsText1 {
+              @apply text-white mt-6;
+            }
+            .sep1{
+              @apply h-[1px] w-[450px] bg-gray-400 mt-6;
+            }
+            .aboutUsText2 {
+              @apply text-white mt-6 font-bold;
+            }
+            .wrapperTextChef {
+              @apply flex justify-end mt-12;
+              .brandChefText {
+                @apply text-[#ff8c69] text-[18px] text-right w-[200px];
+              }
+            }
+          }
+        }
+      }
+      .bookBtnWrapper {
+        @apply flex ml-[480px] flex-col gap-2;
+        .bookBtnHeading {
+          @apply font-bold text-[24px]
+        }
+        .bookBtnInfo {
+          @apply font-medium text-[18px] text-black opacity-70;
+        }
+        .bookBtn1 {
+          @apply mt-[13px] text-[16px] text-black border-[1px] border-green-500 rounded-[7px] w-[200px] h-[50px] font-bold z-10 hover:bg-green-500 transition-all duration-[0.33s];
+          .btnText {
+            @apply hover:text-white transition-all duration-[0.33s]
+          }
+        }
+      }
+    }
+  }
 }
 
 
