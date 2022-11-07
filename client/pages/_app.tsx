@@ -5,6 +5,7 @@ import Header from '../components/Header'
 import styles from '../styles/Home.module.scss'
 import TypeBar from '../components/TypeBar'
 import React from 'react'
+import Footer from '../components/Footer'
 
 export default function MyApp({ Component, pageProps }) {
 
@@ -16,6 +17,7 @@ export default function MyApp({ Component, pageProps }) {
 				<TypeBar/>
 				<Component {...pageProps} />
 			</div>
+			<Footer/>
 		</Provider>
 	)
 }

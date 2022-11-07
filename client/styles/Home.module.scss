@@ -145,7 +145,7 @@
     }
   }
   .aboutUsWrapper {
-    @apply flex flex-row mt-20;
+    @apply flex flex-row mt-20 mb-20;
     .shef {
       @apply z-[3] mt-14;
       .imgShef {
@@ -162,7 +162,7 @@
           .textWrapperAboutUs {
             @apply flex flex-col ml-[150px] pt-[60px] mr-[80px];
             .headingAboutUs {
-              @apply text-white font-bold text-[36px];
+              @apply text-white font-bold text-[36px] pt-[140px] -mt-[140px];
             }
             .aboutUsText1 {
               @apply text-white mt-6;
@@ -183,12 +183,12 @@
         }
       }
       .bookBtnWrapper {
-        @apply flex ml-[480px] flex-col gap-2;
+        @apply flex ml-[480px] flex-col gap-2 mt-1.5;
         .bookBtnHeading {
-          @apply font-bold text-[24px]
+          @apply font-bold text-[22px]
         }
         .bookBtnInfo {
-          @apply font-medium text-[18px] text-black opacity-70;
+          @apply font-medium text-[16px] text-black opacity-70;
         }
         .bookBtn1 {
           @apply mt-[13px] text-[16px] text-black border-[1px] border-green-500 rounded-[7px] w-[200px] h-[50px] font-bold z-10 hover:bg-green-500 transition-all duration-[0.33s];

@@ -168,7 +168,7 @@ export default function Home() {
 							<div className={styles.heroBlockAboutUsWrapper}>
 								<div className={styles.heroBlockAboutUs}>
 									<div className={styles.textWrapperAboutUs}>
-										<div className={styles.headingAboutUs}>
+										<div className={styles.headingAboutUs} id={'about-us'}>
 											About Us
 										</div>
 										<div className={styles.aboutUsText1}>
@@ -204,7 +204,6 @@ export default function Home() {
 							</div>
 						</div>
 					</div>
-
 				</div>
 			</div>
 		</>

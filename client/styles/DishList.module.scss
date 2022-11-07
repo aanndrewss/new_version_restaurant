@@ -1,5 +1,5 @@
 .grid1 {
-  @apply grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6;
+  @apply grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-28 mt-12;
 }
 .spanWrapper {
   @apply flex flex-row items-center relative;
