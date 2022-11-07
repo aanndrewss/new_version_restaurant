@@ -3,7 +3,7 @@
   .cardInfoWrapper {
     @apply max-w-[220px] w-[220px];
     .name {
-      @apply font-extrabold text-lg tracking-[2px] p-2;
+      @apply font-extrabold text-lg tracking-[2px] p-2 h-[100px];
     }
 
     .btnWrapper {

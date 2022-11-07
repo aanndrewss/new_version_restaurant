@@ -30,7 +30,8 @@ const DishItem: FC<DishItemProps> = ({ dish }) => {
 						</div>
 					</div>
 					<button className={styles.btnAddToCart}>
-						<div className={styles.btnText}>
+						<div className={styles.btnText
+						}>
 							Add to cart
 						</div>
 

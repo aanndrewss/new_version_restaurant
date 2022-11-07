@@ -10,7 +10,7 @@
       .footerLinks1 {
         @apply flex flex-col gap-2;
         .link {
-          @apply text-white text-[14px] hover:text-green-400 transition-all duration-[0.33s] cursor-pointer;
+          @apply text-gray-400 text-[14px] hover:text-green-400 transition-all duration-[0.33s] cursor-pointer;
         }
       }
     }
