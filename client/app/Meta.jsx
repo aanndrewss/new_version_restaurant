@@ -1,5 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
+import Script from 'next/script'
 
 function Meta({title, description}) {
 	return (
@@ -9,7 +10,7 @@ function Meta({title, description}) {
 				name='description'
 				content={description}
 			/>
-			<link rel="icon" href="/favicon.ico" />
+			
 			
 		</Head>
 	)

@@ -1,6 +1,5 @@
 import styles from '../styles/Home.module.scss'
 import Link from 'next/link'
-import cart from '../icons/Cart'
 import Image from 'next/image'
 import freeWok from '../assets/freeWok.jpg'
 import IconTimetable from '../icons/Term1'
@@ -8,6 +7,8 @@ import IconTruckDelivery from '../icons/Term2'
 import IconCash from '../icons/Term3'
 import IconBxMap from '../icons/Map'
 import IconHomeMapMarker from '../icons/HomeMap'
+import React from 'react'
+
 
 export default function Home() {
 
@@ -161,7 +162,7 @@ export default function Home() {
 
 					</div>
 					<div className={styles.aboutUsWrapper}>
-						<div className={styles.shef}>
+						<div className={styles.shef} >
 							<img className={styles.imgShef} src='https://thumb.tildacdn.com/tild3232-3539-4031-b564-643164643438/-/resize/442x/-/format/webp/shef.jpg' alt='Shef' />
 						</div>
 						<div className={styles.heroBlockAndBookButtonWrapper}>
@@ -206,6 +207,8 @@ export default function Home() {
 					</div>
 				</div>
 			</div>
+
 		</>
+
 	)
 }

@@ -5,7 +5,7 @@ import styles from '../../styles/DishList.module.scss'
 import wrapper from '../../styles/Home.module.scss'
 import { useAppSelector } from '../../hooks/redux'
 
-const MyComponent = () => {
+const DishList = () => {
 
 	const { selectedType } = useAppSelector(state => state.typeReducer)
 	const { page, limit, searchValue } = useAppSelector(state => state.dishReducer)
@@ -36,4 +36,4 @@ const MyComponent = () => {
 	)
 }
 
-export default MyComponent
+export default DishList

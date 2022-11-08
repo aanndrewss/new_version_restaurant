@@ -1,0 +1,48 @@
+.cartWrapper {
+  @apply flex flex-col;
+
+  .card {
+    @apply flex flex-col mb-[40px];
+    .cardSection1Wrapper {
+      @apply flex flex-row justify-between;
+      .cardSection1 {
+        @apply flex flex-row items-center;
+        .image {
+          @apply rounded-2xl w-[130px] h-[100px];
+        }
+        .nameAndGrams {
+          @apply flex flex-col gap-3 ml-6;
+          .name {
+            @apply text-[22px] font-bold;
+          }
+          .grams {
+            @apply text-[16px] text-black text-opacity-40;
+          }
+        }
+      }
+      .btnClear {
+        @apply w-[20px] h-[20px] rounded-[10px] flex justify-center items-center hover:bg-gray-200 transition-all duration-[0.2s]
+      }
+    }
+
+    .sep {
+      @apply h-[1px] bg-black bg-opacity-20 w-full mt-[30px];
+    }
+    .cardSection2 {
+      @apply flex flex-row items-center justify-between mt-[10px];
+      .price {
+        @apply font-bold;
+      }
+      .groupButton {
+        @apply flex flex-row items-center gap-6;
+        .btnMinus {
+          @apply w-[20px] h-[20px] rounded-[10px] flex justify-center items-center hover:bg-gray-200 transition-all duration-[0.2s] disabled:opacity-30;
+        }
+        .btnPlus{
+          @apply w-[20px] h-[20px] rounded-[10px] flex justify-center items-center hover:bg-gray-200  transition-all duration-[0.2s]
+        }
+      }
+    }
+  }
+}
+

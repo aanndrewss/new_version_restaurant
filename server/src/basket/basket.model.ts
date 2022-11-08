@@ -21,6 +21,9 @@ export class Basket extends Model<Basket, BasketCreationAttrs> {
 	@Column({ type: DataTypes.INTEGER })
 	userId: number
 
+	@Column({type: DataTypes.INTEGER})
+	totalPrice: number
+
 	@HasMany(() => BasketDish)
 	basketDishes: BasketDish[]
 

@@ -1,0 +1,24 @@
+.wrapper {
+  @apply flex flex-col max-w-4xl m-auto;
+  .cardOfCart {
+    @apply border-[1px] border-black border-opacity-20 shadow-md mt-[150px] mb-[100px] rounded-[7px] p-[30px];
+    .cartHeading {
+      @apply text-[34px] text-black font-bold tracking-[2px] mb-[20px];
+    }
+    .orderSubmit {
+      @apply shadow-[0px_-1px_7px_1px_rgba(0,0,0,0.4)] p-6;
+      .wrapperOrderSubmit {
+        @apply grid grid-cols-[200px_300px] flex items-center justify-between;
+        .totalPrice {
+          @apply text-[16px] font-bold;
+        }
+        .orderBtn {
+          @apply flex flex-row justify-center items-center font-bold text-[18px] border-green-500 border-[1px] rounded-2xl p-2 hover:bg-green-500 hover:text-white transition-all duration-[0.33s];
+          .arrow {
+            @apply ml-[100px];
+          }
+        }
+      }
+    }
+  }
+}

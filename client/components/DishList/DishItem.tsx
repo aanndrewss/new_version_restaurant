@@ -13,8 +13,6 @@ const DishItem: FC<DishItemProps> = ({ dish }) => {
 
 	return (
 		<div className={styles.card}>
-
-
 			<Link href={DISH_ROUTE + `/${dish.id}`}>
 				<img className={styles.img} src={'http://localhost:5000/' + dish.img} alt='' />
 			</Link>

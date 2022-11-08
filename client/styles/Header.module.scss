@@ -2,7 +2,7 @@
 .header {
   @apply flex items-center h-14 bg-white shadow-md fixed w-full z-50;
   .headerWrapper {
-    @apply flex justify-between items-center;
+    @apply flex justify-between items-center max-w-5xl m-auto w-full;
     .brandName {
       @apply flex items-center tracking-[0.5em] font-extrabold text-xl cursor-pointer hover:scale-[1.03] transition-all duration-[0.33s];
     }
@@ -39,7 +39,7 @@
 .dropdown {
   @apply relative inline-block;
   .user {
-    @apply cursor-pointer hover:text-green-500 transition-all duration-300;
+    @apply hover:text-green-500 transition-all duration-300;
   }
   .dropdownContent {
     @apply invisible absolute z-50 shadow-md max-w-[160px] bg-white rounded-xl -translate-y-[10px] opacity-0 transition-all duration-[0.33s];
