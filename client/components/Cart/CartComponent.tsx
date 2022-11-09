@@ -27,7 +27,7 @@ const CartComponent = () => {
 							Total Price: {dishes.totalPrice}
 						</div>
 						<button className={styles.orderBtn}>
-								Order
+							To ordering
 							<div className={styles.arrow}>
 								<IconArrowRight />
 							</div>
