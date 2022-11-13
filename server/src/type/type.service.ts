@@ -19,7 +19,7 @@ export class TypeService {
 	}
 
 	async getTypes(){
-		return await this.typeRepository.findAll()
+		return await this.typeRepository.findAll({order: [['name', 'ASC']]})
 	}
 
 }

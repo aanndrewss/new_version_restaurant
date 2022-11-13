@@ -6,12 +6,13 @@ import { Dish } from './dish.model'
 import { FilesModule } from '../files/files.module'
 import { Type } from '../type/type.model'
 import { DishInfo } from '../dish-info/dish-info.model'
+import { BasketDish } from '../basket-dish/basket-dish.model'
 
 @Module({
   controllers: [DishController],
   providers: [DishService],
   imports: [
-    SequelizeModule.forFeature([Dish, Type, DishInfo]),
+    SequelizeModule.forFeature([Dish, Type, DishInfo, BasketDish]),
     FilesModule
   ]
 })

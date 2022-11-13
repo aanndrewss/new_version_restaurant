@@ -3,6 +3,7 @@ import { ApiProperty } from '@nestjs/swagger'
 import { DataTypes } from 'sequelize'
 import { Type } from '../type/type.model'
 import { DishInfo } from '../dish-info/dish-info.model'
+import { BasketDish } from '../basket-dish/basket-dish.model'
 
 interface DishCreationsAttrs {
 	name: string
@@ -43,6 +44,9 @@ export class Dish extends Model<Dish, DishCreationsAttrs> {
 
 	@HasMany(() => DishInfo, { as: 'info' })
 	dishInfo: DishInfo[]
+
+	@HasMany(() => BasketDish, {as: 'cartDishes'})
+	cartDishes: BasketDish[]
 
 	@BelongsTo(() => Type)
 	type: Type

@@ -1,8 +1,9 @@
+import { IDish } from './IDish'
+
 export interface ICartItem {
 	id: number
-	name: string
-	grams: number
-	price: number
+	basketId: number
+	dishId: number
 	count: number
-	img: string
+	cartDish: IDish[]
 }

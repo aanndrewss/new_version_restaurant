@@ -6,6 +6,7 @@ import { Dish } from '../dish/dish.model'
 
 interface BasketDishCreationAttrs {
 	dishId: number
+	count: number
 	basketId: number
 }
 
@@ -19,17 +20,15 @@ export class BasketDish extends Model<BasketDish, BasketDishCreationAttrs> {
 	@Column({ type: DataTypes.INTEGER })
 	basketId: number
 
-	@Column({ type: DataTypes.STRING })
-	name: string
+	@Column({type: DataTypes.INTEGER})
+	count: number
 
-	@Column({ type: DataTypes.INTEGER })
-	grams: number
+	@ForeignKey(() => Dish)
+	@Column({type: DataTypes.INTEGER})
+	dishId: number
 
-	@Column({ type: DataTypes.INTEGER })
-	price: number
-
-	@Column({ type: DataTypes.STRING })
-	img: string
+	@BelongsTo(() => Dish)
+	cartDish: Dish
 
 	@BelongsTo(() => Basket)
 	basket: Basket

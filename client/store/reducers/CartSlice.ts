@@ -2,10 +2,9 @@ import { ICart } from '../../models/ICart'
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState: ICart = {
-	totalPrice: 0,
 	id: 0,
 	userId: 0,
-	basketDishes: []
+	items: []
 }
 
 export const cartSlice = createSlice({

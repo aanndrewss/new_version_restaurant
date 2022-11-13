@@ -16,13 +16,13 @@ const CartItem: FC<CartItemProps> = ({ item }) => {
 				<div className={styles.card}>
 					<div className={styles.cardSection1Wrapper}>
 						<div className={styles.cardSection1}>
-							<img className={styles.image} src={'http://localhost:5000/' + item.img} alt='Item' />
+							<img className={styles.image} src={'http://localhost:5000/' + item.cartDish.img} alt='Item' />
 							<div className={styles.nameAndGrams}>
 								<div className={styles.name}>
-									{item.name}
+									{item.cartDish.name}
 								</div>
 								<div className={styles.grams}>
-									{item.grams}g
+									{item.cartDish.grams}g
 								</div>
 							</div>
 						</div>
@@ -33,7 +33,7 @@ const CartItem: FC<CartItemProps> = ({ item }) => {
 					<div className={styles.sep}><span></span></div>
 					<div className={styles.cardSection2}>
 						<div className={styles.price}>
-							{item.price}₽
+							{item.cartDish.price}₽
 						</div>
 						<div className={styles.groupButton}>
 							<button disabled={item.count === 1} className={styles.btnMinus}>

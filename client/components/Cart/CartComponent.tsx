@@ -2,15 +2,11 @@ import React from 'react'
 import styles from '../../styles/CartList.module.scss'
 import CartItem from './CartItem'
 import IconArrowRight from '../../icons/OrderArrow'
+import { cartAPI } from '../../services/CartService'
 
 const CartComponent = () => {
 
-	const dishes = {
-		totalPrice: 0,
-		items: [
-			{id: 1, name: 'Wok', img: 'ebb922c2-33c5-4b43-bf10-ef88ee1ae0bb.jpg', grams: 300, price: 300, count: 1},
-		]
-	}
+	const { data: dishes} = cartAPI.useFetchCartQuery(1)
 
 	return (
 		<div className={styles.wrapper}>
@@ -24,7 +20,7 @@ const CartComponent = () => {
 				<div className={styles.orderSubmit}>
 					<div className={styles.wrapperOrderSubmit}>
 						<div className={styles.totalPrice}>
-							Total Price: {dishes.totalPrice}
+							Total Price: 0
 						</div>
 						<button className={styles.orderBtn}>
 							To ordering
