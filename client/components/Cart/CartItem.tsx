@@ -4,12 +4,28 @@ import styles from '../../styles/CartItem.module.scss'
 import IconMinus from '../../icons/Minus'
 import IconPlus from '../../icons/Plus'
 import IconCross from '../../icons/Cross'
+import { cartAPI } from '../../services/CartService'
+import { useAppSelector } from '../../hooks/redux'
+import { IAddDish } from '../../models/IAddDish'
 
 interface CartItemProps {
 	item: ICartItem
 }
 
 const CartItem: FC<CartItemProps> = ({ item }) => {
+
+	const { user } = useAppSelector(state => state.userReducer)
+
+	const values: IAddDish = {
+		dishId: item.dishId,
+		userId: user.id,
+		basketId: user.id
+	}
+
+	const [addItem, {}] = cartAPI.useAddToCartMutation()
+	const [minusItem, {}] = cartAPI.useMinusItemMutation()
+	const [removeItem, {}] = cartAPI.useRemoveFromCartMutation()
+
 	return (
 		<>
 			<div className={styles.cartWrapper}>
@@ -26,22 +42,22 @@ const CartItem: FC<CartItemProps> = ({ item }) => {
 								</div>
 							</div>
 						</div>
-						<button className={styles.btnClear}>
-							<IconCross/>
+						<button onClick={() => removeItem(values)} className={styles.btnClear}>
+							<IconCross />
 						</button>
 					</div>
 					<div className={styles.sep}><span></span></div>
 					<div className={styles.cardSection2}>
 						<div className={styles.price}>
-							{item.cartDish.price}₽
+							{item.cartDish.price * item.count}₽
 						</div>
 						<div className={styles.groupButton}>
-							<button disabled={item.count === 1} className={styles.btnMinus}>
-								<IconMinus/>
+							<button onClick={() => minusItem(values)} disabled={item.count === 1} className={styles.btnMinus}>
+								<IconMinus />
 							</button>
 							<div className={styles.count}>{item.count}</div>
-							<button className={styles.btnPlus}>
-								<IconPlus/>
+							<button onClick={() => addItem(values)} className={styles.btnPlus}>
+								<IconPlus />
 							</button>
 						</div>
 					</div>

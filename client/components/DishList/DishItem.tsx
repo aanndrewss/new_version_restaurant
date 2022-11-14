@@ -3,6 +3,9 @@ import { IDish } from '../../models/IDish'
 import styles from '../../styles/DishItem.module.scss'
 import Link from 'next/link'
 import { DISH_ROUTE } from '../../utils/contstants'
+import { useAppSelector } from '../../hooks/redux'
+import { IAddDish } from '../../models/IAddDish'
+import { cartAPI } from '../../services/CartService'
 
 interface DishItemProps {
 	dish: IDish
@@ -10,6 +13,15 @@ interface DishItemProps {
 
 const DishItem: FC<DishItemProps> = ({ dish }) => {
 
+	const { user } = useAppSelector(state => state.userReducer)
+
+	const values: IAddDish = {
+		dishId: dish.id,
+		userId: user.id,
+		basketId: user.id
+	}
+
+	const [addItem, {}] = cartAPI.useAddToCartMutation()
 
 	return (
 		<div className={styles.card}>
@@ -27,12 +39,8 @@ const DishItem: FC<DishItemProps> = ({ dish }) => {
 							{dish.grams}g
 						</div>
 					</div>
-					<button className={styles.btnAddToCart}>
-						<div className={styles.btnText
-						}>
-							Add to cart
-						</div>
-
+					<button onClick={() => addItem(values)} className={styles.btnAddToCart}>
+						Add to cart
 					</button>
 				</div>
 

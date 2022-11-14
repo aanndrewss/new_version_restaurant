@@ -3,10 +3,16 @@ import styles from '../../styles/CartList.module.scss'
 import CartItem from './CartItem'
 import IconArrowRight from '../../icons/OrderArrow'
 import { cartAPI } from '../../services/CartService'
+import { useAppSelector } from '../../hooks/redux'
+import { useRouter } from 'next/router'
 
 const CartComponent = () => {
 
-	const { data: dishes} = cartAPI.useFetchCartQuery(1)
+	const router = useRouter()
+	const cartID = router.query.cartID
+	const { totalPrice } = useAppSelector(state => state.cartReducer)
+
+	const { data: dishes } = cartAPI.useFetchCartQuery(Number(cartID))
 
 	return (
 		<div className={styles.wrapper}>
@@ -20,7 +26,7 @@ const CartComponent = () => {
 				<div className={styles.orderSubmit}>
 					<div className={styles.wrapperOrderSubmit}>
 						<div className={styles.totalPrice}>
-							Total Price: 0
+							Total Price: {totalPrice}
 						</div>
 						<button className={styles.orderBtn}>
 							To ordering

@@ -47,7 +47,7 @@ const Header = () => {
 				<div className={styles.enterLinks}>
 					{isAuth ?
 						<>
-							<Link href={BASKET_ROUTE}>
+							<Link href={BASKET_ROUTE + `/${user.id}`}>
 								<div className={styles.cart}>
 									<IconShoppingCart />
 								</div>

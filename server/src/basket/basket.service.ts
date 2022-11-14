@@ -16,7 +16,8 @@ export class BasketService {
 	async fetchBasket(id: number) {
 		const basket = await this.basketRepository.findOne({
 			where: { id: id },
-			include: [{ model: BasketDish, as: 'items', include: [{ model: Dish, as: 'cartDish' }] }]
+			include: [{ model: BasketDish, as: 'items', include: [{ model: Dish, as: 'cartDish' }] }],
+			order:[['items', 'createdAt', 'ASC']]
 		})
 		return basket
 	}
@@ -29,19 +30,20 @@ export class BasketService {
 			}
 		})
 
-		if (basketItem) {
+		if (!basketItem) {
+			await this.basketDishRepository.create({ ...dto, basketId: dto.basketId, count: 1 })
+		} else {
 			await this.basketDishRepository.update({ count: basketItem.count + 1 }, {
 				where: {
 					basketId: dto.basketId,
 					dishId: dto.dishId
 				}
 			})
-		} else {
-			await this.basketDishRepository.create({ ...dto, basketId: dto.basketId, count: 1 })
 		}
 		const basket = await this.basketRepository.findOne({
 			where: { id: dto.basketId },
-			include: [{ model: BasketDish, as: 'items', include: [{ model: Dish, as: 'cartDish' }] }]
+			include: [{ model: BasketDish, as: 'items', include: [{ model: Dish, as: 'cartDish' }] }],
+			order:[['items', 'createdAt', 'ASC']]
 		})
 		return basket
 	}
@@ -65,7 +67,8 @@ export class BasketService {
 
 		const basket = await this.basketRepository.findOne({
 			where: { id: dto.basketId },
-			include: [{ model: BasketDish, as: 'items', include: [{ model: Dish, as: 'cartDish' }] }]
+			include: [{ model: BasketDish, as: 'items', include: [{ model: Dish, as: 'cartDish' }] }],
+			order:[['items', 'createdAt', 'ASC']]
 		})
 		return basket
 	}
@@ -83,7 +86,8 @@ export class BasketService {
 		}
 		const basket = await this.basketRepository.findOne({
 			where: { id: dto.basketId },
-			include: [{ model: BasketDish, as: 'items', include: [{ model: Dish, as: 'cartDish' }] }]
+			include: [{ model: BasketDish, as: 'items', include: [{ model: Dish, as: 'cartDish' }] }],
+			order:[['items', 'createdAt', 'ASC']]
 		})
 		return basket
 	}

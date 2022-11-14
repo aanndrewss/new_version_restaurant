@@ -1,6 +1,9 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react'
 import { ICart } from '../models/ICart'
 import { ICartItem } from '../models/ICartItem'
+import { IAddDish } from '../models/IAddDish'
+import { setDishes } from '../store/reducers/DishSlice'
+import { calcTotalPrice, setId, setItems } from '../store/reducers/CartSlice'
 
 
 export const cartAPI = createApi({
@@ -11,26 +14,67 @@ export const cartAPI = createApi({
 		fetchCart: build.query<ICart, number>({
 			query: (id: number) => ({
 				url: `/basket/${id}`
-			})
+			}),
+			async onQueryStarted(arg, {queryFulfilled, dispatch}) {
+				try {
+					const response = await queryFulfilled
+					dispatch(setDishes(response.data.items))
+					dispatch(setId(response.data.id))
+				} catch{}
+			},
+			providesTags: result => ['cart'],
 		}),
-		addToCart: build.query<ICartItem, ICartItem>({
-			query: (cartItem) => ({
-				url: '/basket',
+		addToCart: build.mutation<ICart, IAddDish>({
+			query: (addDish) => ({
+				url: '/basket/add',
 				method: 'POST',
-				body: cartItem
-			})
+				body: addDish
+			}),
+			async onQueryStarted(arg, {queryFulfilled, dispatch}) {
+				try {
+					const response = await queryFulfilled
+					dispatch(calcTotalPrice(response.data.items))
+					console.log(response.data.items)
+				} catch{}
+			},
+
+			invalidatesTags: ['cart']
 		}),
-		removeFromCart: build.query({
-			query: () => ({
-				url: '/basket',
-				method: 'PUT'
-			})
+		minusItem: build.mutation<ICart, IAddDish>({
+			query: (addDish) => ({
+				url: '/basket/minus',
+				method: 'PUT',
+				body: addDish
+			}),
+			invalidatesTags: ['cart']
 		}),
-		clearCart: build.query({
-			query: () => ({
-				url: '/basket',
-				method: 'DELETE'
-			})
+		removeFromCart: build.mutation<ICart, IAddDish>({
+			query: (addDish) => ({
+				url: '/basket/delete',
+				method: 'DELETE',
+				body: addDish
+			}),
+			/*async onQueryStarted(arg, {queryFulfilled, dispatch}) {
+				try {
+					const response = await queryFulfilled
+					dispatch(setItems(response.data.items))
+					dispatch(setId(response.data.id))
+				} catch{}
+			},*/
+			invalidatesTags: ['cart']
+		}),
+		clearCart: build.mutation<ICart, IAddDish>({
+			query: (addDish) => ({
+				url: '/basket/clear',
+				method: 'DELETE',
+				body: addDish
+			}),
+			async onQueryStarted(arg, {queryFulfilled, dispatch}) {
+				try {
+					dispatch(setItems({}))
+				} catch{}
+			},
+			invalidatesTags: ['cart']
 		})
 	})
 })
