@@ -3,7 +3,7 @@ import { ICart } from '../models/ICart'
 import { ICartItem } from '../models/ICartItem'
 import { IAddDish } from '../models/IAddDish'
 import { setDishes } from '../store/reducers/DishSlice'
-import { calcTotalPrice, setId, setItems } from '../store/reducers/CartSlice'
+import { calcTotalPrice, setCount, setId, setItems } from '../store/reducers/CartSlice'
 
 
 export const cartAPI = createApi({
@@ -20,6 +20,7 @@ export const cartAPI = createApi({
 					const response = await queryFulfilled
 					dispatch(setDishes(response.data.items))
 					dispatch(calcTotalPrice(response.data.items))
+					dispatch(setCount(response.data.items))
 					dispatch(setId(response.data.id))
 				} catch{}
 			},
@@ -35,6 +36,7 @@ export const cartAPI = createApi({
 				try {
 					const response = await queryFulfilled
 					dispatch(calcTotalPrice(response.data.items))
+					dispatch(setCount(response.data.items))
 					console.log(response.data.items)
 				} catch{}
 			},

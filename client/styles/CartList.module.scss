@@ -3,7 +3,7 @@
   .cardOfCart {
     @apply border-[1px] border-black border-opacity-20 shadow-md mt-[150px] mb-[100px] rounded-[7px] p-[30px];
     .cartHeading {
-      @apply text-[34px] text-black font-bold tracking-[2px] mb-[20px];
+      @apply text-[34px] text-black font-bold tracking-[2px] mb-[20px] flex flex-row items-center;
     }
     .orderSubmit {
       @apply shadow-[0px_-1px_7px_1px_rgba(0,0,0,0.4)] p-6 rounded-[7px];
@@ -20,5 +20,15 @@
         }
       }
     }
+    .wrapperEmptyCart {
+      @apply flex flex-col justify-center items-center gap-6;
+      .emptyHeading {
+        @apply font-bold text-[22px] text-center;
+      }
+      .emptyDesc {
+        @apply text-[16px] text-center w-[300px];
+      }
+    }
+
   }
 }

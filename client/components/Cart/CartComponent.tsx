@@ -5,6 +5,7 @@ import IconArrowRight from '../../icons/OrderArrow'
 import { cartAPI } from '../../services/CartService'
 import { useAppSelector } from '../../hooks/redux'
 import { useRouter } from 'next/router'
+import IconShoppingCart from '../../icons/Cart'
 
 const CartComponent = () => {
 
@@ -18,24 +19,36 @@ const CartComponent = () => {
 		<div className={styles.wrapper}>
 			<div className={styles.cardOfCart}>
 				<h2 className={styles.cartHeading}>
-					Cart
+					Cart <IconShoppingCart width={40} height={40}/>
 				</h2>
 				{dishes && dishes.items.map(item =>
 					<CartItem key={item.id} item={item}/>
 				)}
-				<div className={styles.orderSubmit}>
-					<div className={styles.wrapperOrderSubmit}>
-						<div className={styles.totalPrice}>
-							Total Price: {totalPrice}
-						</div>
-						<button className={styles.orderBtn}>
-							To ordering
-							<div className={styles.arrow}>
-								<IconArrowRight />
+				{totalPrice != 0 ?
+					<div className={styles.orderSubmit}>
+						<div className={styles.wrapperOrderSubmit}>
+							<div className={styles.totalPrice}>
+								Total Price: {totalPrice}
 							</div>
-						</button>
+							<button className={styles.orderBtn}>
+								To ordering
+								<div className={styles.arrow}>
+									<IconArrowRight />
+								</div>
+							</button>
+						</div>
 					</div>
-				</div>
+					:
+					<div className={styles.wrapperEmptyCart}>
+						<img src='https://cdn.dodostatic.net/site-static/dist/121df529925b0f43cc73.svg' alt='Empty' />
+						<h1 className={styles.emptyHeading}>Oh, empty!</h1>
+						<div className={styles.emptyDesc}>
+							Your cart is empty, please open the «Menu»
+							and choose the item you like.
+							We will deliver your order from 599 ₽
+						</div>
+					</div>
+				}
 			</div>
 		</div>
 	)

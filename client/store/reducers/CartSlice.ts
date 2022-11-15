@@ -4,12 +4,14 @@ import { createSlice } from '@reduxjs/toolkit'
 interface ICartState {
 	id: number
 	totalPrice: number
+	countAll: number
 	items: ICart[]
 }
 
 const initialState: ICartState = {
 	id: 0,
 	totalPrice: 0,
+	countAll: 0,
 	items: []
 }
 
@@ -25,10 +27,13 @@ export const cartSlice = createSlice({
 		},
 		calcTotalPrice(state, action) {
 			state.totalPrice = action.payload.reduce((sum, obj) => obj.cartDish.price * obj.count + sum, 0)
+		},
+		setCount(state, action) {
+			state.countAll = action.payload.reduce((sum, obj) => sum + obj.count, 0)
 		}
 	}
 })
 
-export const { calcTotalPrice, setItems, setId } = cartSlice.actions
+export const { setCount, calcTotalPrice, setItems, setId } = cartSlice.actions
 
 export default cartSlice.reducer

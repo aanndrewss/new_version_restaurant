@@ -6,6 +6,7 @@ import { useAppSelector } from '../hooks/redux'
 import { userAPI } from '../services/UserService'
 import IconShoppingCart from '../icons/Cart'
 import IconUser from '../icons/User'
+import { cartAPI } from '../services/CartService'
 
 const Header = () => {
 
@@ -18,6 +19,9 @@ const Header = () => {
 	}, [])
 
 	const { isAuth, user } = useAppSelector(state => state.userReducer)
+	const { countAll } = useAppSelector(state => state.cartReducer)
+
+	const { data: dishes } = cartAPI.useFetchCartQuery(user.id)
 
 	const [logOut, {}] = userAPI.useLogoutMutation()
 
@@ -48,9 +52,20 @@ const Header = () => {
 					{isAuth ?
 						<>
 							<Link href={BASKET_ROUTE + `/${user.id}`}>
-								<div className={styles.cart}>
-									<IconShoppingCart />
-								</div>
+								<button className={styles.cart}>
+									{countAll != 0 ?
+										<>
+											<div className={styles.textCart}>
+												Cart
+											</div>
+											<span>|</span>
+											<div className={styles.textCount}>
+												{countAll}
+											</div>
+										</>
+										:
+										<div>Cart</div>}
+								</button>
 							</Link>
 							<div className={styles.dropdown}>
 								<div className={styles.user}>
