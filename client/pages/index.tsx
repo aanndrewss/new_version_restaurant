@@ -199,7 +199,7 @@ export default function Home() {
 								</div>
 								<Link href={'/'}>
 									<button className={styles.bookBtn1}>
-										<div className={styles.btnText}>Reserve a table</div>
+										Reserve a table
 									</button>
 								</Link>
 							</div>
