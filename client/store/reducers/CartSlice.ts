@@ -24,7 +24,7 @@ export const cartSlice = createSlice({
 			state.id = action.payload
 		},
 		calcTotalPrice(state, action) {
-			state.totalPrice = action.payload.cartDish.reduce((sum, obj) => obj.price * obj.count + sum, 0)
+			state.totalPrice = action.payload.reduce((sum, obj) => obj.cartDish.price * obj.count + sum, 0)
 		}
 	}
 })

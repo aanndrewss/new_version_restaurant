@@ -19,6 +19,7 @@ export const cartAPI = createApi({
 				try {
 					const response = await queryFulfilled
 					dispatch(setDishes(response.data.items))
+					dispatch(calcTotalPrice(response.data.items))
 					dispatch(setId(response.data.id))
 				} catch{}
 			},
@@ -54,13 +55,12 @@ export const cartAPI = createApi({
 				method: 'DELETE',
 				body: addDish
 			}),
-			/*async onQueryStarted(arg, {queryFulfilled, dispatch}) {
+			async onQueryStarted(arg, {queryFulfilled, dispatch}) {
 				try {
 					const response = await queryFulfilled
-					dispatch(setItems(response.data.items))
-					dispatch(setId(response.data.id))
+					dispatch(calcTotalPrice(response.data.items))
 				} catch{}
-			},*/
+			},
 			invalidatesTags: ['cart']
 		}),
 		clearCart: build.mutation<ICart, IAddDish>({
