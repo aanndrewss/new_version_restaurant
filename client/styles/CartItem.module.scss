@@ -8,7 +8,7 @@
       .cardSection1 {
         @apply flex flex-row items-center;
         .image {
-          @apply rounded-2xl w-[130px] h-[100px];
+          @apply rounded-2xl w-[130px] h-[100px] object-cover;
         }
         .nameAndGrams {
           @apply flex flex-col gap-3 ml-6;

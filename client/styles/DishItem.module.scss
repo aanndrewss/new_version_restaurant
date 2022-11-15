@@ -1,5 +1,5 @@
 .card {
-  @apply rounded-2xl hover:scale-[1.01] transition-all flex flex-col justify-center items-center;
+  @apply rounded-2xl  flex flex-col justify-center items-center;
   .cardInfoWrapper {
     @apply max-w-[220px] w-[220px];
     .name {
@@ -26,6 +26,6 @@
   }
 
   .img {
-    @apply lg:w-52 xl:w-80 flex justify-center cursor-pointer rounded-2xl;
+    @apply lg:w-52 xl:w-80 hover:scale-[1.02] h-[200px] object-cover duration-[0.3s] transition-all flex justify-center cursor-pointer rounded-2xl;
   }
 }
