@@ -37,7 +37,7 @@ export class UsersController {
 	}
 
 	@Put('/:id')
-	@UseGuards(AuthGuard('jwt'))
+	/*@UseGuards(AuthGuard('jwt'))*/
 	@UseInterceptors(FileInterceptor('avatarPath'))
 	updateProfile(@Param('id') id: number, @Body() dto: UpdateUserDto, @UploadedFile() avatarPath) {
 		return this.userService.updateUser(dto, id, avatarPath)

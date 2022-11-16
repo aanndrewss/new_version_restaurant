@@ -12,7 +12,7 @@ interface UserState {
 }
 
 const initialState: UserState = {
-	user: {id: null, email: null, avatarPath: null, gender: null},
+	user: {id: null, email: null, avatarPath: null, gender: null, name: null},
 	isLoading: false,
 	error: '',
 	isAuth: false

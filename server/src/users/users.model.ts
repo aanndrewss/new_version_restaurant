@@ -24,6 +24,9 @@ export class User extends Model<User, UserCreationsAttrs> {
 	password: string
 
 	@Column({ type: DataTypes.STRING, allowNull: true })
+	name: string
+
+	@Column({ type: DataTypes.STRING, allowNull: true })
 	avatarPath: string
 
 	@Column({ type: DataTypes.STRING, allowNull: true })

@@ -30,7 +30,8 @@ export class UsersService {
 				password: dto.password,
 				gender: dto.gender,
 				avatarPath: fileName,
-				phone: dto.phone
+				phone: dto.phone,
+				name: dto.name
 			},
 			{
 				where: {

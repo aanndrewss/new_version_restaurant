@@ -1,0 +1,39 @@
+.profileWrapper {
+  @apply pt-20 max-w-5xl mb-20 m-auto w-full;
+  .profileContentWrapper {
+    @apply grid grid-cols-[300px_minmax(400px,_2fr)] gap-6 ;
+    .profile {
+      @apply shadow-md p-6 rounded-2xl flex flex-col;
+      .avatarWrapper {
+        @apply flex justify-center items-center;
+        .avatar {
+          @apply rounded-[100px] w-[150px] h-[150px] object-cover;
+        }
+        .avatarIcon {
+          @apply hover:text-gray-600 cursor-pointer transition-all duration-[0.33s];
+        }
+      }
+      .name {
+        @apply font-bold text-[18px] text-center mt-6;
+      }
+      .userInfo {
+        @apply flex flex-col;
+        .infoHeading {
+          @apply text-gray-400 text-[14px] mt-4;
+        }
+        .info {
+          @apply font-medium text-[16px];
+        }
+      }
+    }
+    .ordersAndAddresses {
+      @apply shadow-md p-6 rounded-2xl ;
+      .orders {
+
+      }
+      .addresses {
+
+      }
+    }
+  }
+}
