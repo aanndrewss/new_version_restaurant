@@ -7,6 +7,7 @@ import { userAPI } from '../services/UserService'
 import IconShoppingCart from '../icons/Cart'
 import IconUser from '../icons/User'
 import { cartAPI } from '../services/CartService'
+import IconAvatar from '../icons/Avatar'
 
 const Header = () => {
 
@@ -69,7 +70,9 @@ const Header = () => {
 							</Link>
 							<div className={styles.dropdown}>
 								<div className={styles.user}>
-									<IconUser />
+									{user.avatarPath ?
+										<img className={styles.avatar} src={'http://localhost:5000/' + user.avatarPath} alt='Avatar' /> :
+										<IconUser width={25} height={25} />}
 								</div>
 								<div className={styles.dropdownContent}>
 									<Link href={PROFILE_ROUTE + `/${user.id}`}>

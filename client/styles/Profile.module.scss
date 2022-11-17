@@ -7,14 +7,14 @@
       .avatarWrapper {
         @apply flex justify-center items-center;
         .avatar {
-          @apply rounded-[100px] w-[150px] h-[150px] object-cover;
+          @apply rounded-[100px] w-[150px] h-[150px] object-cover border-slate-500 border-2;
         }
         .avatarIcon {
           @apply hover:text-gray-600 cursor-pointer transition-all duration-[0.33s];
         }
       }
       .name {
-        @apply font-bold text-[18px] text-center mt-6;
+        @apply font-bold text-[18px] text-center mt-10;
       }
       .userInfo {
         @apply flex flex-col;
@@ -27,12 +27,12 @@
       }
     }
     .ordersAndAddresses {
-      @apply shadow-md p-6 rounded-2xl ;
+      @apply flex flex-col gap-2;
       .orders {
-
+        @apply  shadow-md p-6 rounded-2xl;
       }
       .addresses {
-
+        @apply  shadow-md p-6 rounded-2xl
       }
     }
   }

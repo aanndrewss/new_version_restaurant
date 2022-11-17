@@ -35,7 +35,7 @@ const ProfilePage = () => {
 						<h2>Orders</h2>
 					</div>
 					<div className={styles.addresses}>
-
+						<h2>Adresses</h2>
 					</div>
 				</div>
 			</div>

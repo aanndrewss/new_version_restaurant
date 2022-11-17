@@ -1,6 +1,6 @@
 
 .header {
-  @apply flex items-center h-14 bg-white shadow-md fixed w-full z-50;
+  @apply flex items-center h-[70px] bg-white shadow-md fixed w-full z-50;
   .headerWrapper {
     @apply flex justify-between items-center max-w-5xl m-auto w-full;
     .brandName {
@@ -43,9 +43,12 @@
   @apply relative inline-block;
   .user {
     @apply hover:text-green-500 transition-all duration-300;
+    .avatar {
+      @apply w-[50px] h-[50px] object-cover rounded-[100px] border-2 border-gray-500;
+    }
   }
   .dropdownContent {
-    @apply invisible absolute z-50 shadow-md max-w-[160px] bg-white rounded-xl -translate-y-[10px] opacity-0 transition-all duration-[0.33s];
+    @apply invisible absolute z-50 mt-2 shadow-md max-w-[160px] bg-white rounded-xl -translate-y-[10px] opacity-0 transition-all duration-[0.33s];
     .btnContent {
       @apply p-2 block rounded-xl w-full hover:bg-green-400 transition-all duration-[0.33s];
     }
