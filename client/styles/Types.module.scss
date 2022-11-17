@@ -1,5 +1,5 @@
 .hiddenMenu {
-  @apply block fixed p-[10px] mt-0 box-border w-[230px] bg-white h-[100%] top-0 left-[-230px] transition-all duration-[0.33s] z-[55] translate-x-0 shadow-md shadow-gray-600;
+  @apply inline-block fixed p-[10px] mt-0 box-border w-[260px] bg-white h-[100%] top-0 left-[-230px] hover:left-0 transition-all duration-[0.33s] z-[55] translate-x-0 shadow-md shadow-gray-600;
   .hiddenMenuTitleWrapper {
     @apply flex flex-row items-center justify-center gap-2 ml-[28px];
     .hiddenMenuTitle {
@@ -10,7 +10,7 @@
     }
   }
   .type {
-    @apply flex flex-col justify-center items-start cursor-pointer hover:opacity-40 transition-all text-[18px] tracking-wider ml-[60px] mt-[20px];
+    @apply flex flex-col w-[150px] justify-center p-1 items-start cursor-pointer hover:bg-gray-100 transition-all text-[18px] rounded-2xl tracking-wider duration-[0.33s] ml-[60px] mt-[20px];
     .typeWrapper {
       @apply flex flex-row items-center gap-[10px];
       .arrow {
@@ -18,6 +18,10 @@
       }
     }
   }
+}
+
+.menuBar:hover .hiddenMenu{
+  @apply left-0;
 }
 
 .menuBar {

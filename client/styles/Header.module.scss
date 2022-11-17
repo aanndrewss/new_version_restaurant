@@ -40,7 +40,7 @@
 
 }
 .dropdown {
-  @apply relative inline-block;
+  @apply relative inline-block flex flex-col items-center;
   .user {
     @apply hover:text-green-500 transition-all duration-300;
     .avatar {
@@ -48,9 +48,9 @@
     }
   }
   .dropdownContent {
-    @apply invisible absolute z-50 mt-2 shadow-md max-w-[160px] bg-white rounded-xl -translate-y-[10px] opacity-0 transition-all duration-[0.33s];
+    @apply invisible absolute z-50 mt-14 shadow-md max-w-[160px] bg-white rounded-2xl -translate-y-[10px] opacity-0 transition-all duration-[0.33s];
     .btnContent {
-      @apply p-2 block rounded-xl w-full hover:bg-green-400 transition-all duration-[0.33s];
+      @apply p-2 block rounded-2xl w-full hover:bg-green-400 transition-all duration-[0.33s];
     }
   }
 }

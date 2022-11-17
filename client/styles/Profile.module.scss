@@ -1,5 +1,6 @@
+
 .profileWrapper {
-  @apply pt-20 max-w-5xl mb-20 m-auto w-full;
+  @apply pt-20 max-w-5xl pb-20 m-auto w-full;
   .profileContentWrapper {
     @apply grid grid-cols-[300px_minmax(400px,_2fr)] gap-6 ;
     .profile {
@@ -14,7 +15,7 @@
         }
       }
       .name {
-        @apply font-bold text-[18px] text-center mt-10;
+        @apply font-bold text-[18px] mt-10 flex flex-row;
       }
       .userInfo {
         @apply flex flex-col;
@@ -23,6 +24,12 @@
         }
         .info {
           @apply font-medium text-[16px];
+          .infoItem {
+            @apply flex flex-row gap-2 items-center;
+            .iconEdit {
+              @apply opacity-70 hover:text-green-500 transition-all duration-[0.33s] cursor-pointer;
+            }
+          }
         }
       }
     }
