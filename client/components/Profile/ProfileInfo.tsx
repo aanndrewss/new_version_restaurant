@@ -1,9 +1,25 @@
-import React from 'react'
+import React, { ChangeEvent } from 'react'
 import styles from '../../styles/Profile.module.scss'
 import IconAvatar from '../../icons/Avatar'
 import IconEdit2 from '../../icons/Edit'
+import { userAPI } from '../../services/UserService'
 
 const ProfileInfo = ({ user }) => {
+
+	const [addAvatar, {}] = userAPI.useUpdateUserAvatarMutation()
+
+	const newAvatar = new FormData()
+
+
+	const onMainPhotoSelected = (e: ChangeEvent<HTMLInputElement>) => {
+		if (e.target.files && e.target.files.length) {
+			newAvatar.append('id', user.id)
+			newAvatar.append('avatarPath', e.target.files[0])
+			console.log(newAvatar)
+			addAvatar(newAvatar)
+		}
+	}
+
 	return (
 		<div className={styles.profile}>
 			<div className={styles.avatarWrapper}>
@@ -12,6 +28,7 @@ const ProfileInfo = ({ user }) => {
 						<img className={styles.avatar} src={'http://localhost:5000/' + user.avatarPath} alt='Avatar' /> :
 						<img className={styles.avatar} src={'../../assets/default_avatar.jpg'} alt='Avatar' />
 				}
+				<input type='file' onChange={onMainPhotoSelected} />
 			</div>
 			<div className={styles.userInfo}>
 				<div className={styles.info}>

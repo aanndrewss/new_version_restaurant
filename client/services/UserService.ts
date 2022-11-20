@@ -3,6 +3,11 @@ import { IUser, setIUser } from '../models/IUser'
 import { RootState } from '../store/store'
 import { IAuth } from '../models/IAuth'
 import { setIsAuth, setUser } from '../store/reducers/UserSlice'
+import { IName } from '../models/IName'
+import { IEmail } from '../models/IEmail'
+import { IPhone } from '../models/IPhone'
+import { IGender } from '../models/IGender'
+import { IAvatar } from '../models/IAvatar'
 
 
 export const userAPI = createApi({
@@ -88,6 +93,71 @@ export const userAPI = createApi({
 					dispatch(setIsAuth(false))
 				} catch {}
 			}
-		})
+		}),
+		updateUserName: build.mutation<IUser, IName>({
+			query: (name) => ({
+				url: `/users/update/name`,
+				method: 'PUT',
+				body: name
+			}),
+			async onQueryStarted(arg, {queryFulfilled, dispatch}) {
+				try {
+					const response = await queryFulfilled
+					dispatch(setUser(response.data))
+				} catch {}
+			}
+		}),
+		updateUserEmail: build.mutation<IUser, IEmail>({
+			query: (email) => ({
+				url: `/users/update/email`,
+				method: 'PUT',
+				body: email
+			}),
+			async onQueryStarted(arg, {queryFulfilled, dispatch}) {
+				try {
+					const response = await queryFulfilled
+					dispatch(setUser(response.data))
+				} catch {}
+			}
+		}),
+		updateUserPhone: build.mutation<IUser, IPhone>({
+			query: (phone) => ({
+				url: `/users/update/phone`,
+				method: 'PUT',
+				body: phone
+			}),
+			async onQueryStarted(arg, {queryFulfilled, dispatch}) {
+				try {
+					const response = await queryFulfilled
+					dispatch(setUser(response.data))
+				} catch {}
+			}
+		}),
+		updateUserGender: build.mutation<IUser, IGender>({
+			query: (gender) => ({
+				url: `/users/update/gender`,
+				method: 'PUT',
+				body: gender
+			}),
+			async onQueryStarted(arg, {queryFulfilled, dispatch}) {
+				try {
+					const response = await queryFulfilled
+					dispatch(setUser(response.data))
+				} catch {}
+			}
+		}),
+		updateUserAvatar: build.mutation<IUser, IAvatar>({
+			query: (avatar) => ({
+				url: `/users/update/avatar`,
+				method: 'PUT',
+				body: avatar
+			}),
+			async onQueryStarted(arg, {queryFulfilled, dispatch}) {
+				try {
+					const response = await queryFulfilled
+					dispatch(setUser(response.data))
+				} catch {}
+			}
+		}),
 	})
 })

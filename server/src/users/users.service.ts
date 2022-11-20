@@ -11,6 +11,7 @@ import { UpdateUserNameDto } from './dto/update-user-name.dto'
 import { UpdateUserEmailDto } from './dto/update-user-email.dto'
 import { UpdateUserPhoneDto } from './dto/update-user-phone.dto'
 import { UpdateUserGenderDto } from './dto/update-user-gender.dto'
+import { UpdateUserAvatarDto } from './dto/update-user-avatar.dto'
 
 @Injectable()
 export class UsersService {
@@ -46,66 +47,66 @@ export class UsersService {
 		return user
 	}
 
-	async updateUserName(dto: UpdateUserNameDto, id: number) {
+	async updateUserName(dto: UpdateUserNameDto) {
 		await this.userRepository.update({
 			name: dto.name
 		},
 			{
 				where: {
-					id: id
+					id: dto.id
 				}
 			}
 		)
-		return this.getUserByID(id)
+		return this.getUserByID(dto.id)
 	}
-	async updateUserEmail(dto: UpdateUserEmailDto, id: number) {
+	async updateUserEmail(dto: UpdateUserEmailDto) {
 		await this.userRepository.update({
 				email: dto.email
 			},
 			{
 				where: {
-					id: id
+					id: dto.id
 				}
 			}
 		)
-		return this.getUserByID(id)
+		return this.getUserByID(dto.id)
 	}
-	async updateUserPhone(dto: UpdateUserPhoneDto, id: number) {
+	async updateUserPhone(dto: UpdateUserPhoneDto) {
 		await this.userRepository.update({
 				phone: dto.phone
 			},
 			{
 				where: {
-					id: id
+					id: dto.id
 				}
 			}
 		)
-		return this.getUserByID(id)
+		return this.getUserByID(dto.id)
 	}
-	async updateUserGender(dto: UpdateUserGenderDto, id: number) {
+	async updateUserGender(dto: UpdateUserGenderDto) {
 		await this.userRepository.update({
 				gender: dto.gender
 			},
 			{
 				where: {
-					id: id
+					id: dto.id
 				}
 			}
 		)
-		return this.getUserByID(id)
+		return this.getUserByID(dto.id)
 	}
-	async updateUserAvatar(avatarPath: any, id: number) {
+	async updateUserAvatar(avatarPath: any, dto: UpdateUserAvatarDto) {
 		const fileName = await this.fileService.createFile(avatarPath)
 		await this.userRepository.update({
 				avatarPath: fileName
 			},
 			{
 				where: {
-					id: id
+					id: dto.id
 				}
 			}
 		)
-		return this.getUserByID(id)
+		return this.getUserByID(dto.id)
 	}
 
 

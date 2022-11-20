@@ -11,6 +11,9 @@ import { UpdateUserNameDto } from './dto/update-user-name.dto'
 import { UpdateUserEmailDto } from './dto/update-user-email.dto'
 import { UpdateUserPhoneDto } from './dto/update-user-phone.dto'
 import { UpdateUserGenderDto } from './dto/update-user-gender.dto'
+import { UpdateUserAvatarDto } from './dto/update-user-avatar.dto'
+
+
 
 @Controller('users')
 export class UsersController {
@@ -47,32 +50,32 @@ export class UsersController {
 		return this.userService.updateUser(dto, id, avatarPath)
 	}
 
-	@Put('name/:id')
+	@Put('update/name')
 	/*@UseGuards(AuthGuard('jwt'))*/
-	updateProfileName(@Param('id') id: number, @Body() dto: UpdateUserNameDto) {
-		return this.userService.updateUserName(dto, id)
+	updateProfileName(@Body() dto: UpdateUserNameDto) {
+		return this.userService.updateUserName(dto)
 	}
 
-	@Put('email/:id')
+	@Put('update/email')
 	/*@UseGuards(AuthGuard('jwt'))*/
-	updateProfileEmail(@Param('id') id: number, @Body() dto: UpdateUserEmailDto) {
-		return this.userService.updateUserEmail(dto, id)
+	updateProfileEmail(@Body() dto: UpdateUserEmailDto) {
+		return this.userService.updateUserEmail(dto)
 	}
-	@Put('phone/:id')
+	@Put('update/phone')
 	/*@UseGuards(AuthGuard('jwt'))*/
-	updateProfilePhone(@Param('id') id: number, @Body() dto: UpdateUserPhoneDto) {
-		return this.userService.updateUserPhone(dto, id)
+	updateProfilePhone(@Body() dto: UpdateUserPhoneDto) {
+		return this.userService.updateUserPhone(dto)
 	}
-	@Put('gender/:id')
+	@Put('update/gender')
 	/*@UseGuards(AuthGuard('jwt'))*/
-	updateProfileGender(@Param('id') id: number, @Body() dto: UpdateUserGenderDto) {
-		return this.userService.updateUserGender(dto, id)
+	updateProfileGender(@Body() dto: UpdateUserGenderDto) {
+		return this.userService.updateUserGender(dto)
 	}
-	@Put('avatar/:id')
+	@Put('update/avatar')
 	/*@UseGuards(AuthGuard('jwt'))*/
 	@UseInterceptors(FileInterceptor('avatarPath'))
-	updateProfileAvatar(@Param('id') id: number, @UploadedFile() avatarPath) {
-		return this.userService.updateUserAvatar(avatarPath, id)
+	updateProfileAvatar(@UploadedFile() avatarPath, @Body() dto: UpdateUserAvatarDto) {
+		return this.userService.updateUserAvatar(avatarPath, dto)
 	}
 
 }
