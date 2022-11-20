@@ -7,6 +7,10 @@ import { Basket } from '../basket/basket.model'
 import { Addresses } from '../addresses/addresses.model'
 import { FilesService } from '../files/files.service'
 import { CreateTokenDto } from '../tokens/create-token.dto'
+import { UpdateUserNameDto } from './dto/update-user-name.dto'
+import { UpdateUserEmailDto } from './dto/update-user-email.dto'
+import { UpdateUserPhoneDto } from './dto/update-user-phone.dto'
+import { UpdateUserGenderDto } from './dto/update-user-gender.dto'
 
 @Injectable()
 export class UsersService {
@@ -40,6 +44,68 @@ export class UsersService {
 			}
 		)
 		return user
+	}
+
+	async updateUserName(dto: UpdateUserNameDto, id: number) {
+		await this.userRepository.update({
+			name: dto.name
+		},
+			{
+				where: {
+					id: id
+				}
+			}
+		)
+		return this.getUserByID(id)
+	}
+	async updateUserEmail(dto: UpdateUserEmailDto, id: number) {
+		await this.userRepository.update({
+				email: dto.email
+			},
+			{
+				where: {
+					id: id
+				}
+			}
+		)
+		return this.getUserByID(id)
+	}
+	async updateUserPhone(dto: UpdateUserPhoneDto, id: number) {
+		await this.userRepository.update({
+				phone: dto.phone
+			},
+			{
+				where: {
+					id: id
+				}
+			}
+		)
+		return this.getUserByID(id)
+	}
+	async updateUserGender(dto: UpdateUserGenderDto, id: number) {
+		await this.userRepository.update({
+				gender: dto.gender
+			},
+			{
+				where: {
+					id: id
+				}
+			}
+		)
+		return this.getUserByID(id)
+	}
+	async updateUserAvatar(avatarPath: any, id: number) {
+		const fileName = await this.fileService.createFile(avatarPath)
+		await this.userRepository.update({
+				avatarPath: fileName
+			},
+			{
+				where: {
+					id: id
+				}
+			}
+		)
+		return this.getUserByID(id)
 	}
 
 
