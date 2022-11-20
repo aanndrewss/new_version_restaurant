@@ -14,11 +14,9 @@
           @apply hover:text-gray-600 cursor-pointer transition-all duration-[0.33s];
         }
       }
-      .name {
-        @apply font-bold text-[18px] mt-10 flex flex-row;
-      }
+
       .userInfo {
-        @apply flex flex-col;
+        @apply flex flex-col mt-4;
         .infoHeading {
           @apply text-gray-400 text-[14px] mt-4;
         }
@@ -26,6 +24,15 @@
           @apply font-medium text-[16px];
           .infoItem {
             @apply flex flex-row gap-2 items-center;
+            .iconEdit {
+              @apply opacity-70 hover:text-green-500 transition-all duration-[0.33s] cursor-pointer;
+            }
+          }
+          .infoItemName {
+            @apply flex flex-row gap-2 items-center justify-center;
+            .name {
+              @apply text-[18px] font-bold;
+            }
             .iconEdit {
               @apply opacity-70 hover:text-green-500 transition-all duration-[0.33s] cursor-pointer;
             }
