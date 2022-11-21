@@ -1,10 +1,10 @@
 
 .profileWrapper {
-  @apply pt-20 max-w-5xl pb-20 m-auto w-full;
+  @apply pt-24 max-w-5xl mb-16 m-auto w-full;
   .profileContentWrapper {
     @apply grid grid-cols-[300px_minmax(400px,_2fr)] gap-6 ;
     .profile {
-      @apply shadow-md p-6 rounded-2xl flex flex-col;
+      @apply shadow-md p-4 rounded-2xl flex flex-col;
       .avatarWrapper {
         @apply flex justify-center items-center relative;
         .avatar {
@@ -24,14 +24,29 @@
 
 
       .userInfo {
-        @apply flex flex-col mt-10;
+        @apply flex flex-col mt-8;
         .infoHeading {
-          @apply text-gray-400 text-[14px] mt-4;
+          @apply text-gray-400 text-[14px] mt-2;
         }
         .info {
-          @apply font-medium text-[16px];
+          @apply font-medium text-[16px] ;
+          .inputWrapper {
+            @apply flex flex-row justify-center items-center gap-2;
+            .customNameInput {
+              @apply pt-1 pb-1 rounded-[3px] w-[150px] bg-gray-200 outline-none text-[18px] font-bold;
+            }
+          }
+          .inputInfoWrapper {
+            @apply flex flex-row justify-start items-center gap-2;
+            .customInput {
+              @apply pt-1 pb-1 pl-2 w-full rounded-[3px] bg-gray-200 outline-none text-[16px];
+            }
+          }
           .infoItem {
-            @apply flex flex-row gap-2 items-center;
+            @apply flex flex-row gap-2 items-center ml-2;
+            .infoText {
+              @apply text-[16px] pt-1 pb-1;
+            }
             .iconEdit {
               @apply opacity-70 hover:text-green-500 transition-all duration-[0.33s] cursor-pointer;
             }
@@ -39,7 +54,7 @@
           .infoItemName {
             @apply flex flex-row gap-2 items-center justify-center;
             .name {
-              @apply text-[18px] font-bold;
+              @apply text-[18px] font-bold pt-1 pb-1;
             }
             .iconEdit {
               @apply opacity-70 hover:text-green-500 transition-all duration-[0.33s] cursor-pointer;
