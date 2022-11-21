@@ -3,7 +3,7 @@ import { useAppSelector } from '../../hooks/redux'
 import styles from '../../styles/Profile.module.scss'
 import ProfileInfo from '../../components/Profile/ProfileInfo'
 import OrdersInfo from '../../components/Profile/OrdersInfo'
-import AddressesInfo from '../../components/Profile/AddressesInfo'
+import AddressesInfo from '../../components/Profile/Addresses/AddressesInfo'
 
 const ProfilePage = () => {
 
@@ -14,8 +14,8 @@ const ProfilePage = () => {
 			<div className={styles.profileContentWrapper}>
 				<ProfileInfo user={user} />
 				<div className={styles.ordersAndAddresses}>
+					<AddressesInfo addresses={user.addresses} />
 					<OrdersInfo />
-					<AddressesInfo />
 				</div>
 			</div>
 		</div>

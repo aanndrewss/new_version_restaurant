@@ -1,3 +1,5 @@
+import { CreateAddressDto } from '../addresses/dto/create-address.dto'
+
 export class CreateTokenDto {
 
 	readonly id: number
@@ -7,6 +9,7 @@ export class CreateTokenDto {
 	readonly phone: string
 	readonly gender: string
 	readonly avatarPath: string
+	readonly addresses: CreateAddressDto
 
 	constructor(model) {
 		this.id = model.id
@@ -16,5 +19,6 @@ export class CreateTokenDto {
 		this.phone = model.phone
 		this.gender = model.gender
 		this.avatarPath = model.avatarPath
+		this.addresses = model.addresses
 	}
 }

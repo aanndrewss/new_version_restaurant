@@ -69,7 +69,25 @@
         @apply  shadow-md p-6 rounded-2xl;
       }
       .addresses {
-        @apply  shadow-md p-6 rounded-2xl
+        @apply  shadow-md p-6 rounded-2xl;
+        .addressesWrapperHeading {
+          @apply flex flex-row justify-between items-center pb-2 border-[1px] border-solid border-transparent border-b-gray-300;
+          .addressesHeading {
+            @apply text-[20px] font-bold
+          }
+        }
+        .addressItemWrapper {
+          @apply grid-cols-2 grid mt-6;
+          .addressItem {
+            @apply flex flex-row justify-between items-center;
+            .addressText {
+              @apply text-center;
+            }
+            .addressIcons {
+              @apply flex flex-row gap-2 items-center;
+            }
+          }
+        }
       }
     }
   }

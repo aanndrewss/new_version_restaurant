@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { IUser, setIUser } from '../models/IUser'
 import { RootState } from '../store/store'
 import { IAuth } from '../models/IAuth'
-import { setIsAuth, setUser } from '../store/reducers/UserSlice'
+import { setAddresses, setIsAuth, setUser } from '../store/reducers/UserSlice'
 import { IName } from '../models/IName'
 import { IEmail } from '../models/IEmail'
 import { IPhone } from '../models/IPhone'
@@ -104,6 +104,7 @@ export const userAPI = createApi({
 				try {
 					const response = await queryFulfilled
 					dispatch(setUser(response.data.user))
+					dispatch(setAddresses(response.data.addresses))
 				} catch {}
 			}
 		}),

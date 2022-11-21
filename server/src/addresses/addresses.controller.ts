@@ -2,7 +2,7 @@ import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common'
 import { AddressesService } from './addresses.service'
 import { CreateAddressDto } from './dto/create-address.dto'
 
-@Controller()
+@Controller('address')
 export class AddressesController {
 	constructor(private addressesService: AddressesService) {
 	}

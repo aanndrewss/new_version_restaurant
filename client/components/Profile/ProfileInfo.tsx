@@ -103,7 +103,6 @@ const ProfileInfo = ({ user }) => {
 						editNameMode ?
 							<div className={styles.inputWrapper}>
 								<input autoFocus={true} type='text' className={styles.customNameInput} value={name} onChange={onNameChange} onBlur={onNameBlur} />
-								<IconEdit2 className={styles.iconEdit} />
 							</div>
 							:
 							<div className={styles.infoItemName}>
@@ -120,7 +119,6 @@ const ProfileInfo = ({ user }) => {
 						editEmailMode ?
 							<div className={styles.inputInfoWrapper}>
 								<input autoFocus={true} type='text' value={email} className={styles.customInput} onChange={onEmailChange} onBlur={onEmailBlur} />
-								<IconEdit2 className={styles.iconEdit}  />
 							</div>
 							:
 							<div className={styles.infoItem}>
@@ -134,7 +132,6 @@ const ProfileInfo = ({ user }) => {
 						editPhoneMode ?
 							<div className={styles.inputInfoWrapper}>
 								<input className={styles.customInput} autoFocus={true} type='text' value={phone} onChange={onPhoneChange} onBlur={onPhoneBlur} />
-								<IconEdit2 className={styles.iconEdit}  />
 							</div>
 							:
 							<div className={styles.infoItem}>
@@ -148,7 +145,6 @@ const ProfileInfo = ({ user }) => {
 						editGenderMode ?
 							<div className={styles.inputInfoWrapper}>
 								<input className={styles.customInput} autoFocus={true} type='text' value={gender} onChange={onGenderChange} onBlur={onGenderBlur} />
-								<IconEdit2 className={styles.iconEdit}  />
 							</div>
 							:
 							<div className={styles.infoItem}>
