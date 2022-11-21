@@ -3,6 +3,7 @@ import styles from '../../styles/Profile.module.scss'
 import IconAvatar from '../../icons/Avatar'
 import IconEdit2 from '../../icons/Edit'
 import { userAPI } from '../../services/UserService'
+import { IAvatar } from '../../models/IAvatar'
 
 const ProfileInfo = ({ user }) => {
 
@@ -15,7 +16,6 @@ const ProfileInfo = ({ user }) => {
 		if (e.target.files && e.target.files.length) {
 			newAvatar.append('id', user.id)
 			newAvatar.append('avatarPath', e.target.files[0])
-			console.log(newAvatar)
 			addAvatar(newAvatar)
 		}
 	}
@@ -28,14 +28,24 @@ const ProfileInfo = ({ user }) => {
 						<img className={styles.avatar} src={'http://localhost:5000/' + user.avatarPath} alt='Avatar' /> :
 						<img className={styles.avatar} src={'../../assets/default_avatar.jpg'} alt='Avatar' />
 				}
-				<input type='file' onChange={onMainPhotoSelected} />
+				<div className={styles.tooltipText}>Change your avatar</div>
+				<input title={' '} style={{
+					overflow: 'hidden',
+					opacity: 0,
+					position: 'absolute',
+					height: '150px',
+					width: '150px',
+					cursor: 'pointer'
+				}} type='file' onChange={onMainPhotoSelected} />
 			</div>
 			<div className={styles.userInfo}>
 				<div className={styles.info}>
 					{
 						user.name ?
-							<div className={styles.infoItemName}><h2 className={styles.name}>{user.name}</h2> <IconEdit2 className={styles.iconEdit} /></div> :
-							<div className={styles.infoItemName}><h2 className={styles.name}>Add your name</h2> <IconEdit2 className={styles.iconEdit} /></div>
+							<div className={styles.infoItemName}><h2 className={styles.name}>{user.name}</h2> <IconEdit2
+								className={styles.iconEdit} /></div> :
+							<div className={styles.infoItemName}><h2 className={styles.name}>Add your name</h2> <IconEdit2
+								className={styles.iconEdit} /></div>
 					}
 				</div>
 				<h3 className={styles.infoHeading}>Email:</h3>

@@ -155,7 +155,7 @@ export const userAPI = createApi({
 			async onQueryStarted(arg, {queryFulfilled, dispatch}) {
 				try {
 					const response = await queryFulfilled
-					dispatch(setUser(response.data))
+					dispatch(setUser(response.data.user))
 				} catch {}
 			}
 		}),
