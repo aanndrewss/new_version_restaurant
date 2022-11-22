@@ -22,6 +22,4 @@ export class AddressesController {
 	deleteAddress(@Body() dto: UpdateAddressDto) {
 		return this.addressesService.deleteAddress(dto)
 	}
-
-
 }

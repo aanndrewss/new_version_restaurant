@@ -76,6 +76,24 @@
             @apply text-[20px] font-bold tracking-[1px];
           }
         }
+        .addAddressForm {
+          @apply flex flex-col mt-6;
+          .inputsWrapper {
+            @apply grid-cols-2 grid gap-4;
+            .customFormInput {
+              @apply pt-1 pb-1 pl-2 w-full rounded-[3px] bg-gray-200 outline-none text-[16px];
+            }
+          }
+          .buttons {
+            @apply flex flex-row justify-end gap-4;
+            .btnCancel {
+              @apply hover:bg-red-600 hover:text-white transition-all duration-[0.33s] rounded-2xl pr-3 pl-3 pb-1.5 pt-1.5;
+            }
+            .btnSave {
+              @apply bg-green-500 hover:bg-green-600 text-white transition-all duration-[0.33s] rounded-2xl pr-3 pl-3 pb-1.5 pt-1.5;
+            }
+          }
+        }
         .addressItemWrapper {
           @apply grid-cols-2 grid mt-6 gap-4;
           .addressItem {

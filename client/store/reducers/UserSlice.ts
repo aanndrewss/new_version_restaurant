@@ -10,15 +10,13 @@ interface UserState {
 	isLoading: boolean
 	error: string
 	isAuth: boolean
-	addresses: IAddress
 }
 
 const initialState: UserState = {
-	user: {id: null, email: null, avatarPath: null, gender: null, name: null, phone: null},
+	user: { id: null, email: null, avatarPath: null, gender: null, name: null, phone: null, addresses: [] },
 	isLoading: false,
 	error: '',
 	isAuth: false,
-	addresses: {city: null, street: null, home: null}
 }
 
 export const userSlice = createSlice({

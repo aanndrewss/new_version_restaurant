@@ -5,25 +5,21 @@ import ProfileInfo from '../../components/Profile/ProfileInfo'
 import OrdersInfo from '../../components/Profile/OrdersInfo'
 import AddressesInfo from '../../components/Profile/Addresses/AddressesInfo'
 import { userAPI } from '../../services/UserService'
+import { profileAPI } from '../../services/ProfileService'
 
 const ProfilePage = () => {
 
 	const { user } = useAppSelector(state => state.userReducer)
-	const { data: user1 } = userAPI.useFetchUserQuery(user.id)
+	const {data: userInfo} = userAPI.useFetchUserQuery(user.id)
 
 	return (
 		<div className={styles.profileWrapper}>
 			<div className={styles.profileContentWrapper}>
-				{user1 &&
-					<>
-						<ProfileInfo user={user1.user} />
-						<div className={styles.ordersAndAddresses}>
-							<AddressesInfo addresses={user1.user.addresses} />
-							<OrdersInfo />
-						</div>
-					</>
-				}
-
+				<ProfileInfo user={user} />
+				<div className={styles.ordersAndAddresses}>
+					<AddressesInfo addresses={user.addresses} userId={user.id} />
+					<OrdersInfo />
+				</div>
 			</div>
 		</div>
 	)

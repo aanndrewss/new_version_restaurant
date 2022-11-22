@@ -1,21 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from '../../../styles/Profile.module.scss'
 import IconAdd from '../../../icons/Add'
 import AddressItem from './AddressesItem'
+import AddAddressForm from './AddAddressForm'
 
-const AddressesInfo = ({ addresses }) => {
+const AddressesInfo = ({ addresses, userId }) => {
+
+	const [editMode, setEditMode] = useState(false)
+
 	return (
 		<div>
 			<div className={styles.addresses}>
 				<div className={styles.addressesWrapperHeading}>
 					<h2 className={styles.addressesHeading}>Addresses</h2>
-					<IconAdd className={styles.icons} />
+					<IconAdd className={styles.icons} onClick={() => setEditMode(true)} />
 				</div>
 				<div className={styles.addressItemWrapper}>
 					{addresses && addresses.length === 0 ? <h2>You dont have address!</h2> :
-						addresses && addresses.map((address) => <AddressItem key={address.id} {...address} />)
+						addresses && addresses.map((address) => <AddressItem key={address.id} {...address} userId={userId}
+																																 editMode={editMode} setEditMode={setEditMode} />)
 					}
 				</div>
+				{editMode ?
+						<AddAddressForm addresses={addresses} userId={userId} setEditMode={setEditMode}/>
+					: null
+				}
 			</div>
 		</div>
 	)

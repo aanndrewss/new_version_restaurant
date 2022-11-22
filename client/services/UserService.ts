@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { IUser, setIUser } from '../models/IUser'
 import { IAuth } from '../models/IAuth'
-import { setIsAuth, setUser } from '../store/reducers/UserSlice'
+import { setAddresses, setIsAuth, setUser } from '../store/reducers/UserSlice'
 import { GetIUser } from '../models/getIUser'
 
 
@@ -21,6 +21,13 @@ export const userAPI = createApi({
 			query: (id: number) => ({
 				url: `/users/${id}`
 			}),
+			async onQueryStarted(arg, {queryFulfilled, dispatch}) {
+				try {
+					const response = await queryFulfilled
+					dispatch(setUser(response.data.user))
+					dispatch(setAddresses(response.data.user.addresses))
+				} catch {}
+			},
 			providesTags: result => ['user']
 		}),
 		fetchUsers: build.query<IUser[], any>({
