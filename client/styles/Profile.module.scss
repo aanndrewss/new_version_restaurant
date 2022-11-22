@@ -4,11 +4,11 @@
   .profileContentWrapper {
     @apply grid grid-cols-[300px_minmax(400px,_2fr)] gap-6 ;
     .profile {
-      @apply shadow-md p-4 rounded-2xl flex flex-col;
+      @apply shadow-md p-4 rounded-2xl flex flex-col border-gray-200 border-solid border-[1px];
       .avatarWrapper {
         @apply flex justify-center items-center relative;
         .avatar {
-          @apply rounded-[100px] w-[150px] h-[150px] object-cover border-slate-500 border-2;
+          @apply rounded-[100px] w-[150px] h-[150px] object-cover border-gray-300 border-2;
         }
         .avatarIcon {
           @apply hover:text-gray-600 cursor-pointer transition-all duration-[0.33s];
@@ -66,18 +66,18 @@
     .ordersAndAddresses {
       @apply flex flex-col gap-2;
       .orders {
-        @apply  shadow-md p-6 rounded-2xl;
+        @apply shadow-md p-6 rounded-2xl border-gray-200 border-solid border-[1px];
       }
       .addresses {
-        @apply  shadow-md p-6 rounded-2xl;
+        @apply border-gray-200 border-solid border-[1px] shadow-md p-6 rounded-2xl;
         .addressesWrapperHeading {
           @apply flex flex-row justify-between items-center pb-2 border-[1px] border-solid border-transparent border-b-gray-300;
           .addressesHeading {
-            @apply text-[20px] font-bold
+            @apply text-[20px] font-bold tracking-[1px];
           }
         }
         .addressItemWrapper {
-          @apply grid-cols-2 grid mt-6;
+          @apply grid-cols-2 grid mt-6 gap-4;
           .addressItem {
             @apply flex flex-row justify-between items-center;
             .addressText {
@@ -85,8 +85,12 @@
             }
             .addressIcons {
               @apply flex flex-row gap-2 items-center;
+
             }
           }
+        }
+        .icons {
+          @apply opacity-70 hover:text-green-500 transition-all duration-[0.33s] cursor-pointer;
         }
       }
     }

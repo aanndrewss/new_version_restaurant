@@ -7,6 +7,8 @@ import { userAPI } from '../services/UserService'
 import { dishAPI } from '../services/DishService'
 import { typeAPI } from '../services/TypeService'
 import { cartAPI } from '../services/CartService'
+import { profileAPI } from '../services/ProfileService'
+import { addressAPI } from '../services/AddressService'
 
 const rootReducer = combineReducers({
 	dishReducer,
@@ -16,8 +18,9 @@ const rootReducer = combineReducers({
 	[userAPI.reducerPath]: userAPI.reducer,
 	[dishAPI.reducerPath]: dishAPI.reducer,
 	[typeAPI.reducerPath]: typeAPI.reducer,
-	[cartAPI.reducerPath]: cartAPI.reducer
-
+	[cartAPI.reducerPath]: cartAPI.reducer,
+	[profileAPI.reducerPath]: profileAPI.reducer,
+	[addressAPI.reducerPath]: addressAPI.reducer,
 })
 
 export const setupStore = () => {
@@ -29,6 +32,8 @@ export const setupStore = () => {
 				.concat(userAPI.middleware)
 				.concat(dishAPI.middleware)
 				.concat(cartAPI.middleware)
+				.concat(profileAPI.middleware)
+				.concat(addressAPI.middleware)
 	})
 }
 

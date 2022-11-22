@@ -4,14 +4,15 @@ import IconAvatar from '../../icons/Avatar'
 import IconEdit2 from '../../icons/Edit'
 import { userAPI } from '../../services/UserService'
 import { IAvatar } from '../../models/IAvatar'
+import { profileAPI } from '../../services/ProfileService'
 
 const ProfileInfo = ({ user }) => {
 
-	const [addAvatar, {}] = userAPI.useUpdateUserAvatarMutation()
-	const [updateName, {}] = userAPI.useUpdateUserNameMutation()
-	const [updateEmail, {}] = userAPI.useUpdateUserEmailMutation()
-	const [updatePhone, {}] = userAPI.useUpdateUserPhoneMutation()
-	const [updateGender, {}] = userAPI.useUpdateUserGenderMutation()
+	const [addAvatar, {}] = profileAPI.useUpdateUserAvatarMutation()
+	const [updateName, {}] = profileAPI.useUpdateUserNameMutation()
+	const [updateEmail, {}] = profileAPI.useUpdateUserEmailMutation()
+	const [updatePhone, {}] = profileAPI.useUpdateUserPhoneMutation()
+	const [updateGender, {}] = profileAPI.useUpdateUserGenderMutation()
 
 	const newAvatar = new FormData()
 
