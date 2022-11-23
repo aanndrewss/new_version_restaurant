@@ -7,13 +7,14 @@ import AddAddressForm from './AddAddressForm'
 const AddressesInfo = ({ addresses, userId }) => {
 
 	const [editMode, setEditMode] = useState(false)
+	const [addMode, setAddMode] = useState(false)
 
 	return (
 		<div>
 			<div className={styles.addresses}>
 				<div className={styles.addressesWrapperHeading}>
 					<h2 className={styles.addressesHeading}>Addresses</h2>
-					<IconAdd className={styles.icons} onClick={() => setEditMode(true)} />
+					<IconAdd className={styles.icons} onClick={() => setAddMode(true)} />
 				</div>
 				<div className={styles.addressItemWrapper}>
 					{addresses && addresses.length === 0 ? <h2>You dont have address!</h2> :
@@ -21,8 +22,8 @@ const AddressesInfo = ({ addresses, userId }) => {
 																																 editMode={editMode} setEditMode={setEditMode} />)
 					}
 				</div>
-				{editMode ?
-						<AddAddressForm addresses={addresses} userId={userId} setEditMode={setEditMode}/>
+				{editMode || addMode ?
+						<AddAddressForm addresses={addresses} userId={userId} setEditMode={setEditMode} setAddMode={setAddMode} addMode={addMode} editMode={editMode}/>
 					: null
 				}
 			</div>
