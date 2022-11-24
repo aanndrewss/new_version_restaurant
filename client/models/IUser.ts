@@ -9,7 +9,6 @@ export interface IUser {
 	gender: string
 	avatarPath: string
 	addresses: IAddress[]
-	orders: IOrder[]
 }
 
 export interface setIUser {

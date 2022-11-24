@@ -6,12 +6,8 @@ import styles from './Orders.module.scss'
 const OrderItem = ({ order }) => {
 	return (
 		<>
-			<SwiperSlide>
-				<div className={styles.slide}>
-					{order.cart.items.cartDish.name}
-				</div>
-
-			</SwiperSlide>
+					<img src={'http://localhost:5000/' + order.cart.items.cartDish.img} alt='Order' className={styles.slideImg}/>
+					<div>{order.address.city}</div>
 		</>
 	)
 }

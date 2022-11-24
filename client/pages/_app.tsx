@@ -7,6 +7,7 @@ import TypeBar from '../components/typebar/TypeBar'
 import React from 'react'
 import Footer from '../components/footer/Footer'
 import 'swiper/scss';
+import 'swiper/scss/navigation';
 
 export default function MyApp({ Component, pageProps }) {
 

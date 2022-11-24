@@ -4,7 +4,7 @@
   .profileContentWrapper {
     @apply grid grid-cols-[300px_minmax(400px,_2fr)] gap-6;
     .profile {
-      @apply shadow-md p-4 rounded-2xl flex flex-col border-gray-200 border-solid border-[1px];
+      @apply shadow-md p-4 rounded-2xl flex flex-col border-gray-200 border-solid border-[1px] h-fit;
       .avatarWrapper {
         @apply flex justify-center items-center relative;
         .avatar {
@@ -74,7 +74,7 @@
     }
 
     .ordersAndAddresses {
-      @apply flex flex-col gap-2;
+      @apply flex flex-col gap-6;
     }
   }
 }

@@ -11,7 +11,25 @@
     @apply text-[18px] font-bold text-center mt-6;
   }
 
-  .slide {
-    @apply shadow-md h-[150px] w-[150px];
+  .swiperWrapper {
+    @apply flex flex-row mt-3 items-center;
+    .swiper {
+      @apply m-3 flex flex-row;
+      .slide {
+        @apply shadow-md m-2 h-[150px] rounded-2xl overflow-hidden relative;
+        .slideImg {
+          @apply w-[50px] h-[50px] object-cover absolute;
+        }
+      }
   }
+    .prevArrow {
+      @apply w-[35px] h-[35px] rounded-[100px] hover:text-green-500 hover:bg-gray-200 transition-all duration-[0.2s];
+    }
+    .nextArrow {
+      @apply w-[40px] h-[35px] rounded-[25px] hover:text-green-500 hover:bg-gray-200 transition-all duration-[0.2s];
+    }
+
+
+  }
+
 }
