@@ -52,11 +52,12 @@ export const dishAPI = createApi({
 				method: 'POST',
 				body: dish
 			}),
-			async onQueryStarted(arg, {queryFulfilled, dispatch}) {
+			async onQueryStarted(arg, { queryFulfilled, dispatch }) {
 				try {
 					const response = await queryFulfilled
 					dispatch(setDishes(response.data))
-				} catch{}
+				} catch {
+				}
 			},
 			invalidatesTags: ['dish']
 		})

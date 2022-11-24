@@ -10,8 +10,8 @@ export const userAPI = createApi({
 	baseQuery: fetchBaseQuery({
 		baseUrl: 'http://localhost:5000',
 		prepareHeaders: (headers) => {
-			headers.set('Authorization', `Bearer ${localStorage.getItem('token')}`);
-			return headers;
+			headers.set('Authorization', `Bearer ${localStorage.getItem('token')}`)
+			return headers
 		},
 		credentials: 'include'
 	}),
@@ -21,12 +21,13 @@ export const userAPI = createApi({
 			query: (id: number) => ({
 				url: `/users/${id}`
 			}),
-			async onQueryStarted(arg, {queryFulfilled, dispatch}) {
+			async onQueryStarted(arg, { queryFulfilled, dispatch }) {
 				try {
 					const response = await queryFulfilled
 					dispatch(setUser(response.data.user))
 					dispatch(setAddresses(response.data.user.addresses))
-				} catch {}
+				} catch {
+				}
 			},
 			providesTags: result => ['user']
 		}),
@@ -40,15 +41,16 @@ export const userAPI = createApi({
 			query: (user) => ({
 				url: '/auth/registration',
 				method: 'POST',
-				body: user,
+				body: user
 			}),
-			async onQueryStarted(arg, {queryFulfilled, dispatch}) {
+			async onQueryStarted(arg, { queryFulfilled, dispatch }) {
 				try {
 					const response = await queryFulfilled
 					localStorage.setItem('token', response.data.accessToken)
 					dispatch(setUser(response.data.user))
 					dispatch(setIsAuth(true))
-				} catch {}
+				} catch {
+				}
 			},
 			invalidatesTags: ['user']
 		}),
@@ -56,15 +58,16 @@ export const userAPI = createApi({
 			query: (user) => ({
 				url: '/auth/login',
 				method: 'POST',
-				body: user,
+				body: user
 			}),
-			async onQueryStarted(arg, {queryFulfilled, dispatch}) {
+			async onQueryStarted(arg, { queryFulfilled, dispatch }) {
 				try {
 					const response = await queryFulfilled
 					localStorage.setItem('token', response.data.accessToken)
 					dispatch(setUser(response.data.user))
 					dispatch(setIsAuth(true))
-				} catch {}
+				} catch {
+				}
 			},
 			invalidatesTags: ['user']
 		}),
@@ -73,13 +76,14 @@ export const userAPI = createApi({
 				url: '/auth/refresh',
 				method: 'POST'
 			}),
-			async onQueryStarted(arg, {queryFulfilled, dispatch}) {
+			async onQueryStarted(arg, { queryFulfilled, dispatch }) {
 				try {
 					const response = await queryFulfilled
 					localStorage.setItem('token', response.data.accessToken)
 					dispatch(setUser(response.data.user))
 					dispatch(setIsAuth(true))
-				} catch {}
+				} catch {
+				}
 			}
 		}),
 		logout: build.mutation({
@@ -87,13 +91,14 @@ export const userAPI = createApi({
 				url: '/auth/logout',
 				method: 'POST'
 			}),
-			async onQueryStarted(arg, {queryFulfilled, dispatch}) {
+			async onQueryStarted(arg, { queryFulfilled, dispatch }) {
 				try {
 					const response = await queryFulfilled
 					localStorage.removeItem('token')
 					dispatch(setUser({}))
 					dispatch(setIsAuth(false))
-				} catch {}
+				} catch {
+				}
 			}
 		})
 	})

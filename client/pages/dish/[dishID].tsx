@@ -13,9 +13,9 @@ const DishPage = () => {
 		<div>
 			{dish &&
 				<>
-				<div>
-					{dish.name}
-				</div>
+					<div>
+						{dish.name}
+					</div>
 					<img src={'http://localhost:5000/' + dish.img} alt='' />
 				</>
 			}

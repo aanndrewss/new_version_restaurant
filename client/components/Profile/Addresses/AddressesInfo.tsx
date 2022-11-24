@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styles from '../../../styles/Profile.module.scss'
+import styles from './Address.module.scss'
 import IconAdd from '../../../icons/Add'
 import AddressItem from './AddressesItem'
 import AddAddressForm from './AddAddressForm'
@@ -23,7 +23,8 @@ const AddressesInfo = ({ addresses, userId }) => {
 					}
 				</div>
 				{editMode || addMode ?
-						<AddAddressForm addresses={addresses} userId={userId} setEditMode={setEditMode} setAddMode={setAddMode} addMode={addMode} editMode={editMode}/>
+					<AddAddressForm addresses={addresses} userId={userId} setEditMode={setEditMode} setAddMode={setAddMode}
+													addMode={addMode} editMode={editMode} />
 					: null
 				}
 			</div>

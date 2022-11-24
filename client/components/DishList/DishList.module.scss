@@ -1,12 +1,14 @@
 .grid1 {
   @apply grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-28 mt-4;
 }
+
 .spanWrapper {
   @apply flex flex-row items-center relative;
 
   .type {
     @apply font-extrabold text-[40px] mt-24 mb-14;
   }
+
   .sep {
     @apply h-[2px] w-[550px] bg-gray-400 ml-[70px] mt-12;
   }

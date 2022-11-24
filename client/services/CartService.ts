@@ -15,16 +15,17 @@ export const cartAPI = createApi({
 			query: (id: number) => ({
 				url: `/basket/${id}`
 			}),
-			async onQueryStarted(arg, {queryFulfilled, dispatch}) {
+			async onQueryStarted(arg, { queryFulfilled, dispatch }) {
 				try {
 					const response = await queryFulfilled
 					dispatch(setDishes(response.data.items))
 					dispatch(calcTotalPrice(response.data.items))
 					dispatch(setCount(response.data.items))
 					dispatch(setId(response.data.id))
-				} catch{}
+				} catch {
+				}
 			},
-			providesTags: result => ['cart'],
+			providesTags: result => ['cart']
 		}),
 		addToCart: build.mutation<ICart, IAddDish>({
 			query: (addDish) => ({
@@ -32,13 +33,14 @@ export const cartAPI = createApi({
 				method: 'POST',
 				body: addDish
 			}),
-			async onQueryStarted(arg, {queryFulfilled, dispatch}) {
+			async onQueryStarted(arg, { queryFulfilled, dispatch }) {
 				try {
 					const response = await queryFulfilled
 					dispatch(calcTotalPrice(response.data.items))
 					dispatch(setCount(response.data.items))
 					console.log(response.data.items)
-				} catch{}
+				} catch {
+				}
 			},
 
 			invalidatesTags: ['cart']
@@ -57,11 +59,12 @@ export const cartAPI = createApi({
 				method: 'DELETE',
 				body: addDish
 			}),
-			async onQueryStarted(arg, {queryFulfilled, dispatch}) {
+			async onQueryStarted(arg, { queryFulfilled, dispatch }) {
 				try {
 					const response = await queryFulfilled
 					dispatch(calcTotalPrice(response.data.items))
-				} catch{}
+				} catch {
+				}
 			},
 			invalidatesTags: ['cart']
 		}),
@@ -71,10 +74,11 @@ export const cartAPI = createApi({
 				method: 'DELETE',
 				body: addDish
 			}),
-			async onQueryStarted(arg, {queryFulfilled, dispatch}) {
+			async onQueryStarted(arg, { queryFulfilled, dispatch }) {
 				try {
 					dispatch(setItems({}))
-				} catch{}
+				} catch {
+				}
 			},
 			invalidatesTags: ['cart']
 		})

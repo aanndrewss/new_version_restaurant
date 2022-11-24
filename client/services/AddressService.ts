@@ -6,7 +6,7 @@ import { GetIUser } from '../models/getIUser'
 
 export const addressAPI = createApi({
 	reducerPath: 'addressAPI',
-	baseQuery: fetchBaseQuery({baseUrl: 'http://localhost:5000'}),
+	baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:5000' }),
 	tagTypes: ['address'],
 	endpoints: (build) => ({
 		createAddress: build.mutation<GetIUser, IAddress>({
@@ -15,12 +15,13 @@ export const addressAPI = createApi({
 				method: 'POST',
 				body: address
 			}),
-			async onQueryStarted(arg, {queryFulfilled, dispatch}) {
+			async onQueryStarted(arg, { queryFulfilled, dispatch }) {
 				try {
 					const response = await queryFulfilled
 					dispatch(setAddresses(response.data.user.addresses))
 					dispatch(setUser(response.data.user))
-				} catch {}
+				} catch {
+				}
 			}
 		}),
 		updateAddress: build.mutation<GetIUser, IAddress>({
@@ -29,12 +30,13 @@ export const addressAPI = createApi({
 				method: 'PUT',
 				body: address
 			}),
-			async onQueryStarted(arg, {queryFulfilled, dispatch}) {
+			async onQueryStarted(arg, { queryFulfilled, dispatch }) {
 				try {
 					const response = await queryFulfilled
 					dispatch(setAddresses(response.data.user.addresses))
 					dispatch(setUser(response.data.user))
-				} catch {}
+				} catch {
+				}
 			}
 		}),
 		deleteAddress: build.mutation<GetIUser, IAddress>({
@@ -43,13 +45,14 @@ export const addressAPI = createApi({
 				method: 'DELETE',
 				body: address
 			}),
-			async onQueryStarted(arg, {queryFulfilled, dispatch}) {
+			async onQueryStarted(arg, { queryFulfilled, dispatch }) {
 				try {
 					const response = await queryFulfilled
 					dispatch(setAddresses(response.data.user.addresses))
 					dispatch(setUser(response.data.user))
-				} catch {}
+				} catch {
+				}
 			}
-		}),
+		})
 	})
 })

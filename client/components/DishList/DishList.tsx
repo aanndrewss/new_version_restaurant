@@ -1,7 +1,7 @@
 import React from 'react'
 import DishItem from './DishItem'
 import { dishAPI } from '../../services/DishService'
-import styles from '../../styles/DishList.module.scss'
+import styles from './DishList.module.scss'
 import wrapper from '../../styles/Home.module.scss'
 import { useAppSelector } from '../../hooks/redux'
 

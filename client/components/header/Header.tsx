@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react'
-import styles from './../styles/Header.module.scss'
+import styles from './Header.module.scss'
 import Link from 'next/link'
-import { BASKET_ROUTE, HOME_ROUTE, LOGIN_ROUTE, PROFILE_ROUTE } from '../utils/contstants'
-import { useAppSelector } from '../hooks/redux'
-import { userAPI } from '../services/UserService'
-import IconShoppingCart from '../icons/Cart'
-import IconUser from '../icons/User'
-import { cartAPI } from '../services/CartService'
-import IconAvatar from '../icons/Avatar'
+import { BASKET_ROUTE, HOME_ROUTE, LOGIN_ROUTE, PROFILE_ROUTE } from '../../utils/contstants'
+import { useAppSelector } from '../../hooks/redux'
+import { userAPI } from '../../services/UserService'
+import IconShoppingCart from '../../icons/Cart'
+import IconUser from '../../icons/User'
+import { cartAPI } from '../../services/CartService'
+import IconAvatar from '../../icons/Avatar'
 
 const Header = () => {
 

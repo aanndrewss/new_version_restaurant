@@ -1,6 +1,6 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import styles from '../../../styles/Profile.module.scss'
+import styles from './Address.module.scss'
 import { addressAPI } from '../../../services/AddressService'
 
 const AddAddressForm = ({ addresses, userId, setEditMode, setAddMode, addMode, editMode }) => {

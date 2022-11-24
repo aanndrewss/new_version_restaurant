@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { IDish } from '../../models/IDish'
-import styles from '../../styles/DishItem.module.scss'
+import styles from './DishItem.module.scss'
 import Link from 'next/link'
 import { DISH_ROUTE } from '../../utils/contstants'
 import { useAppSelector } from '../../hooks/redux'

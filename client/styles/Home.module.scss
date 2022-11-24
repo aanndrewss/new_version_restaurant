@@ -49,10 +49,12 @@
     @apply text-black text-[36px] font-extrabold pt-[87px] -mt-[87px];
 
   }
+
   .spanStock {
     @apply h-[1px] w-[calc(100%-35.6%)] bg-black opacity-30 mt-2 ml-[230px] absolute;
   }
 }
+
 .imgAndCardsWrapper {
   @apply flex-row flex justify-between mt-12;
   .cardWrapper {
@@ -64,11 +66,13 @@
         .cardHeading {
           @apply text-black text-[24px] font-bold;
         }
+
         .secondText {
           @apply text-black opacity-70 text-[14px];
         }
       }
     }
+
     .card {
       @apply rounded-xl max-w-[550px];
       .cardWrapperContent {
@@ -76,12 +80,14 @@
         .cardHeading {
           @apply text-black text-[24px] font-bold;
         }
+
         .secondText {
           @apply text-black opacity-70 text-[14px];
         }
       }
     }
   }
+
   .images {
     @apply object-contain;
   }
@@ -91,27 +97,31 @@
   @apply flex flex-row justify-start mt-12;
   .termsWrapper {
     @apply flex flex-col gap-10;
-    .term{
+    .term {
       @apply flex flex-row gap-6 items-center max-w-[550px];
       .termSvg {
         @apply text-[27px] text-green-500;
       }
+
       .termHeadings {
         @apply flex flex-col gap-2;
         .termHeading1 {
           @apply font-bold text-[24px];
         }
+
         .termHeading2 {
           @apply font-light text-[16px] opacity-80;
         }
       }
     }
   }
+
   .mapsWrapper {
     @apply flex flex-col gap-6 ml-32;
     .mapsHeading {
       @apply text-[30px] font-bold;
     }
+
     .citiesWrapper {
       @apply flex flex-col gap-4;
       .cityWrapper {
@@ -119,33 +129,39 @@
         .mapSvg {
           @apply text-green-500 text-[26px];
         }
+
         .city {
           @apply text-black font-bold text-[18px] cursor-pointer;
         }
       }
     }
   }
+
   .sep {
     @apply h-[1px] bg-black opacity-30 w-[350px];
   }
 }
+
 .aboutUs {
   @apply mt-24;
   .deliveryAboutWrapper {
     @apply flex flex-row items-center justify-end mt-8 gap-[70px];
     .deliveryInfoHeadingWrapper {
       @apply flex flex-row items-center gap-6;
-      .homeMapMarker{
+      .homeMapMarker {
         @apply text-green-500 text-[56px]
       }
+
       .deliveryInfoHeading {
         @apply text-black text-[16px] w-[270px] pt-[87px] -mt-[87px];
       }
     }
+
     .spanDelivery {
       @apply h-[1px] w-[calc(100%-30%)] bg-black opacity-30 mt-2 mr-[390px] absolute;
     }
   }
+
   .aboutUsWrapper {
     @apply flex flex-row mt-20 mb-20;
     .shef {
@@ -154,6 +170,7 @@
         @apply w-full block absolute w-[442px];
       }
     }
+
     .heroBlockAndBookButtonWrapper {
       @apply flex flex-col;
       .heroBlockAboutUsWrapper {
@@ -161,20 +178,25 @@
         .heroBlockAboutUs {
           @apply w-full bg-cover w-[690px] h-[675px];
           background-image: url('https://thumb.tildacdn.com/tild6335-3862-4863-b831-626632613538/-/cover/840x675/left/top/-/format/webp/onas2.jpg');
+
           .textWrapperAboutUs {
             @apply flex flex-col ml-[150px] pt-[60px] mr-[80px];
             .headingAboutUs {
               @apply text-white font-bold text-[36px] pt-[140px] -mt-[140px];
             }
+
             .aboutUsText1 {
               @apply text-white mt-6;
             }
-            .sep1{
+
+            .sep1 {
               @apply h-[1px] w-[450px] bg-gray-400 mt-6;
             }
+
             .aboutUsText2 {
               @apply text-white mt-6 font-bold;
             }
+
             .wrapperTextChef {
               @apply flex justify-end mt-12;
               .brandChefText {
@@ -184,14 +206,17 @@
           }
         }
       }
+
       .bookBtnWrapper {
         @apply flex ml-[480px] flex-col gap-2 mt-1.5;
         .bookBtnHeading {
           @apply font-bold text-[22px]
         }
+
         .bookBtnInfo {
           @apply font-medium text-[16px] text-black opacity-70;
         }
+
         .bookBtn1 {
           @apply mt-[13px] text-[16px] text-black border-[1px] border-green-500 rounded-[7px] w-[200px] h-[50px] font-bold z-10 hover:bg-green-500 hover:text-white transition-all duration-[0.33s];
         }

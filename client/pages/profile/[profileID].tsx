@@ -1,17 +1,16 @@
 import React from 'react'
 import { useAppSelector } from '../../hooks/redux'
-import styles from '../../styles/Profile.module.scss'
+import styles from '../../components/Profile/Profile.module.scss'
 import ProfileInfo from '../../components/Profile/ProfileInfo'
 import OrdersInfo from '../../components/Profile/Orders/OrdersInfo'
 import AddressesInfo from '../../components/Profile/Addresses/AddressesInfo'
 import { userAPI } from '../../services/UserService'
-import { profileAPI } from '../../services/ProfileService'
 
 const ProfilePage = () => {
 
 	const { user } = useAppSelector(state => state.userReducer)
-	const {data: userInfo} = userAPI.useFetchUserQuery(user.id)
-	const orders = []
+	const { data: userInfo } = userAPI.useFetchUserQuery(user.id)
+
 
 	return (
 		<div className={styles.profileWrapper}>
@@ -19,7 +18,7 @@ const ProfilePage = () => {
 				<ProfileInfo user={user} />
 				<div className={styles.ordersAndAddresses}>
 					<AddressesInfo addresses={user.addresses} userId={user.id} />
-					<OrdersInfo orders={orders}/>
+					<OrdersInfo orders={user.orders} />
 				</div>
 			</div>
 		</div>

@@ -5,6 +5,7 @@
     .brandName {
       @apply text-[36px] font-extrabold text-white;
     }
+
     .footerLinks {
       @apply flex flex-row gap-12;
       .footerLinks1 {
@@ -14,11 +15,13 @@
         }
       }
     }
+
     .contacts {
       @apply flex flex-col gap-3;
       .contactsHeading {
         @apply text-white text-[24px] font-bold text-center;
       }
+
       .contactsBlock {
         @apply flex flex-col gap-2;
         .contact {
@@ -26,22 +29,26 @@
         }
       }
     }
+
     .footerSocials {
       @apply flex flex-row gap-2;
       .footerSocial {
         @apply text-[24px] text-white cursor-pointer hover:text-green-400 transition-all duration-[0.33s]
       }
     }
+
     .rights {
       @apply flex flex-row gap-2 items-center;
       .madeBy {
         @apply text-gray-400 text-[12px];
       }
+
       .year {
         @apply text-white text-[14px] font-bold;
       }
     }
   }
+
   .sep {
     @apply h-[1px] bg-white mt-8 w-full inline-block mb-8;
   }

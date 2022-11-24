@@ -1,0 +1,17 @@
+.orders {
+  @apply shadow-md p-6 rounded-2xl border-gray-200 border-solid border-[1px];
+  .ordersWrapperHeading {
+    @apply flex flex-row justify-between items-center pb-2 border-[1px] border-solid border-transparent border-b-gray-300;
+    .ordersHeading {
+      @apply text-[20px] font-bold tracking-[1px];
+    }
+  }
+
+  .notHaveSmth {
+    @apply text-[18px] font-bold text-center mt-6;
+  }
+
+  .slide {
+    @apply shadow-md h-[150px] w-[150px];
+  }
+}

@@ -4,7 +4,7 @@ import { IType } from '../models/IType'
 
 export const typeAPI = createApi({
 	reducerPath: 'typeAPI',
-	baseQuery: fetchBaseQuery({baseUrl: 'http://localhost:5000' }),
+	baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:5000' }),
 	tagTypes: ['type'],
 	endpoints: (build) => ({
 		fetchTypes: build.query<IType[], any>({

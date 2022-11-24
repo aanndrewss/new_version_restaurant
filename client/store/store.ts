@@ -20,7 +20,7 @@ const rootReducer = combineReducers({
 	[typeAPI.reducerPath]: typeAPI.reducer,
 	[cartAPI.reducerPath]: cartAPI.reducer,
 	[profileAPI.reducerPath]: profileAPI.reducer,
-	[addressAPI.reducerPath]: addressAPI.reducer,
+	[addressAPI.reducerPath]: addressAPI.reducer
 })
 
 export const setupStore = () => {

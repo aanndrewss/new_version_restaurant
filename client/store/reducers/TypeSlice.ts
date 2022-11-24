@@ -38,6 +38,6 @@ export const typeSlice = createSlice({
 	}
 })
 
-export const {setSelectedType} = typeSlice.actions
+export const { setSelectedType } = typeSlice.actions
 
 export default typeSlice.reducer

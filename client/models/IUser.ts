@@ -1,4 +1,5 @@
 import { IAddress } from './IAddress'
+import { IOrder } from './IOrder'
 
 export interface IUser {
 	id: number
@@ -8,6 +9,7 @@ export interface IUser {
 	gender: string
 	avatarPath: string
 	addresses: IAddress[]
+	orders: IOrder[]
 }
 
 export interface setIUser {

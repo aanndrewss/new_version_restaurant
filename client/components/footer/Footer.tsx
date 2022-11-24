@@ -1,11 +1,11 @@
 import React from 'react'
-import styles from '../styles/Footer.module.scss'
-import wrapper from './../styles/Home.module.scss'
-import IconInstagram from '../icons/Instagram'
-import IconVk from '../icons/vk'
-import IconBxlTelegram from '../icons/tg'
+import styles from './Footer.module.scss'
+import wrapper from '../../styles/Home.module.scss'
+import IconInstagram from '../../icons/Instagram'
+import IconVk from '../../icons/vk'
+import IconBxlTelegram from '../../icons/tg'
 import Link from 'next/link'
-import { HOME_ROUTE } from '../utils/contstants'
+import { HOME_ROUTE } from '../../utils/contstants'
 
 const Footer = () => {
 	return (
@@ -70,13 +70,13 @@ const Footer = () => {
 					</div>
 					<div className={styles.footerSocials}>
 						<div className={styles.footerSocial}>
-							<IconInstagram/>
+							<IconInstagram />
 						</div>
 						<div className={styles.footerSocial}>
-							<IconVk/>
+							<IconVk />
 						</div>
 						<div className={styles.footerSocial}>
-							<IconBxlTelegram/>
+							<IconBxlTelegram />
 						</div>
 					</div>
 				</div>

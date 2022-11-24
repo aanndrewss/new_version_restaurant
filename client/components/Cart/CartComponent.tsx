@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../../styles/CartList.module.scss'
+import styles from './CartList.module.scss'
 import CartItem from './CartItem'
 import IconArrowRight from '../../icons/OrderArrow'
 import { cartAPI } from '../../services/CartService'
@@ -19,10 +19,10 @@ const CartComponent = () => {
 		<div className={styles.wrapper}>
 			<div className={styles.cardOfCart}>
 				<h2 className={styles.cartHeading}>
-					Cart <IconShoppingCart width={40} height={40}/>
+					Cart <IconShoppingCart width={40} height={40} />
 				</h2>
 				{dishes && dishes.items.map(item =>
-					<CartItem key={item.id} item={item}/>
+					<CartItem key={item.id} item={item} />
 				)}
 				{totalPrice != 0 ?
 					<div className={styles.orderSubmit}>

@@ -15,7 +15,7 @@ const Auth = () => {
 	const authID = router.query.authID
 	const isLogin = authID === 'login'
 	const [loginUser, {}] = userAPI.useSetLoginMutation()
-	const [registrateUser, {isError, error}] = userAPI.useSetRegistrationMutation()
+	const [registrateUser, { isError, error }] = userAPI.useSetRegistrationMutation()
 
 	const onSubmit = async ({ email, password }) => {
 		console.log(email, password)
@@ -33,7 +33,6 @@ const Auth = () => {
 	} = useForm({
 		mode: 'onBlur'
 	})
-
 
 
 	return (

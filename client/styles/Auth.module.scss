@@ -11,6 +11,7 @@
       .textField {
         @apply text-slate-50 bg-white bg-opacity-30 border-transparent border-r-2 m-1.5 px-3 py-2 rounded focus:border-pink-500 outline-none placeholder:text-slate-300;
       }
+
       .errorMessage {
         @apply text-pink-500 font-bold text-center;
       }
@@ -24,6 +25,7 @@
             @apply text-sky-500 cursor-pointer ml-1;
           }
         }
+
         .enterButton {
           @apply bg-green-400 text-white py-1 px-2 m-2 rounded-xl transition-colors hover:bg-green-600;
         }

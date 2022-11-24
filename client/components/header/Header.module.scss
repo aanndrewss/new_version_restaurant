@@ -14,13 +14,13 @@
         &:after {
           @apply content-[''] block absolute text-green-500 underline decoration-solid right-0 w-0 h-[2px] bottom-[-3px] transition-all duration-500;
         }
+
         &:hover:after {
           @apply content-[''] w-full block absolute left-0 h-[2px] bg-green-400 bottom-[-3px] transition-all duration-500;
         }
 
       }
     }
-
 
 
   }
@@ -31,6 +31,7 @@
   .btnEnter {
     @apply bg-green-400 text-white py-1 px-2 rounded-2xl transition-colors hover:bg-green-600;
   }
+
   .cart {
     @apply text-[18px] font-bold cursor-pointer bg-green-400 rounded-2xl pl-5 pr-5 py-1 px-2 text-white hover:bg-green-500 transition-all duration-300 flex flex-row items-center gap-2;
     .textCount {
@@ -39,6 +40,7 @@
   }
 
 }
+
 .dropdown {
   @apply relative inline-block flex flex-col items-center;
   .user {
@@ -47,6 +49,7 @@
       @apply w-[50px] h-[50px] object-cover rounded-[100px] border-2 border-gray-500;
     }
   }
+
   .dropdownContent {
     @apply invisible absolute z-50 mt-14 shadow-md max-w-[160px] bg-white rounded-2xl -translate-y-[10px] opacity-0 transition-all duration-[0.33s];
     .btnContent {
@@ -54,6 +57,7 @@
     }
   }
 }
+
 .dropdown:hover .dropdownContent {
   @apply visible opacity-100 translate-y-0;
 }

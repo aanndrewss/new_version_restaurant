@@ -1,12 +1,12 @@
 import React from 'react'
-import { typeAPI } from '../services/TypeService'
-import styles from '../styles/Types.module.scss'
-import IconArrowRightCircle from '../icons/Arrow'
+import { typeAPI } from '../../services/TypeService'
+import styles from './Types.module.scss'
+import IconArrowRightCircle from '../../icons/Arrow'
 import { useDispatch } from 'react-redux'
-import { setSelectedType } from '../store/reducers/TypeSlice'
+import { setSelectedType } from '../../store/reducers/TypeSlice'
 import Link from 'next/link'
-import { MENU_ROUTE } from '../utils/contstants'
-import IconSilverwareForkKnife from '../icons/Cutlery'
+import { MENU_ROUTE } from '../../utils/contstants'
+import IconSilverwareForkKnife from '../../icons/Cutlery'
 
 const TypeBar = () => {
 

@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { ICartItem } from '../../models/ICartItem'
-import styles from '../../styles/CartItem.module.scss'
+import styles from './CartItem.module.scss'
 import IconMinus from '../../icons/Minus'
 import IconPlus from '../../icons/Plus'
 import IconCross from '../../icons/Cross'
