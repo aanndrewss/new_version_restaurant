@@ -14,19 +14,46 @@
   .swiperWrapper {
     @apply flex flex-row mt-3 items-center;
     .swiper {
-      @apply m-3 flex flex-row;
+      @apply m-3 flex flex-row justify-center;
       .slide {
-        @apply shadow-md m-2 h-[150px] rounded-2xl overflow-hidden relative;
-        .slideImg {
-          @apply w-[50px] h-[50px] object-cover absolute;
+        @apply shadow-md m-2 h-[200px] pl-4 pr-4 pt-1.5 pb-1.5 rounded-2xl overflow-hidden relative;
+        .imgsWrapper {
+          @apply flex flex-row gap-3 justify-center items-center mt-2;
+          .slideImg {
+            @apply w-[50px] h-[50px] object-cover rounded-[5px];
+          }
+        }
+        .dateWrapper {
+          @apply flex flex-row justify-start items-center opacity-70 mt-1;
+        }
+        .addressWrapper {
+          @apply flex flex-row justify-start items-center gap-2;
+          .city {
+            @apply font-bold text-[14px];
+          }
+          .street {
+            @apply text-[13px];
+          }
+        }
+        .btnPriceWrapper {
+          @apply flex flex-row justify-between items-center mt-4;
+          .price {
+            @apply font-bold text-[18px];
+          }
+          .reorderBtn {
+            @apply pr-3 pl-3 pt-1.5 pb-1.5 bg-green-400 hover:bg-green-600 transition-all duration-[0.33s] rounded-2xl text-white text-[14px];
+          }
+        }
+        .textDetailed {
+          @apply text-[14px] w-fit text-green-400 hover:text-green-600 transition-all duration-[0.33s] cursor-pointer mt-2 flex flex-row items-center gap-1.5;
         }
       }
   }
     .prevArrow {
-      @apply w-[35px] h-[35px] rounded-[100px] hover:text-green-500 hover:bg-gray-200 transition-all duration-[0.2s];
+      @apply w-[35px] h-[35px] rounded-[100px] hover:text-green-500 transition-all duration-[0.2s] disabled:opacity-30 disabled:pointer-events-none;
     }
     .nextArrow {
-      @apply w-[40px] h-[35px] rounded-[25px] hover:text-green-500 hover:bg-gray-200 transition-all duration-[0.2s];
+      @apply w-[40px] h-[35px] rounded-[25px] hover:text-green-500 transition-all duration-[0.2s] disabled:opacity-30 disabled:pointer-events-none;
     }
 
 

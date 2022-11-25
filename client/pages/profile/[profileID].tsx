@@ -14,26 +14,52 @@ const ProfilePage = () => {
 		{
 			id: 1,
 			userId: 2,
+			date: new Date(2022, 11, 13),
+			price: 1232,
 			address: { city: 'Kazan', street: 'Dekabristov', home: 181 },
 			cart: {
-				id: 2, userId: 2, items: {
-					id: 1, basketId: 2, dishId: 4, count: 1, cartDish: {
+				id: 2, userId: 2, items: [
+					{
+					id: 1, basketId: 2, dishId: 4, count: 2, cartDish: {
 						id: 1,
 						name: 'Sushi with salmon',
 						grams: 32,
 						price: 125,
 						typeId: 1,
 						img: 'e1fd21e3-fae1-453c-aca6-87147346ce73.jpg'
-					}
-				}
+					},
+				},
+					{
+						id: 1, basketId: 2, dishId: 4, count: 2, cartDish: {
+							id: 1,
+							name: 'Sushi with salmon',
+							grams: 32,
+							price: 125,
+							typeId: 1,
+							img: 'e1fd21e3-fae1-453c-aca6-87147346ce73.jpg'
+						},
+					},
+					{
+						id: 1, basketId: 2, dishId: 4, count: 2, cartDish: {
+							id: 1,
+							name: 'Sushi with salmon',
+							grams: 32,
+							price: 125,
+							typeId: 1,
+							img: 'e1fd21e3-fae1-453c-aca6-87147346ce73.jpg'
+						},
+					},
+				]
 			}
 		},
 		{
 			id: 1,
 			userId: 2,
+			price: 1600,
+			date: new Date(2022, 9, 23),
 			address: { city: 'Kazan', street: 'Dekabristov', home: 181 },
 			cart: {
-				id: 2, userId: 2, items: {
+				id: 2, userId: 2, items: [{
 					id: 1, basketId: 2, dishId: 4, count: 1, cartDish: {
 						id: 1,
 						name: 'Sushi with salmon',
@@ -42,15 +68,17 @@ const ProfilePage = () => {
 						typeId: 1,
 						img: 'e1fd21e3-fae1-453c-aca6-87147346ce73.jpg'
 					}
-				}
+				}]
 			}
 		},
 		{
 			id: 1,
 			userId: 2,
+			price: 923,
+			date: new Date(2022, 2, 3),
 			address: { city: 'Kazan', street: 'Dekabristov', home: 181 },
 			cart: {
-				id: 2, userId: 2, items: {
+				id: 2, userId: 2, items: [{
 					id: 1, basketId: 2, dishId: 4, count: 1, cartDish: {
 						id: 1,
 						name: 'Sushi with salmon',
@@ -59,9 +87,28 @@ const ProfilePage = () => {
 						typeId: 1,
 						img: 'e1fd21e3-fae1-453c-aca6-87147346ce73.jpg'
 					}
-				}
+				}]
 			}
-		}
+		},
+		{
+			id: 1,
+			userId: 2,
+			price: 1600,
+			date: new Date(2022, 9, 23),
+			address: { city: 'Kazan', street: 'Dekabristov', home: 181 },
+			cart: {
+				id: 2, userId: 2, items: [{
+					id: 1, basketId: 2, dishId: 4, count: 1, cartDish: {
+						id: 1,
+						name: 'Sushi with salmon',
+						grams: 32,
+						price: 125,
+						typeId: 1,
+						img: 'e1fd21e3-fae1-453c-aca6-87147346ce73.jpg'
+					}
+				}]
+			}
+		},
 	]
 
 
