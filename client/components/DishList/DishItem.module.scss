@@ -20,7 +20,7 @@
       }
 
       .btnAddToCart {
-        @apply border-green-500 border-2 rounded-[10px] text-black font-bold hover:bg-green-500 p-1.5 text-[15px] hover:text-white transition-all duration-[0.33s] h-[40px];
+        @apply border-primary border-2 rounded-layout text-black font-bold hover:bg-primary p-1.5 text-[15px] hover:text-white transition-all duration-[0.33s] h-[40px];
       }
     }
 

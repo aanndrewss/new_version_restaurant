@@ -41,11 +41,11 @@
       .groupButton {
         @apply flex flex-row items-center gap-4;
         .btnMinus {
-          @apply w-[20px] h-[20px] rounded-[10px] flex justify-center items-center hover:bg-gray-200 transition-all duration-[0.2s] disabled:opacity-30 disabled:pointer-events-none;
+          @apply w-[20px] h-[20px] rounded-full flex justify-center items-center hover:bg-gray-200 transition-all duration-[0.2s] disabled:opacity-30 disabled:pointer-events-none;
         }
 
         .btnPlus {
-          @apply w-[20px] h-[20px] rounded-[10px] flex justify-center items-center hover:bg-gray-200  transition-all duration-[0.2s]
+          @apply w-[20px] h-[20px] rounded-full flex justify-center items-center hover:bg-gray-200  transition-all duration-[0.2s]
         }
 
         .count {

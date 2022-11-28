@@ -16,7 +16,7 @@
     .swiper {
       @apply m-3 flex flex-row justify-center;
       .slide {
-        @apply shadow-md m-2 h-[200px] pl-4 pr-4 pt-1.5 pb-1.5 rounded-2xl overflow-hidden relative;
+        @apply shadow-md m-2 h-[200px] px-4 py-1.5 rounded-layout overflow-hidden relative;
         .imgsWrapper {
           @apply flex flex-row gap-3 justify-center items-center mt-2;
           .slideImg {
@@ -41,19 +41,19 @@
             @apply font-bold text-[18px];
           }
           .reorderBtn {
-            @apply pr-3 pl-3 pt-1.5 pb-1.5 bg-green-400 hover:bg-green-600 transition-all duration-[0.33s] rounded-2xl text-white text-[14px];
+            @apply px-3 py-2 bg-primary hover:bg-secondary transition-all duration-[0.33s] rounded-layout text-white text-[14px];
           }
         }
         .textDetailed {
-          @apply text-[14px] w-fit text-green-400 hover:text-green-600 transition-all duration-[0.33s] cursor-pointer mt-2 flex flex-row items-center gap-1.5;
+          @apply text-[14px] w-fit text-primary hover:text-secondary transition-all duration-[0.33s] cursor-pointer mt-2 flex flex-row items-center gap-1.5;
         }
       }
   }
     .prevArrow {
-      @apply w-[35px] h-[35px] rounded-[100px] hover:text-green-500 transition-all duration-[0.2s] disabled:opacity-30 disabled:pointer-events-none;
+      @apply w-[35px] h-[35px] rounded-full hover:text-green-500 transition-all duration-[0.2s] disabled:opacity-30 disabled:pointer-events-none;
     }
     .nextArrow {
-      @apply w-[40px] h-[35px] rounded-[25px] hover:text-green-500 transition-all duration-[0.2s] disabled:opacity-30 disabled:pointer-events-none;
+      @apply w-[40px] h-[35px] rounded-full hover:text-primary transition-colors duration-[0.2s] disabled:opacity-30 disabled:pointer-events-none;
     }
 
 
