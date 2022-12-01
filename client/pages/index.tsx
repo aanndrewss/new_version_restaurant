@@ -8,12 +8,14 @@ import IconCash from '../icons/Term3'
 import IconBxMap from '../icons/Map'
 import IconHomeMapMarker from '../icons/HomeMap'
 import React from 'react'
+import Meta from '../app/Meta'
 
 
 export default function Home() {
 
 	return (
 		<>
+			<Meta title={'TAI PHO | BEST RESTAURANT'} />
 			<div className={styles.heroBlock}>
 				<div className={styles.wrapper}>
 					<div className={styles.contentWrapper}>
@@ -154,7 +156,7 @@ export default function Home() {
 					<div className={styles.deliveryAboutWrapper}>
 						<span className={styles.spanDelivery}></span>
 						<div className={styles.deliveryInfoHeadingWrapper}>
-							<IconHomeMapMarker className={styles.homeMapMarker}/>
+							<IconHomeMapMarker className={styles.homeMapMarker} />
 							<div className={styles.deliveryInfoHeading}>
 								To find out the minimum order value for free shipping or shipping cost, click on your area on the map
 							</div>
@@ -162,8 +164,10 @@ export default function Home() {
 
 					</div>
 					<div className={styles.aboutUsWrapper}>
-						<div className={styles.shef} >
-							<img className={styles.imgShef} src='https://thumb.tildacdn.com/tild3232-3539-4031-b564-643164643438/-/resize/442x/-/format/webp/shef.jpg' alt='Shef' />
+						<div className={styles.shef}>
+							<img className={styles.imgShef}
+									 src='https://thumb.tildacdn.com/tild3232-3539-4031-b564-643164643438/-/resize/442x/-/format/webp/shef.jpg'
+									 alt='Shef' />
 						</div>
 						<div className={styles.heroBlockAndBookButtonWrapper}>
 							<div className={styles.heroBlockAboutUsWrapper}>
@@ -173,11 +177,15 @@ export default function Home() {
 											About Us
 										</div>
 										<div className={styles.aboutUsText1}>
-											«If you have made an order for the first time in Mint Karas, then today is the day when you will truly fall in love with Pan-Asian cuisine. If you have already tried our cuisine and returned again, then you know a lot about panasia. Every day, our entire team strives to make it so.
+											«If you have made an order for the first time in Mint Karas, then today is the day when you will
+											truly fall in love with Pan-Asian cuisine. If you have already tried our cuisine and returned
+											again, then you know a lot about panasia. Every day, our entire team strives to make it so.
 										</div>
 										<span className={styles.sep1}></span>
 										<div className={styles.aboutUsText1}>
-											We are constantly looking for new solutions, we select ingredients. Moderately exotic for Siberia, and most importantly - high quality. We order products in Pan-Asia countries to preserve the true taste.
+											We are constantly looking for new solutions, we select ingredients. Moderately exotic for Siberia,
+											and most importantly - high quality. We order products in Pan-Asia countries to preserve the true
+											taste.
 										</div>
 										<div className={styles.aboutUsText1}>
 											We make sure that by ordering dishes in the «TAI PHO» you enjoy the moment and please yourself.
