@@ -56,9 +56,11 @@
       @apply p-2 block rounded-2xl w-full hover:bg-green-400 transition-all duration-[0.33s];
     }
   }
+  &:hover {
+    .dropdownContent {
+      @apply visible opacity-100 translate-y-0;
+    }
+  }
 }
 
-.dropdown:hover .dropdownContent {
-  @apply visible opacity-100 translate-y-0;
-}
 

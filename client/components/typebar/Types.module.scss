@@ -1,73 +1,62 @@
-.hiddenMenu {
-  @apply inline-block fixed p-[10px] mt-0 box-border w-[260px] bg-white h-[100%] top-0 left-[-230px] hover:left-0 transition-all duration-[0.33s] z-[55] translate-x-0 shadow-md shadow-gray-600;
-  .hiddenMenuTitleWrapper {
-    @apply flex flex-row items-center justify-center gap-2 ml-[28px];
-    .hiddenMenuTitle {
-      @apply text-[24px] font-bold tracking-[2px];
-    }
-    .square {
-      @apply text-primary text-[23px];
-    }
+
+.menu {
+
+  .menuBtn {
+    @apply bg-transparent p-[5px] fixed top-[13px] left-[5px] cursor-pointer transition-all duration-[0.33s] z-[58] w-[30px] translate-x-0
   }
-  .type {
-    @apply flex flex-col w-[150px] justify-center p-1 items-start cursor-pointer hover:bg-gray-100 transition-all text-[18px] rounded-layout tracking-wider duration-[0.33s] ml-[60px] mt-[20px];
-    .typeWrapper {
-      @apply flex flex-row items-center gap-[10px];
-      .arrow {
-        @apply text-primary text-[30px];
+
+  .menuBtn span {
+    @apply block h-[3px] bg-white mt-[5px] transition-all duration-[0.33s] relative
+  }
+
+  .menuBtn span.first {
+    @apply mt-0
+  }
+
+  .hiddenMenu {
+    @apply inline-block -translate-x-10 opacity-0 fixed p-[10px] mt-0 box-border w-[260px] bg-white h-[100%] top-0 invisible transition-all duration-[0.4s] z-[55] shadow-md shadow-gray-600;
+    .hiddenMenuTitleWrapper {
+      @apply flex flex-row items-center justify-center gap-2 ml-[28px];
+      .hiddenMenuTitle {
+        @apply text-[24px] font-bold tracking-[2px];
+      }
+      .square {
+        @apply text-primary text-[23px];
+      }
+    }
+    .type {
+      @apply flex flex-col w-[150px] justify-center p-1 items-start cursor-pointer hover:bg-gray-100 transition-all text-[18px] rounded-layout tracking-wider duration-[0.33s] ml-[60px] mt-[20px];
+      .typeWrapper {
+        @apply flex flex-row items-center gap-[10px];
+        .arrow {
+          @apply text-primary text-[30px];
+        }
       }
     }
   }
-}
 
-.menuBar:hover .hiddenMenu{
-  @apply left-0;
-}
+  &:hover {
+    .hiddenMenu {
+      @apply visible opacity-100 translate-x-0;
+    }
+    .menuBtn span.first {
+      @apply rotate-45 top-[8px];
+    }
+    .menuBtn span.second {
+      @apply opacity-0;
+    }
+    .menuBtn span.third {
+      @apply -rotate-45 -top-[8px]
+    }
+  }
 
-.menuBar {
-  @apply flex fixed box-border w-[40px] bg-black h-[100%] top-0 left-0 z-[57] text-center justify-center;
-  .menuTitle {
-    @apply rotate-180 text-white font-bold tracking-[5px] text-[18px] cursor-default tracking-[3px];
-    writing-mode: tb-rl;
+  .menuBar {
+    @apply flex fixed box-border w-[40px] bg-black h-[100%] top-0 left-0 z-[57] text-center justify-center;
+    .menuTitle {
+      @apply rotate-180 text-white font-bold tracking-[5px] text-[18px] cursor-default tracking-[3px];
+      writing-mode: tb-rl;
+    }
+
   }
 }
 
-.hiddenMenuTicker {
-  @apply hidden
-}
-
-.menuBtn {
-  @apply bg-transparent p-[5px] fixed top-[13px] left-[5px] cursor-pointer transition-all duration-[0.33s] z-[58] w-[30px] translate-x-0
-}
-
-.menuBtn span {
-  @apply block h-[3px] bg-white mt-[5px] transition-all duration-[0.33s] relative
-}
-
-.menuBtn span.first {
-  @apply mt-0
-}
-
-.hiddenMenuTicker:checked ~ .menuBtn {
-  @apply left-[5px]
-}
-
-.hiddenMenuTicker:checked ~ .hiddenMenu {
-  @apply left-0
-}
-
-.hiddenMenuTicker:checked ~ .menuBtn span.first {
-  @apply rotate-45 top-[8px]
-}
-
-.hiddenMenuTicker:checked ~ .menuBtn span.second {
-  @apply opacity-0
-}
-
-.hiddenMenuTicker:checked ~ .menuBtn span.third {
-  @apply -rotate-45 -top-[8px]
-}
-
-.hiddenMenuTicker:checked ~ .separator {
-  @apply h-[2px] w-[50px] ml-[60px] bg-primary z-[50] absolute;
-}

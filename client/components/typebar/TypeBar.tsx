@@ -7,25 +7,28 @@ import { setSelectedType } from '../../store/reducers/TypeSlice'
 import Link from 'next/link'
 import { MENU_ROUTE } from '../../utils/contstants'
 import IconSilverwareForkKnife from '../../icons/Cutlery'
+import { useOutside } from '../../hooks/useOutside'
+
 
 const TypeBar = () => {
 
 	const { data: types, error, isLoading } = typeAPI.useFetchTypesQuery('')
 	const dispatch = useDispatch()
+	const { isShow, setIsShow, ref } = useOutside(false)
 
 	return (
 		<>
 			<div className={styles.menu}>
-				<input type='checkbox' id='hmt' className={styles.hiddenMenuTicker} />
-				<label htmlFor='hmt' className={styles.menuBtn}>
-					<span className={styles.first}></span>
-					<span className={styles.second}></span>
-					<span className={styles.third}></span>
-				</label>
+
+					<label className={styles.menuBtn}>
+						<span className={styles.first}></span>
+						<span className={styles.second}></span>
+						<span className={styles.third}></span>
+					</label>
 				<div className={styles.menuBar}>
 					<p className={styles.menuTitle}>MENU</p>
 				</div>
-				<ul className={styles.hiddenMenu}>
+				<div className={styles.hiddenMenu}>
 					<div className={styles.hiddenMenuTitleWrapper}>
 						<div className={styles.square}><IconSilverwareForkKnife /></div>
 						<div className={styles.hiddenMenuTitle}>
@@ -53,7 +56,8 @@ const TypeBar = () => {
 							<span className={styles.separator}></span>
 						</>
 					)}
-				</ul>
+				</div>
+				<script src={'../../scripts/menuScript'}></script>
 			</div>
 		</>
 	)
