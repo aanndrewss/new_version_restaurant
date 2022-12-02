@@ -1,15 +1,12 @@
 import React from 'react'
 import DishList from '../app/components/DishList/DishList'
-import TypeBar from '../app/components/typebar/TypeBar'
+import Meta from '../app/Meta'
 
 function Menu(props) {
 
-
-	
-
 	return (
 		<div>
-
+			<Meta title={'Menu'} />
 			<DishList/>
 		</div>
 	)

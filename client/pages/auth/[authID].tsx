@@ -7,6 +7,7 @@ import { HOME_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE } from '../../app/utils/con
 import { userAPI } from '../../services/UserService'
 import { setIUser } from '../../app/models/IUser'
 import { useDispatch } from 'react-redux'
+import Meta from '../../app/Meta'
 
 const Auth = () => {
 
@@ -37,6 +38,7 @@ const Auth = () => {
 
 	return (
 		<div className={styles.wrapper}>
+			<Meta title={isLogin ? 'Login' : 'Create account'} />
 			<div className={styles.card}>
 				<div className={styles.heading}>
 					{isLogin ? 'Sign in' : 'Create account'}

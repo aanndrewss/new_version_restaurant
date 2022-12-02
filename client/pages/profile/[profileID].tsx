@@ -5,6 +5,7 @@ import ProfileInfo from '../../app/components/Profile/ProfileInfo'
 import OrdersInfo from '../../app/components/Profile/Orders/OrdersInfo'
 import AddressesInfo from '../../app/components/Profile/Addresses/AddressesInfo'
 import { userAPI } from '../../services/UserService'
+import Meta from '../../app/Meta'
 
 const ProfilePage = () => {
 
@@ -114,6 +115,7 @@ const ProfilePage = () => {
 
 	return (
 		<div className={styles.profileWrapper}>
+			<Meta title={'Profile'} />
 			<div className={styles.profileContentWrapper}>
 				<ProfileInfo user={user} />
 				<div className={styles.ordersAndAddresses}>

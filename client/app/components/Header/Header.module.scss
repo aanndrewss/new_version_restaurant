@@ -44,16 +44,16 @@
 .dropdown {
   @apply relative inline-block flex flex-col items-center;
   .user {
-    @apply hover:text-green-500 transition-all duration-300;
+    @apply hover:text-primary transition-all duration-300 cursor-pointer;
     .avatar {
-      @apply w-[50px] h-[50px] object-cover rounded-full border-[1px] border-gray-200;
+      @apply w-[50px] h-[50px] object-cover rounded-full border-[3px] border-gray-200;
     }
   }
 
   .dropdownContent {
     @apply invisible absolute z-50 mt-14 shadow-md max-w-[160px] bg-white rounded-2xl -translate-y-[10px] opacity-0 transition-all duration-[0.33s];
     .btnContent {
-      @apply p-2 block rounded-2xl w-full hover:bg-green-400 transition-all duration-[0.33s];
+      @apply p-2 block rounded-2xl w-full hover:bg-primary transition-all duration-[0.33s];
     }
   }
   &:hover {
