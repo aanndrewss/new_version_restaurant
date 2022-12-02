@@ -1,30 +1,34 @@
-import React, { useState } from 'react'
+import React, { FC, useState } from 'react'
 import styles from './Orders.module.scss'
 import OrderSlideItem from './OrderSlideItem'
 import ArrowDown from '../../../../public/icons/ArrowDown'
 import OrderDetails from './OrderDetails'
 import IconBxsUpArrow from '../../../../public/icons/UpArrow'
+import { IOrder } from '../../../models/IOrder'
 
+interface IOrderItemProps {
+	order: IOrder
+}
 
-const OrderItem = ({ date, cart, address, price }) => {
+const OrderItem: FC<IOrderItemProps> = ({ order }) => {
 
 	const [isOpen, setIsOpen] = useState(false)
 
 	return (
 		<>
 			<div className={styles.imgsWrapper}>
-				{cart.items.length > 0 ? cart.items.map((item) => <OrderSlideItem key={item.id} {...item} />) : false}
+				{order.cart.items.length > 0 ? order.cart.items.map((item) => <OrderSlideItem key={item.id} {...item} />) : false}
 			</div>
 			<div className={styles.dateWrapper}>
-				<div>{date.getDate()}</div>
+				<div>{order.date.getDate()}</div>
 				.
-				<div>{date.getMonth()}</div>
+				<div>{order.date.getMonth()}</div>
 				.
-				<div>{date.getFullYear()} y.</div>
+				<div>{order.date.getFullYear()} y.</div>
 			</div>
 			<div className={styles.addressWrapper}>
-				<div className={styles.city}>{address.city}</div>
-				<div className={styles.street}>{address.street}</div>
+				<div className={styles.city}>{order.address.city}</div>
+				<div className={styles.street}>{order.address.street}</div>
 			</div>
 			{isOpen ? null :
 				<div className={styles.textDetailed} onClick={() => setIsOpen(true)}>
@@ -33,7 +37,7 @@ const OrderItem = ({ date, cart, address, price }) => {
 			}
 			{isOpen ?
 				<div style={{marginTop: '1rem'}}>
-				 {cart.items.map(item => <OrderDetails key={item.id} {...item} />)}
+				 {order.cart.items.map(item => <OrderDetails key={item.id} item={item}/>)}
 				</div>
 					: null
 			}
@@ -47,7 +51,7 @@ const OrderItem = ({ date, cart, address, price }) => {
 					Repeat
 				</button>
 				<div className={styles.price}>
-					{price}₽
+					{order.price}₽
 				</div>
 			</div>
 		</>

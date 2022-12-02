@@ -1,9 +1,14 @@
-import React, { ChangeEvent, useState } from 'react'
+import React, { ChangeEvent, FC, useState } from 'react'
 import styles from './Profile.module.scss'
 import IconEdit2 from '../../../public/icons/Edit'
 import { profileAPI } from '../../../services/ProfileService'
+import { IUser } from '../../models/IUser'
 
-const ProfileInfo = ({ user }) => {
+interface IProfileProps {
+	user: IUser
+}
+
+const ProfileInfo: FC<IProfileProps>= ({ user }) => {
 
 	const [addAvatar, {}] = profileAPI.useUpdateUserAvatarMutation()
 	const [updateName, {}] = profileAPI.useUpdateUserNameMutation()

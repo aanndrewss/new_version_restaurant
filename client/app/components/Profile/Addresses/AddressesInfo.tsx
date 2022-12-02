@@ -1,10 +1,16 @@
-import React, { useState } from 'react'
+import React, { FC, useState } from 'react'
 import styles from './Address.module.scss'
 import IconAdd from '../../../../public/icons/Add'
 import AddressItem from './AddressesItem'
 import AddAddressForm from './AddAddressForm'
+import { IAddress } from '../../../models/IAddress'
 
-const AddressesInfo = ({ addresses, userId }) => {
+interface IAddressProps {
+	addresses: IAddress[]
+	userId: number
+}
+
+const AddressesInfo: FC<IAddressProps> = ({ addresses, userId }) => {
 
 	const [editMode, setEditMode] = useState(false)
 	const [addMode, setAddMode] = useState(false)
@@ -19,7 +25,7 @@ const AddressesInfo = ({ addresses, userId }) => {
 				<div className={styles.addressItemWrapper}>
 					{addresses && addresses.length === 0 ? <h2>You dont have address!</h2> :
 						addresses && addresses.map((address) => <AddressItem key={address.id} {...address} userId={userId}
-																																 editMode={editMode} setEditMode={setEditMode} />)
+																																  setEditMode={setEditMode} />)
 					}
 				</div>
 				{editMode || addMode ?

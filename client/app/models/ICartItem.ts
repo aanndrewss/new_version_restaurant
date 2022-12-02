@@ -5,5 +5,5 @@ export interface ICartItem {
 	basketId: number
 	dishId: number
 	count: number
-	cartDish: IDish[]
+	cartDish: IDish
 }

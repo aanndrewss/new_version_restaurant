@@ -1,13 +1,18 @@
-import React, { useCallback, useRef, useState } from 'react'
+import React, { FC, useCallback, useRef, useState } from 'react'
 import styles from './Orders.module.scss'
 import OrderItem from './OrderItem'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper'
 import IconBxRightArrow from '../../../../public/icons/NextArrowIcon'
 import IconBxLeftArrow from '../../../../public/icons/PrevArrowIcon'
+import { IOrder } from '../../../models/IOrder'
+
+interface IOrderProps {
+	orders: IOrder[]
+}
 
 
-const OrdersInfo = ({ orders }) => {
+const OrdersInfo: FC<IOrderProps> = ({ orders }) => {
 	const sliderRef = useRef(null)
 
 	const handlePrev = useCallback(() => {
@@ -51,7 +56,7 @@ const OrdersInfo = ({ orders }) => {
 						{orders && orders.length === 0 ? <h2 className={styles.notHaveSmth}>You don't have orders!</h2> :
 							orders && orders.map((order) =>
 								<SwiperSlide className={styles.slide} key={order.id}>
-									<OrderItem {...order} />
+									<OrderItem order={order} />
 								</SwiperSlide>
 							)
 						}
