@@ -1,11 +1,11 @@
 import React from 'react'
 import styles from './CartList.module.scss'
 import CartItem from './CartItem'
-import IconArrowRight from '../../icons/OrderArrow'
-import { cartAPI } from '../../services/CartService'
+import IconArrowRight from '../../../public/icons/OrderArrow'
+import { cartAPI } from '../../../services/CartService'
 import { useAppSelector } from '../../hooks/redux'
 import { useRouter } from 'next/router'
-import IconShoppingCart from '../../icons/Cart'
+import IconShoppingCart from '../../../public/icons/Cart'
 
 const CartComponent = () => {
 

@@ -1,4 +1,4 @@
-import { IDish } from '../../models/IDish'
+import { IDish } from '../../app/models/IDish'
 import { createSlice } from '@reduxjs/toolkit'
 
 interface DishState {

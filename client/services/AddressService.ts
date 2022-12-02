@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react'
-import { IAddress } from '../models/IAddress'
+import { IAddress } from '../app/models/IAddress'
 import { setAddresses, setUser } from '../store/reducers/UserSlice'
-import { GetIUser } from '../models/getIUser'
+import { GetIUser } from '../app/models/getIUser'
 
 
 export const addressAPI = createApi({

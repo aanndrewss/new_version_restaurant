@@ -1,9 +1,9 @@
 import React from 'react'
 import styles from './Footer.module.scss'
-import wrapper from '../../styles/Home.module.scss'
-import IconInstagram from '../../icons/Instagram'
-import IconVk from '../../icons/vk'
-import IconBxlTelegram from '../../icons/tg'
+import wrapper from '../../../styles/Home.module.scss'
+import IconInstagram from '../../../public/icons/Instagram'
+import IconVk from '../../../public/icons/vk'
+import IconBxlTelegram from '../../../public/icons/tg'
 import Link from 'next/link'
 import { HOME_ROUTE } from '../../utils/contstants'
 

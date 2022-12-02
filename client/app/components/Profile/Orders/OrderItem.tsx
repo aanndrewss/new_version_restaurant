@@ -2,7 +2,7 @@ import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import styles from './Orders.module.scss'
 import OrderSlideItem from './OrderSlideItem'
-import ArrowDown from '../../../icons/ArrowDown'
+import ArrowDown from '../../../../public/icons/ArrowDown'
 
 
 const OrderItem = ({ date, cart, address, price }) => {

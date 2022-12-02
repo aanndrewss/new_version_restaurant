@@ -1,8 +1,8 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { IUser, setIUser } from '../models/IUser'
-import { IAuth } from '../models/IAuth'
+import { IUser, setIUser } from '../app/models/IUser'
+import { IAuth } from '../app/models/IAuth'
 import { setAddresses, setIsAuth, setUser } from '../store/reducers/UserSlice'
-import { GetIUser } from '../models/getIUser'
+import { GetIUser } from '../app/models/getIUser'
 
 
 export const userAPI = createApi({

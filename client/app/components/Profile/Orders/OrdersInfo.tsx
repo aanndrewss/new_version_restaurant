@@ -3,8 +3,8 @@ import styles from './Orders.module.scss'
 import OrderItem from './OrderItem'
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react'
 import { Swiper as SwiperType, Navigation, Pagination } from 'swiper'
-import IconBxRightArrow from '../../../icons/NextArrowIcon'
-import IconBxLeftArrow from '../../../icons/PrevArrowIcon'
+import IconBxRightArrow from '../../../../public/icons/NextArrowIcon'
+import IconBxLeftArrow from '../../../../public/icons/PrevArrowIcon'
 
 
 const OrdersInfo = ({ orders }) => {

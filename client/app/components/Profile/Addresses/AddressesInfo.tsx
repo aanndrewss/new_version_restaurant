@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styles from './Address.module.scss'
-import IconAdd from '../../../icons/Add'
+import IconAdd from '../../../../public/icons/Add'
 import AddressItem from './AddressesItem'
 import AddAddressForm from './AddAddressForm'
 

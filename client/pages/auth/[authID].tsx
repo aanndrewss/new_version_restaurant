@@ -3,9 +3,9 @@ import { useRouter } from 'next/router'
 import styles from './../../styles/Auth.module.scss'
 import { useForm } from 'react-hook-form'
 import Link from 'next/link'
-import { HOME_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE } from '../../utils/contstants'
+import { HOME_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE } from '../../app/utils/contstants'
 import { userAPI } from '../../services/UserService'
-import { setIUser } from '../../models/IUser'
+import { setIUser } from '../../app/models/IUser'
 import { useDispatch } from 'react-redux'
 
 const Auth = () => {

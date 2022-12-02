@@ -1,4 +1,4 @@
-import { ICart } from '../../models/ICart'
+import { ICart } from '../../app/models/ICart'
 import { createSlice } from '@reduxjs/toolkit'
 
 interface ICartState {

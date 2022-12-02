@@ -1,6 +1,6 @@
 import React from 'react'
-import DishList from '../components/DishList/DishList'
-import TypeBar from '../components/typebar/TypeBar'
+import DishList from '../app/components/DishList/DishList'
+import TypeBar from '../app/components/typebar/TypeBar'
 
 function Menu(props) {
 

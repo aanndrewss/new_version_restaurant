@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useState } from 'react'
 import styles from './Profile.module.scss'
-import IconEdit2 from '../../icons/Edit'
-import { profileAPI } from '../../services/ProfileService'
+import IconEdit2 from '../../../public/icons/Edit'
+import { profileAPI } from '../../../services/ProfileService'
 
 const ProfileInfo = ({ user }) => {
 

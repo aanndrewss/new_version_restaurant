@@ -1,9 +1,9 @@
 import React from 'react'
-import { useAppSelector } from '../../hooks/redux'
-import styles from '../../components/Profile/Profile.module.scss'
-import ProfileInfo from '../../components/Profile/ProfileInfo'
-import OrdersInfo from '../../components/Profile/Orders/OrdersInfo'
-import AddressesInfo from '../../components/Profile/Addresses/AddressesInfo'
+import { useAppSelector } from '../../app/hooks/redux'
+import styles from '../../app/components/Profile/Profile.module.scss'
+import ProfileInfo from '../../app/components/Profile/ProfileInfo'
+import OrdersInfo from '../../app/components/Profile/Orders/OrdersInfo'
+import AddressesInfo from '../../app/components/Profile/Addresses/AddressesInfo'
 import { userAPI } from '../../services/UserService'
 
 const ProfilePage = () => {

@@ -1,8 +1,8 @@
 import React from 'react'
 import styles from './Address.module.scss'
-import IconEdit2 from '../../../icons/Edit'
-import IconDelete from '../../../icons/Delete'
-import { addressAPI } from '../../../services/AddressService'
+import IconEdit2 from '../../../../public/icons/Edit'
+import IconDelete from '../../../../public/icons/Delete'
+import { addressAPI } from '../../../../services/AddressService'
 
 const AddressItem = ({ city, street, home, id, userId, setEditMode }) => {
 

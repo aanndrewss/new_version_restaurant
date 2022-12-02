@@ -1,4 +1,4 @@
-import { IType } from '../../models/IType'
+import { IType } from '../../app/models/IType'
 import { createSlice } from '@reduxjs/toolkit'
 
 

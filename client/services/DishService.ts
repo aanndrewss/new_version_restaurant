@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { IDish } from '../models/IDish'
-import { IDishes } from '../models/IDishes'
+import { IDish } from '../app/models/IDish'
+import { IDishes } from '../app/models/IDishes'
 import { setDishes } from '../store/reducers/DishSlice'
 
 

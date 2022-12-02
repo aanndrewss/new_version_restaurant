@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { IType } from '../models/IType'
+import { IType } from '../app/models/IType'
 
 
 export const typeAPI = createApi({

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { typeAPI } from '../services/TypeService'
-import { IType } from '../models/IType'
+import { IType } from '../app/models/IType'
 
 
 type FormValues = {

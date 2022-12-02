@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react'
-import { ICart } from '../models/ICart'
-import { ICartItem } from '../models/ICartItem'
-import { IAddDish } from '../models/IAddDish'
+import { ICart } from '../app/models/ICart'
+import { ICartItem } from '../app/models/ICartItem'
+import { IAddDish } from '../app/models/IAddDish'
 import { setDishes } from '../store/reducers/DishSlice'
 import { calcTotalPrice, setCount, setId, setItems } from '../store/reducers/CartSlice'
 

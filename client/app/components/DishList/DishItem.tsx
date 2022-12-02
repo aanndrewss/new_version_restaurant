@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { DISH_ROUTE } from '../../utils/contstants'
 import { useAppSelector } from '../../hooks/redux'
 import { IAddDish } from '../../models/IAddDish'
-import { cartAPI } from '../../services/CartService'
+import { cartAPI } from '../../../services/CartService'
 
 interface DishItemProps {
 	dish: IDish

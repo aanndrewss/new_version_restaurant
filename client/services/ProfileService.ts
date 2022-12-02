@@ -1,11 +1,11 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { setAddresses, setUser } from '../store/reducers/UserSlice'
-import { IEmail } from '../models/IEmail'
-import { GetIUser } from '../models/getIUser'
-import { IName } from '../models/IName'
-import { IPhone } from '../models/IPhone'
-import { IGender } from '../models/IGender'
-import { IAvatar } from '../models/IAvatar'
+import { IEmail } from '../app/models/IEmail'
+import { GetIUser } from '../app/models/getIUser'
+import { IName } from '../app/models/IName'
+import { IPhone } from '../app/models/IPhone'
+import { IGender } from '../app/models/IGender'
+import { IAvatar } from '../app/models/IAvatar'
 
 
 export const profileAPI = createApi({
