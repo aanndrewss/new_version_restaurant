@@ -41,7 +41,7 @@ const ProfilePage = () => {
 						},
 					},
 					{
-						id: 1, basketId: 2, dishId: 4, count: 2, cartDish: {
+						id: 1, basketId: 2, dishId: 4, count: 4, cartDish: {
 							id: 1,
 							name: 'Sushi with salmon',
 							grams: 32,

@@ -1,21 +1,21 @@
-import * as React from "react";
+import * as React from 'react'
 
 function IconEdit2(props: React.SVGProps<SVGSVGElement>) {
 	return (
 		<svg
-			fill="none"
-			stroke="currentColor"
-			strokeLinecap="round"
-			strokeLinejoin="round"
+			fill='none'
+			stroke='currentColor'
+			strokeLinecap='round'
+			strokeLinejoin='round'
 			strokeWidth={2}
-			viewBox="0 0 24 24"
-			height="16px"
-			width="16px"
+			viewBox='0 0 24 24'
+			height='16px'
+			width='16px'
 			{...props}
 		>
-			<path d="M17 3a2.828 2.828 0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z" />
+			<path d='M17 3a2.828 2.828 0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z' />
 		</svg>
-	);
+	)
 }
 
-export default IconEdit2;
+export default IconEdit2

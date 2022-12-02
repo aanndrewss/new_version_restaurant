@@ -16,42 +16,66 @@
     .swiper {
       @apply m-3 flex flex-row justify-center;
       .slide {
-        @apply shadow-md m-2 h-[200px] px-4 py-1.5 rounded-layout overflow-hidden relative;
+        @apply shadow-md m-2 h-fit px-4 py-1.5 rounded-layout overflow-hidden relative;
         .imgsWrapper {
           @apply flex flex-row gap-3 justify-center items-center mt-2;
           .slideImg {
             @apply w-[50px] h-[50px] object-cover rounded-[5px];
           }
         }
+
         .dateWrapper {
           @apply flex flex-row justify-start items-center opacity-70 mt-1;
         }
+
         .addressWrapper {
           @apply flex flex-row justify-start items-center gap-2;
           .city {
             @apply font-bold text-[14px];
           }
+
           .street {
             @apply text-[13px];
           }
         }
+
         .btnPriceWrapper {
           @apply flex flex-row justify-between items-center mt-4;
           .price {
             @apply font-bold text-[18px];
           }
+
           .reorderBtn {
             @apply px-3 py-2 bg-primary hover:bg-secondary transition-all duration-[0.33s] rounded-layout text-white text-[14px];
           }
         }
+
         .textDetailed {
           @apply text-[14px] w-fit text-primary hover:text-secondary transition-all duration-[0.33s] cursor-pointer mt-2 flex flex-row items-center gap-1.5;
         }
+
+        .orderDetailWrapper {
+          @apply flex flex-col gap-2;
+          .orderDetailItem {
+            @apply flex flex-row gap-3 items-center;
+            > h3 {
+              @apply text-[13px] font-semibold;
+            }
+            > span {
+              @apply text-[13px] flex flex-row gap-0.5 items-center;
+              .crossIcon {
+                @apply text-[9px]
+              }
+            }
+          }
+        }
       }
-  }
+    }
+
     .prevArrow {
       @apply w-[35px] h-[35px] rounded-full hover:text-green-500 transition-all duration-[0.2s] disabled:opacity-30 disabled:pointer-events-none;
     }
+
     .nextArrow {
       @apply w-[40px] h-[35px] rounded-full hover:text-primary transition-colors duration-[0.2s] disabled:opacity-30 disabled:pointer-events-none;
     }

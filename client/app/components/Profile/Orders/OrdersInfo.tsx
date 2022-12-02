@@ -1,8 +1,8 @@
 import React, { useCallback, useRef, useState } from 'react'
 import styles from './Orders.module.scss'
 import OrderItem from './OrderItem'
-import { Swiper, SwiperSlide, useSwiper } from 'swiper/react'
-import { Swiper as SwiperType, Navigation, Pagination } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation } from 'swiper'
 import IconBxRightArrow from '../../../../public/icons/NextArrowIcon'
 import IconBxLeftArrow from '../../../../public/icons/PrevArrowIcon'
 
@@ -19,12 +19,15 @@ const OrdersInfo = ({ orders }) => {
 		if (!sliderRef.current) return
 		sliderRef.current.swiper.slideNext()
 	}, [])
+
 	const [reachEnd, setReachEnd] = useState(false)
 	const [reachStart, setReachStart] = useState(false)
+
 	const handleChange = () => {
 		setReachStart(false)
 		setReachEnd(false)
 	}
+
 	return (
 		<div>
 			<div className={styles.orders}>
@@ -43,7 +46,6 @@ const OrdersInfo = ({ orders }) => {
 						onReachBeginning={() => setReachStart(true)}
 						onInit={() => setReachStart(true)}
 						onFromEdge={handleChange}
-
 						slidesOffsetAfter={40}
 					>
 						{orders && orders.length === 0 ? <h2 className={styles.notHaveSmth}>You don't have orders!</h2> :
@@ -56,7 +58,6 @@ const OrdersInfo = ({ orders }) => {
 					</Swiper>
 					<button disabled={reachEnd} className={styles.nextArrow} onClick={handleNext}><IconBxRightArrow /></button>
 				</div>
-
 			</div>
 		</div>
 	)
