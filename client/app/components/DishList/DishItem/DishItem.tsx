@@ -1,11 +1,11 @@
 import React, { FC } from 'react'
-import { IDish } from '../../models/IDish'
+import { IDish } from '../../../models/IDish'
 import styles from './DishItem.module.scss'
 import Link from 'next/link'
-import { DISH_ROUTE } from '../../utils/contstants'
-import { useAppSelector } from '../../hooks/redux'
-import { IAddDish } from '../../models/IAddDish'
-import { cartAPI } from '../../../services/CartService'
+import { DISH_ROUTE } from '../../../utils/contstants'
+import { useAppSelector } from '../../../hooks/redux'
+import { IAddDish } from '../../../models/IAddDish'
+import { cartAPI } from '../../../../services/CartService'
 
 interface DishItemProps {
 	dish: IDish

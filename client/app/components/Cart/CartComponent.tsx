@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './CartList.module.scss'
-import CartItem from './CartItem'
+import CartItem from './CartItem/CartItem'
 import IconArrowRight from '../../../public/icons/OrderArrow'
 import { cartAPI } from '../../../services/CartService'
 import { useAppSelector } from '../../hooks/redux'

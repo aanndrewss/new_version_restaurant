@@ -1,5 +1,5 @@
 import React from 'react'
-import DishItem from './DishItem'
+import DishItem from './DishItem/DishItem'
 import { dishAPI } from '../../../services/DishService'
 import styles from './DishList.module.scss'
 import wrapper from '../../../styles/Home.module.scss'

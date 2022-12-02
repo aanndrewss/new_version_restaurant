@@ -1,12 +1,12 @@
 import React, { FC } from 'react'
-import { ICartItem } from '../../models/ICartItem'
+import { ICartItem } from '../../../models/ICartItem'
 import styles from './CartItem.module.scss'
-import IconMinus from '../../../public/icons/Minus'
-import IconPlus from '../../../public/icons/Plus'
-import IconCross from '../../../public/icons/Cross'
-import { cartAPI } from '../../../services/CartService'
-import { useAppSelector } from '../../hooks/redux'
-import { IAddDish } from '../../models/IAddDish'
+import IconMinus from '../../../../public/icons/Minus'
+import IconPlus from '../../../../public/icons/Plus'
+import IconCross from '../../../../public/icons/Cross'
+import { cartAPI } from '../../../../services/CartService'
+import { useAppSelector } from '../../../hooks/redux'
+import { IAddDish } from '../../../models/IAddDish'
 
 interface CartItemProps {
 	item: ICartItem
