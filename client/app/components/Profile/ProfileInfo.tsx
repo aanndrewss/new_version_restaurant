@@ -92,6 +92,7 @@ const ProfileInfo = ({ user }) => {
 					position: 'absolute',
 					height: '150px',
 					width: '150px',
+					marginTop: '-5.5rem',
 					cursor: 'pointer'
 				}} type='file' onChange={onMainPhotoSelected} />
 			</div>
