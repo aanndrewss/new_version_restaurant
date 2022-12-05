@@ -1,15 +1,15 @@
 .wrapper {
-  @apply flex items-center justify-center;
+  @apply flex items-center justify-center min-h-[100vh];
   .card {
-    @apply w-96 p-1 rounded-xl bg-slate-600 shadow-xl h-fit mt-32;
+    @apply w-[420px] p-1 rounded-2xl shadow-[1px_6px_10px_1px_rgba(0,0,0,0.3)] h-fit;
     .heading {
-      @apply text-white text-center font-bold text-2xl mb-3 mt-1;
+      @apply text-black text-center font-bold text-2xl mb-3 mt-1;
     }
 
     .form {
       @apply flex flex-col;
       .textField {
-        @apply text-slate-50 bg-white bg-opacity-30 border-transparent border-r-2 m-1.5 px-3 py-2 rounded focus:border-pink-500 outline-none placeholder:text-slate-300;
+        @apply text-black border-[1px] border-solid border-b-gray-200 bg-white bg-opacity-30 border-transparent m-1.5 px-3 py-2 rounded focus:border-primary outline-none placeholder:text-slate-300;
       }
 
       .errorMessage {
@@ -20,14 +20,14 @@
         @apply grid grid-cols-2 items-center px-2;
 
         .text {
-          @apply text-slate-50 text-xs flex flex-row;
+          @apply text-black text-xs flex flex-row;
           .link {
-            @apply text-sky-500 cursor-pointer ml-1;
+            @apply text-sky-600 cursor-pointer ml-1 hover:underline;
           }
         }
 
         .enterButton {
-          @apply bg-green-400 text-white py-1 px-2 m-2 rounded-xl transition-colors hover:bg-green-600;
+          @apply bg-primary text-white py-1 px-2 m-2 rounded-xl transition-colors hover:bg-secondary;
         }
       }
 

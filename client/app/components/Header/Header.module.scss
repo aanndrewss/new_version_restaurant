@@ -29,7 +29,7 @@
 .enterLinks {
   @apply flex items-center gap-2;
   .btnEnter {
-    @apply bg-primary text-white py-1 px-2 rounded-layout transition-colors hover:bg-secondary;
+    @apply bg-primary text-white py-1 px-4 rounded-layout transition-colors hover:bg-secondary;
   }
 
   .cart {
