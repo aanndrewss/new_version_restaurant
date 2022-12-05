@@ -35,6 +35,10 @@ const ProfileInfo: FC<IProfileProps>= ({ user }) => {
 		}
 	}
 
+	const onGenderChange = (e: ChangeEvent<HTMLSelectElement>) => {
+		setGender(e.target.value)
+	}
+
 	const onNameChange = (e: ChangeEvent<HTMLInputElement>) => {
 		setName(e.currentTarget.value)
 	}
@@ -44,9 +48,7 @@ const ProfileInfo: FC<IProfileProps>= ({ user }) => {
 	const onPhoneChange = (e: ChangeEvent<HTMLInputElement>) => {
 		setPhone(e.currentTarget.value)
 	}
-	const onGenderChange = (e: ChangeEvent<HTMLInputElement>) => {
-		setGender(e.currentTarget.value)
-	}
+
 
 
 	const onNameBlur = () => {
@@ -148,7 +150,10 @@ const ProfileInfo: FC<IProfileProps>= ({ user }) => {
 					{
 						editGenderMode ?
 							<div className={styles.inputInfoWrapper}>
-								<input className={styles.customInput} autoFocus={true} type='text' value={gender} onChange={onGenderChange} onBlur={onGenderBlur} />
+								<select className={styles.customInput} style={{paddingBottom: '0.4rem', paddingTop: '0.4rem'}} autoFocus={true} value={gender} onChange={onGenderChange} onBlur={onGenderBlur}>
+									<option value='Male'>Male</option>
+									<option value='Female'>Female</option>
+								</select>
 							</div>
 							:
 							<div className={styles.infoItem}>
