@@ -27,6 +27,6 @@
   }
 
   .img {
-    @apply lg:w-52 xl:w-80 hover:scale-[1.02] h-[200px] object-cover duration-[0.3s] transition-all flex justify-center cursor-pointer rounded-2xl;
+    @apply lg:w-[200px] xl:w-[250px] hover:scale-[1.02] h-[200px] object-cover duration-[0.3s] transition-all flex justify-center cursor-pointer rounded-2xl;
   }
 }

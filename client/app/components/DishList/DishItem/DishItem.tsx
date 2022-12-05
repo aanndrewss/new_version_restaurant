@@ -6,6 +6,7 @@ import { DISH_ROUTE } from '../../../utils/contstants'
 import { useAppSelector } from '../../../hooks/redux'
 import { IAddDish } from '../../../models/IAddDish'
 import { cartAPI } from '../../../../services/CartService'
+import Image from 'next/image'
 
 interface DishItemProps {
 	dish: IDish
@@ -26,7 +27,7 @@ const DishItem: FC<DishItemProps> = ({ dish }) => {
 	return (
 		<div className={styles.card}>
 			<Link href={DISH_ROUTE + `/${dish.id}`}>
-				<img className={styles.img} src={'http://localhost:5000/' + dish.img} alt='' />
+				<Image width={250} height={200} className={styles.img} src={'http://localhost:5000/' + dish.img} alt='' />
 			</Link>
 			<div className={styles.cardInfoWrapper}>
 				<div className={styles.name}>{dish.name}</div>
