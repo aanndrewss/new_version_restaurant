@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react'
 import { IAddress } from '../app/models/IAddress'
-import { setAddresses, setUser } from '../store/reducers/UserSlice'
+import { setUser } from '../store/reducers/UserSlice'
 import { GetIUser } from '../app/models/getIUser'
 
 
@@ -18,7 +18,6 @@ export const addressAPI = createApi({
 			async onQueryStarted(arg, { queryFulfilled, dispatch }) {
 				try {
 					const response = await queryFulfilled
-					dispatch(setAddresses(response.data.user.addresses))
 					dispatch(setUser(response.data.user))
 				} catch {
 				}
@@ -33,7 +32,6 @@ export const addressAPI = createApi({
 			async onQueryStarted(arg, { queryFulfilled, dispatch }) {
 				try {
 					const response = await queryFulfilled
-					dispatch(setAddresses(response.data.user.addresses))
 					dispatch(setUser(response.data.user))
 				} catch {
 				}
@@ -48,7 +46,6 @@ export const addressAPI = createApi({
 			async onQueryStarted(arg, { queryFulfilled, dispatch }) {
 				try {
 					const response = await queryFulfilled
-					dispatch(setAddresses(response.data.user.addresses))
 					dispatch(setUser(response.data.user))
 				} catch {
 				}

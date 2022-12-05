@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { setAddresses, setUser } from '../store/reducers/UserSlice'
+import { setUser } from '../store/reducers/UserSlice'
 import { IEmail } from '../app/models/IEmail'
 import { GetIUser } from '../app/models/getIUser'
 import { IName } from '../app/models/IName'
@@ -23,7 +23,6 @@ export const profileAPI = createApi({
 				try {
 					const response = await queryFulfilled
 					dispatch(setUser(response.data.user))
-					dispatch(setAddresses(response.data.user.addresses))
 				} catch {
 				}
 			}

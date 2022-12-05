@@ -14,6 +14,7 @@ const AddressesInfo: FC<IAddressProps> = ({ addresses, userId }) => {
 
 	const [editMode, setEditMode] = useState(false)
 	const [addMode, setAddMode] = useState(false)
+	const [editValues, setEditValues] = useState({})
 
 	return (
 		<div>
@@ -24,13 +25,13 @@ const AddressesInfo: FC<IAddressProps> = ({ addresses, userId }) => {
 				</div>
 				<div className={styles.addressItemWrapper}>
 					{addresses && addresses.length === 0 ? <h2>You dont have address!</h2> :
-						addresses && addresses.map((address) => <AddressItem key={address.id} {...address} userId={userId}
-																																  setEditMode={setEditMode} />)
+						addresses && addresses.map((address) => <AddressItem key={address.id} address={address} userId={userId}
+																																  setEditMode={setEditMode} setEditValues={setEditValues} />)
 					}
 				</div>
 				{editMode || addMode ?
-					<AddAddressForm addresses={addresses} userId={userId} setEditMode={setEditMode} setAddMode={setAddMode}
-													addMode={addMode} editMode={editMode} />
+					<AddAddressForm address={editValues} userId={userId} setEditMode={setEditMode} setAddMode={setAddMode}
+													editMode={editMode} />
 					: null
 				}
 			</div>

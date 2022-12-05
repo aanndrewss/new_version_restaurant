@@ -1,5 +1,5 @@
 .orders {
-  @apply shadow-md p-6 rounded-2xl border-gray-200 border-solid border-[1px];
+  @apply shadow-[1px_2px_5px_1px_rgba(0,0,0,0.3)] p-6 rounded-2xl;
   .ordersWrapperHeading {
     @apply flex flex-row justify-between items-center pb-2 border-[1px] border-solid border-transparent border-b-gray-300;
     .ordersHeading {

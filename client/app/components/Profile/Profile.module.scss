@@ -4,12 +4,12 @@
   .profileContentWrapper {
     @apply grid grid-cols-[300px_minmax(400px,_2fr)] gap-6;
     .profile {
-      @apply shadow-md p-4 rounded-2xl flex flex-col border-gray-200 border-solid border-[1px] h-fit mt-20;
+      @apply shadow-[1px_2px_5px_1px_rgba(0,0,0,0.3)] p-4 rounded-2xl flex flex-col h-fit mt-20;
       .avatarWrapper {
         @apply flex justify-center items-center relative;
 
         .avatar {
-          @apply rounded-full w-[150px] h-[150px] object-cover border-gray-300 border-2;
+          @apply rounded-full w-[150px] h-[150px] object-cover border-gray-300 border-[1px] border-solid;
           margin-top: -5.5rem;
         }
 

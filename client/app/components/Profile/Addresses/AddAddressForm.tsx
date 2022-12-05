@@ -1,12 +1,35 @@
-import React from 'react'
+import React, { ChangeEvent, FC, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import styles from './Address.module.scss'
 import { addressAPI } from '../../../../services/AddressService'
+import { IAddress } from '../../../models/IAddress'
 
-const AddAddressForm = ({ addresses, userId, setEditMode, setAddMode, addMode, editMode }) => {
+interface IAddAddressFormProps {
+	address: IAddress,
+	userId: number,
+	setEditMode: (editMode: boolean) => void,
+	setAddMode: (AddMode: boolean) => void,
+	editMode: boolean
+}
+
+const AddAddressForm: FC<IAddAddressFormProps> = ({ address, userId, setEditMode, setAddMode, editMode }) => {
 
 	const [createAddress, {}] = addressAPI.useCreateAddressMutation()
 	const [updateAddress, {}] = addressAPI.useUpdateAddressMutation()
+
+	const [city, setCity] = useState(address.city)
+	const [street, setStreet] = useState(address.street)
+	const [home, setHome] = useState(address.home)
+
+	const onCityChange = (e: ChangeEvent<HTMLInputElement>) => {
+		setCity(e.currentTarget.value)
+	}
+	const onStreetChange = (e: ChangeEvent<HTMLInputElement>) => {
+		setStreet(e.currentTarget.value)
+	}
+	const onHomeChange = (e: ChangeEvent<HTMLInputElement>) => {
+		setHome(e.currentTarget.value)
+	}
 
 	const {
 		register,
@@ -16,7 +39,6 @@ const AddAddressForm = ({ addresses, userId, setEditMode, setAddMode, addMode, e
 	})
 
 	const onSubmit = (formData) => {
-		setAddMode(false)
 
 		const values = {
 			userId: userId,
@@ -24,7 +46,20 @@ const AddAddressForm = ({ addresses, userId, setEditMode, setAddMode, addMode, e
 			street: formData.street,
 			home: formData.home
 		}
-		createAddress(values)
+		const values1 = {
+			id: address.id,
+			userId: userId,
+			city: formData.city,
+			street: formData.street,
+			home: formData.home
+		}
+		setEditMode(false)
+		setAddMode(false)
+
+		{editMode ?
+			updateAddress(values1) :
+			createAddress(values)
+		}
 	}
 
 	return (
@@ -39,15 +74,17 @@ const AddAddressForm = ({ addresses, userId, setEditMode, setAddMode, addMode, e
 							placeholder='City'
 							className={styles.customFormInput}
 							autoComplete='off'
-							value={addresses.city}
+							onChange={onCityChange}
+							value={city}
 						/>
 						<input
 							{...register('street', {
 								required: 'Field is required!'
 							})}
-							value={addresses.street}
+							value={street}
 							placeholder='Street'
 							className={styles.customFormInput}
+							onChange={onStreetChange}
 							autoComplete='off'
 						/>
 						<input
@@ -55,9 +92,10 @@ const AddAddressForm = ({ addresses, userId, setEditMode, setAddMode, addMode, e
 								required: 'Field is required!'
 							})}
 							placeholder='Home'
+							onChange={onHomeChange}
 							className={styles.customFormInput}
 							autoComplete='off'
-							value={addresses.home}
+							value={home}
 						/>
 					</div> :
 					<div className={styles.inputsWrapper}>

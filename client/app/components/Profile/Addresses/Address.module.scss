@@ -1,5 +1,5 @@
 .addresses {
-  @apply border-gray-200 border-solid border-[1px] shadow-md p-6 rounded-2xl;
+  @apply shadow-[1px_2px_5px_1px_rgba(0,0,0,0.3)] p-6 rounded-2xl;
   .addressesWrapperHeading {
     @apply flex flex-row justify-between items-center pb-2 border-[1px] border-solid border-transparent border-b-gray-300;
     .addressesHeading {
