@@ -1,5 +1,5 @@
 .grid1 {
-  @apply grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-28 mt-4;
+  @apply grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-32 mt-4;
 }
 
 .spanWrapper {
@@ -10,6 +10,6 @@
   }
 
   .sep {
-    @apply h-[2px] w-[550px] bg-gray-400 ml-[70px] mt-12;
+    @apply h-[1px] w-[550px] bg-gray-400 ml-[70px] mt-12;
   }
 }

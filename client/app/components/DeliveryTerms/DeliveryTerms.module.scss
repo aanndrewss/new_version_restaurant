@@ -1,0 +1,61 @@
+
+.stockWrapper {
+  @apply flex flex-row items-center mt-8 gap-[70px];
+  .stockHeading {
+    @apply text-black text-[36px] font-extrabold pt-[87px] -mt-[87px];
+
+  }
+
+  .spanStock {
+    @apply h-[1px] w-[calc(100%-35.6%)] bg-black opacity-30 mt-2 ml-[230px] absolute;
+  }
+}
+
+.termsAndCityWrapper {
+  @apply flex flex-row justify-start mt-12;
+  .termsWrapper {
+    @apply flex flex-col gap-10;
+    .term {
+      @apply flex flex-row gap-6 items-center max-w-[550px];
+      .termSvg {
+        @apply text-[27px] text-green-500;
+      }
+
+      .termHeadings {
+        @apply flex flex-col gap-2;
+        .termHeading1 {
+          @apply font-bold text-[24px];
+        }
+
+        .termHeading2 {
+          @apply font-light text-[16px] opacity-80;
+        }
+      }
+    }
+  }
+
+  .mapsWrapper {
+    @apply flex flex-col gap-6 ml-32;
+    .mapsHeading {
+      @apply text-[30px] font-bold;
+    }
+
+    .citiesWrapper {
+      @apply flex flex-col gap-4;
+      .cityWrapper {
+        @apply flex flex-row gap-2;
+        .mapSvg {
+          @apply text-green-500 text-[26px];
+        }
+
+        .city {
+          @apply text-black font-bold text-[18px] cursor-pointer;
+        }
+      }
+    }
+  }
+
+  .sep {
+    @apply h-[1px] bg-black opacity-30 w-[350px];
+  }
+}

@@ -1,6 +1,6 @@
 
 .profileWrapper {
-  @apply pt-24 max-w-5xl mb-16 m-auto w-full;
+  @apply pt-[130px] max-w-5xl m-auto w-full min-h-[100vh];
   .profileContentWrapper {
     @apply grid grid-cols-[300px_minmax(400px,_2fr)] gap-6;
     .profile {
@@ -46,7 +46,10 @@
           .inputInfoWrapper {
             @apply flex flex-row justify-start items-center gap-2;
             .customInput {
-              @apply py-1 pl-2 w-full rounded-[3px] bg-gray-200 outline-none text-[16px];
+              @apply py-1 pl-2 w-full rounded-[3px] bg-gray-200 outline-none border-none scroll-smooth text-[16px];
+              > option {
+
+              }
             }
           }
 

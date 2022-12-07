@@ -1,7 +1,7 @@
 .wrapper {
-  @apply flex flex-col max-w-4xl m-auto;
+  @apply flex flex-col max-w-4xl m-auto min-h-[100vh];
   .cardOfCart {
-    @apply border-[1px] border-black border-opacity-20 shadow-md mt-[150px] mb-[100px] rounded-[7px] p-[30px];
+    @apply shadow-[1px_2px_5px_1px_rgba(0,0,0,0.3)] mt-[150px] mb-[100px] rounded-[7px] p-[30px];
     .cartHeading {
       @apply text-[34px] text-black font-bold tracking-[2px] mb-[20px] flex flex-row items-center;
     }
