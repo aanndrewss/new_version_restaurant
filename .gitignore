@@ -1,0 +1,34 @@
+.idea
+
+/client/node_modules
+/client/.pnp
+/client/.pnp.js
+/client/coverage
+/client/.next/
+/client/out/
+/client/build
+/client/.DS_Store
+/client/*.pem
+
+# debug
+/client/npm-debug.log*
+/client/yarn-debug.log*
+/client/yarn-error.log*
+/client/.pnpm-debug.log*
+
+# local env files
+/client/.env*.local
+/client/.env
+
+# vercel
+/client/.vercel
+
+# typescript
+/client/*.tsbuildinfo
+/client/next-env.d.ts
+
+
+/server/dist
+/server/node_modules
+/server/.development.env
+/server/.production.env
