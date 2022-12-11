@@ -30,22 +30,25 @@ const OrderItem: FC<IOrderItemProps> = ({ order }) => {
 				<div className={styles.city}>{order.address.city}</div>
 				<div className={styles.street}>{order.address.street}</div>
 			</div>
-			{isOpen ? null :
-				<div className={styles.textDetailed} onClick={() => setIsOpen(true)}>
-					Detailed composition <ArrowDown />
-				</div>
-			}
-			{isOpen ?
-				<div style={{marginTop: '1rem'}}>
-				 {order.cart.items.map(item => <OrderDetails key={item.id} item={item}/>)}
-				</div>
+			<div className={styles.parent}>
+				{isOpen ? null :
+					<div className={styles.textDetailed} onClick={() => setIsOpen(true)}>
+						Detailed composition <ArrowDown />
+					</div>
+				}
+				{isOpen ?
+					<div style={{marginTop: '1rem'}}>
+						{order.cart.items.map(item => <OrderDetails key={item.id} item={item}/>)}
+					</div>
 					: null
-			}
-			{isOpen ?
-				<div className={styles.textDetailed} onClick={() => setIsOpen(false)}>
-					Сollapse <IconBxsUpArrow />
-				</div> : null
-			}
+				}
+				{isOpen ?
+					<div className={styles.textDetailed} onClick={() => setIsOpen(false)}>
+						Сollapse <IconBxsUpArrow />
+					</div> : null
+				}
+			</div>
+
 			<div className={styles.btnPriceWrapper}>
 				<button className={styles.reorderBtn}>
 					Repeat

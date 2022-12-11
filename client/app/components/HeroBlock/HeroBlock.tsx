@@ -4,6 +4,7 @@ import styles from './HeroBlock.module.scss'
 import Link from 'next/link'
 import { useOutside } from '../../hooks/useOutside'
 import cn from 'classnames'
+import BookForm from '../BookForm/BookForm'
 
 const HeroBlock = () => {
 
@@ -13,12 +14,12 @@ const HeroBlock = () => {
 		<div className={styles.heroBlock}>
 			<div className={wrapper.wrapper}>
 				<div className={styles.contentWrapper}>
-					<Link href={'/'} ref={ref}>
-						<button className={styles.bookBtn} onClick={() => setIsShow(!isShow)}>
+					<div className={styles.parent} ref={ref}>
+						<button onClick={() => setIsShow(!isShow)}>
 							Reserve a table
 						</button>
-					</Link>
-					{isShow && <div>isShow</div>}
+						{isShow && <BookForm/>}
+					</div>
 					<div className={styles.titlesWrapper}>
 						<div className={styles.titles}>
 							<div className={styles.title}>

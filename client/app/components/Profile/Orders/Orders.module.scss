@@ -50,9 +50,16 @@
           }
         }
 
-        .textDetailed {
-          @apply text-[14px] w-fit text-primary hover:text-secondary transition-all duration-[0.33s] cursor-pointer mt-2 flex flex-row items-center gap-1.5;
+        .parent {
+          @apply relative;
+          > div {
+            @apply animate-scaleIn;
+          }
+          .textDetailed {
+            @apply animate-scaleIn text-[14px] w-fit text-primary hover:text-secondary transition-all duration-[0.33s] cursor-pointer mt-2 flex flex-row items-center gap-1.5;
+          }
         }
+
 
         .orderDetailWrapper {
           @apply flex flex-col gap-2;

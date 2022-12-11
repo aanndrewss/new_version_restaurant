@@ -73,8 +73,11 @@
           @apply font-medium text-[16px] text-black opacity-70;
         }
 
-        .bookBtn1 {
-          @apply mt-[13px] text-[16px] text-black border-[1px] border-green-500 rounded-[7px] w-[200px] h-[50px] font-bold z-10 hover:bg-green-500 hover:text-white transition-all duration-[0.33s];
+        .parent {
+          @apply relative;
+          > button {
+            @apply mt-[13px] text-[16px] text-black border-[1px] border-green-500 rounded-[7px] w-[200px] h-[50px] font-bold z-10 hover:bg-green-500 hover:text-white transition-all duration-[0.33s];
+          }
         }
       }
     }

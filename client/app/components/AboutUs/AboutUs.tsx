@@ -2,9 +2,14 @@ import React from 'react'
 import styles from './AboutUs.module.scss'
 import IconHomeMapMarker from '../../../public/icons/HomeMap'
 import Link from 'next/link'
+import { useOutside } from '../../hooks/useOutside'
+import BookForm from '../BookForm/BookForm'
 
 
 const AboutUs = () => {
+
+	const {ref, isShow, setIsShow} = useOutside(false)
+
 	return (
 		<div className={styles.aboutUs}>
 			<div className={styles.deliveryAboutWrapper}>
@@ -59,11 +64,13 @@ const AboutUs = () => {
 						<div className={styles.bookBtnInfo}>
 							Manager will callback to you
 						</div>
-						<Link href={'/'}>
-							<button className={styles.bookBtn1}>
+						<div ref={ref} className={styles.parent}>
+							<button onClick={() => setIsShow(!isShow)}>
 								Reserve a table
 							</button>
-						</Link>
+							{isShow && <BookForm/>}
+						</div>
+
 					</div>
 				</div>
 			</div>

@@ -6,9 +6,11 @@
 
   .contentWrapper {
     @apply flex justify-between;
-
-    .bookBtn {
-      @apply text-[18px] w-[150px] h-[50px] mt-[400px] border-green-500 border-2 rounded-[7px] text-white font-bold z-10 hover:bg-green-500 transition-all duration-[0.33s];
+    .parent {
+      @apply relative;
+      > button {
+        @apply text-[18px] w-[150px] h-[50px] mt-[400px] border-green-500 border-2 rounded-[7px] text-white font-bold z-50 hover:bg-green-500 transition-all duration-[0.33s];
+      }
     }
   }
 
