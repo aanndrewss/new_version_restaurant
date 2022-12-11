@@ -11,7 +11,15 @@ export interface IUser {
 	addresses: IAddress[]
 }
 
-export interface setIUser {
+export interface loginIUser {
+	email: string
+	password: string
+}
+
+export interface createIUser {
+	name: string
+	phone: string
+	gender: string
 	email: string
 	password: string
 }

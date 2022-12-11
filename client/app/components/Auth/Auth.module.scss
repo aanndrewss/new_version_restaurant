@@ -1,15 +1,15 @@
 .wrapper {
-  @apply flex items-center justify-center min-h-[100vh];
+  @apply flex items-center justify-center min-h-[100vh] pt-14;
   .card {
-    @apply w-[420px] p-1 rounded-2xl shadow-[1px_6px_10px_1px_rgba(0,0,0,0.3)] h-fit;
+    @apply w-[420px] p-1 rounded-2xl shadow-[1px_2px_15px_1px_rgba(0,0,0,0.3)] h-fit;
     .heading {
-      @apply text-black text-center font-bold text-2xl mb-3 mt-1;
+      @apply text-black text-center font-bold text-3xl mb-4 mt-1;
     }
 
     .form {
       @apply flex flex-col;
       .textField {
-        @apply text-black border-[1px] border-solid border-b-gray-200 bg-white bg-opacity-30 border-transparent m-1.5 px-3 py-2 rounded focus:border-primary outline-none placeholder:text-slate-300;
+        @apply mx-3 my-2;
       }
 
       .errorMessage {

@@ -74,7 +74,8 @@ const Header = () => {
 											{user.avatarPath ?
 												<Image width={50} height={50} className={styles.avatar} src={'http://localhost:5000/' + user.avatarPath}
 														 alt='Avatar' /> :
-												<IconUser width={25} height={25} />}
+												<img className={styles.avatar} src={'../../assets/default_avatar.jpg'}
+															 alt='Avatar' />}
 										</div>
 										<div className={styles.dropdownContent}>
 											<Link href={PROFILE_ROUTE + `/${user.id}`}>

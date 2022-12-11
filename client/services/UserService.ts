@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { IUser, setIUser } from '../app/models/IUser'
+import { createIUser, IUser, loginIUser } from '../app/models/IUser'
 import { IAuth } from '../app/models/IAuth'
-import { setAddresses, setIsAuth, setUser } from '../store/reducers/UserSlice'
+import { setIsAuth, setUser } from '../store/reducers/UserSlice'
 import { GetIUser } from '../app/models/getIUser'
 
 
@@ -25,7 +25,6 @@ export const userAPI = createApi({
 				try {
 					const response = await queryFulfilled
 					dispatch(setUser(response.data.user))
-					dispatch(setAddresses(response.data.user.addresses))
 				} catch {
 				}
 			},
@@ -37,7 +36,7 @@ export const userAPI = createApi({
 			}),
 			providesTags: result => ['user']
 		}),
-		setRegistration: build.mutation<IAuth, setIUser>({
+		setRegistration: build.mutation<IAuth, createIUser>({
 			query: (user) => ({
 				url: '/auth/registration',
 				method: 'POST',
@@ -54,7 +53,7 @@ export const userAPI = createApi({
 			},
 			invalidatesTags: ['user']
 		}),
-		setLogin: build.mutation<IAuth, setIUser>({
+		setLogin: build.mutation<IAuth, loginIUser>({
 			query: (user) => ({
 				url: '/auth/login',
 				method: 'POST',
