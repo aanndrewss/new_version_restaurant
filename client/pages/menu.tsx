@@ -2,7 +2,7 @@ import React from 'react'
 import DishList from '../app/components/DishList/DishList'
 import Meta from '../app/Meta'
 
-function Menu(props) {
+function Menu() {
 
 	return (
 		<div>

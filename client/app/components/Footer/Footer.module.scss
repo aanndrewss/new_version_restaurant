@@ -3,7 +3,7 @@
   .footerWrapper {
     @apply flex justify-between items-center;
     .brandName {
-      @apply text-[36px] font-extrabold text-white;
+      @apply text-[36px] font-extrabold text-white cursor-pointer;
     }
 
     .footerLinks {

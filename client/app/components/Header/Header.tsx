@@ -28,9 +28,11 @@ const Header = () => {
 	return (
 		<div className={styles.header}>
 			<div className={styles.headerWrapper}>
-				<div className={styles.brandName}>
-					TAI PHO
-				</div>
+				<Link href={HOME_ROUTE}>
+					<div className={styles.brandName}>
+						TAI PHO
+					</div>
+				</Link>
 				<div className={styles.headerLinks}>
 					<Link href={HOME_ROUTE}>
 						<button className={styles.btnLinks}>
@@ -72,10 +74,11 @@ const Header = () => {
 									<div className={styles.dropdown}>
 										<div className={styles.user}>
 											{user.avatarPath ?
-												<Image width={50} height={50} className={styles.avatar} src={'http://localhost:5000/' + user.avatarPath}
-														 alt='Avatar' /> :
+												<Image width={50} height={50} className={styles.avatar}
+															 src={'http://localhost:5000/' + user.avatarPath}
+															 alt='Avatar' /> :
 												<img className={styles.avatar} src={'../../assets/default_avatar.jpg'}
-															 alt='Avatar' />}
+														 alt='Avatar' />}
 										</div>
 										<div className={styles.dropdownContent}>
 											<Link href={PROFILE_ROUTE + `/${user.id}`}>

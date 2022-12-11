@@ -7,18 +7,19 @@ import React from 'react'
 import Footer from '../app/components/Footer/Footer'
 import 'swiper/scss'
 import 'swiper/scss/navigation'
+import ScrollToTop from '../app/hooks/ScrollToTop'
 
 export default function MyApp({ Component, pageProps }) {
 
-
 	return (
 		<Provider store={store}>
-				<Header />
+			<ScrollToTop />
+			<Header />
 			<div>
-				<TypeBar/>
+				<TypeBar />
 				<Component {...pageProps} />
 			</div>
-			<Footer/>
+			<Footer />
 		</Provider>
 	)
 }

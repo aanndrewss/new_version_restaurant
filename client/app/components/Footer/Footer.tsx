@@ -12,9 +12,11 @@ const Footer = () => {
 		<div className={styles.footer}>
 			<div className={wrapper.wrapper}>
 				<div className={styles.footerWrapper}>
-					<div className={styles.brandName}>
-						TAI PHO
-					</div>
+					<Link href={HOME_ROUTE}>
+						<div className={styles.brandName}>
+							TAI PHO
+						</div>
+					</Link>
 					<div className={styles.footerLinks}>
 						<div className={styles.footerLinks1}>
 							<div className={styles.link}>
