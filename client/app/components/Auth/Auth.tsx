@@ -8,6 +8,8 @@ import styles from './Auth.module.scss'
 import Meta from '../../Meta'
 import { FormControl, InputLabel, MenuItem, Select, TextField } from '@mui/material'
 import Link from 'next/link'
+import { ScssTextField } from '../../utils/ScssTextField'
+import { ScssSelect } from '../../utils/ScssSelect'
 
 const AuthComponent = () => {
 
@@ -17,7 +19,7 @@ const AuthComponent = () => {
 	const [loginUser, {}] = userAPI.useSetLoginMutation()
 	const [registrateUser, { isError, error }] = userAPI.useSetRegistrationMutation()
 
-	const onSubmit = async ({ email, password, name, phone , gender}) => {
+	const onSubmit = async ({ email, password, name, phone, gender }) => {
 		try {
 			if (isLogin) {
 				await loginUser({ email, password } as loginIUser)
@@ -48,7 +50,7 @@ const AuthComponent = () => {
 					{isLogin ? 'Sign in' : 'Create account'}
 				</div>
 				<form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-					{!isLogin && <TextField
+					{!isLogin && <ScssTextField
 						{...register('name', {
 							required: 'Field is required!'
 						})}
@@ -58,7 +60,7 @@ const AuthComponent = () => {
 						error={errors?.name}
 						helperText={errors?.name?.message}
 					/>}
-					{!isLogin && <TextField
+					{!isLogin && <ScssTextField
 						{...register('phone', {
 							required: 'Field is required!',
 							pattern: /^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/
@@ -71,12 +73,12 @@ const AuthComponent = () => {
 					/>}
 					{!isLogin &&
 						<FormControl className={styles.textField}>
-							<InputLabel id="demo-simple-select-disabled-label">Age</InputLabel>
+							<InputLabel id='demo-simple-select-disabled-label'>Gender</InputLabel>
 							<Select
 								{...register('gender', {
 									required: 'Field is required!'
 								})}
-								labelId="demo-simple-select-disabled-label"
+								labelId='demo-simple-select-disabled-label'
 								placeholder='Gender'
 								label='Gender'
 								error={errors?.gender}
@@ -87,7 +89,7 @@ const AuthComponent = () => {
 							</Select>
 						</FormControl>
 					}
-					<TextField
+					<ScssTextField
 						{...register('email', {
 							required: 'Field is required!',
 							pattern: /^\S+@\S+\.\S+$/
@@ -98,7 +100,7 @@ const AuthComponent = () => {
 						error={errors?.email}
 						helperText={errors?.email?.message || errors.email?.type === 'pattern' && 'Email is incorrect!'}
 					/>
-					<TextField
+					<ScssTextField
 						{...register('password', {
 							required: 'Field is required!'
 						})}

@@ -68,7 +68,7 @@ const AboutUs = () => {
 							<button onClick={() => setIsShow(!isShow)}>
 								Reserve a table
 							</button>
-							{isShow && <BookForm/>}
+							{isShow && <BookForm setIsShow={setIsShow}/>}
 						</div>
 
 					</div>
