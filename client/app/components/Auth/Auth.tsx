@@ -6,10 +6,9 @@ import { HOME_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE } from '../../utils/contsta
 import { useForm } from 'react-hook-form'
 import styles from './Auth.module.scss'
 import Meta from '../../Meta'
-import { FormControl, InputLabel, MenuItem, Select, TextField } from '@mui/material'
+import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
 import Link from 'next/link'
 import { ScssTextField } from '../../utils/ScssTextField'
-import { ScssSelect } from '../../utils/ScssSelect'
 
 const AuthComponent = () => {
 
@@ -57,7 +56,7 @@ const AuthComponent = () => {
 						className={styles.textField}
 						placeholder='Name'
 						label='Name'
-						error={errors?.name}
+						error={!!errors.name}
 						helperText={errors?.name?.message}
 					/>}
 					{!isLogin && <ScssTextField
@@ -68,7 +67,7 @@ const AuthComponent = () => {
 						className={styles.textField}
 						placeholder='Phone'
 						label='Phone'
-						error={errors?.phone}
+						error={!!errors.phone}
 						helperText={errors?.phone?.message || errors.phone?.type === 'pattern' && 'Phone is incorrect!'}
 					/>}
 					{!isLogin &&
@@ -81,7 +80,7 @@ const AuthComponent = () => {
 								labelId='demo-simple-select-disabled-label'
 								placeholder='Gender'
 								label='Gender'
-								error={errors?.gender}
+								error={!!errors.gender}
 								helperText={errors?.gender?.message}
 							>
 								<MenuItem value={'Male'}>Male</MenuItem>
@@ -97,7 +96,7 @@ const AuthComponent = () => {
 						className={styles.textField}
 						placeholder='Email'
 						label='Email'
-						error={errors?.email}
+						error={!!errors.email}
 						helperText={errors?.email?.message || errors.email?.type === 'pattern' && 'Email is incorrect!'}
 					/>
 					<ScssTextField
@@ -108,7 +107,7 @@ const AuthComponent = () => {
 						placeholder='Password'
 						type='password'
 						label='Password'
-						error={errors?.password}
+						error={!!errors.password}
 						helperText={errors?.password?.message}
 					/>
 

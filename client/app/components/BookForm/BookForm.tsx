@@ -42,7 +42,7 @@ const BookForm: FC<IBookFormProps> = ({ setIsShow }) => {
 						fullWidth
 						size={'small'}
 						className={styles.textField}
-						error={errors?.name}
+						error={!!errors.name}
 						helperText={errors?.name?.message}
 					/>
 					<ScssTextField
@@ -53,7 +53,7 @@ const BookForm: FC<IBookFormProps> = ({ setIsShow }) => {
 						placeholder='Phone'
 						fullWidth
 						size={'small'}
-						error={errors?.phone}
+						error={!!errors.phone}
 						helperText={errors?.phone?.message}
 					/>
 					<LocalizationProvider dateAdapter={AdapterMoment}>
