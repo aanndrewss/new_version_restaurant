@@ -1,0 +1,58 @@
+.orderWrapper {
+  @apply pt-[130px] max-w-4xl m-auto w-full min-h-[100vh] mb-16;
+  .heading {
+    @apply text-4xl font-bold tracking-wide mb-10;
+  }
+
+  .cardsWrapper {
+    @apply flex flex-col gap-6;
+
+    .card {
+      @apply py-5 px-10 shadow-[1px_2px_5px_1px_rgba(0,0,0,0.3)] rounded-[7px];
+      > h2 {
+        @apply text-2xl font-semibold mt-1.5 mb-3;
+      }
+      > h3 {
+        @apply text-xl font-normal opacity-30 mb-1.5;
+      }
+      > h4 {
+        @apply opacity-30 mb-1;
+      }
+      .totalPrice {
+        @apply flex justify-end text-xl font-semibold gap-2;
+        > p {
+          @apply opacity-30;
+        }
+      }
+      .cartItemsWrapper {
+        @apply flex flex-row gap-4 justify-center;
+        .img {
+          @apply rounded-2xl object-cover
+        }
+      }
+
+      .phoneNumber {
+        @apply pl-3;
+      }
+      .form {
+        @apply flex flex-row gap-4;
+        .textField {
+          @apply pt-1 pb-1 pl-2 w-full rounded-[3px] bg-gray-200 outline-none text-[16px];
+        }
+      }
+      .gridWrapper {
+        @apply grid-cols-2 grid gap-3 mb-3;
+        .addressItem {
+          @apply flex flex-row cursor-pointer text-secondary hover:text-primary duration-[0.33s] transition-colors;
+        }
+      }
+
+    }
+  }
+  .btnWrapper {
+    @apply flex flex-row justify-end mt-6;
+    > button {
+      @apply bg-primary px-4 py-1.5 rounded-layout hover:bg-secondary transition-all duration-[0.33s] text-white hover:scale-[1.05] text-xl;
+    }
+  }
+}

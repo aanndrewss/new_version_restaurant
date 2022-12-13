@@ -6,6 +6,8 @@ import { cartAPI } from '../../../services/CartService'
 import { useAppSelector } from '../../hooks/redux'
 import { useRouter } from 'next/router'
 import IconShoppingCart from '../../../public/icons/Cart'
+import Link from 'next/link'
+import { ORDER_ROUTE } from '../../utils/contstants'
 
 const CartComponent = () => {
 
@@ -30,12 +32,15 @@ const CartComponent = () => {
 							<div className={styles.totalPrice}>
 								Total Price: {totalPrice}
 							</div>
-							<button className={styles.orderBtn}>
-								To ordering
-								<div className={styles.arrow}>
-									<IconArrowRight />
-								</div>
-							</button>
+							<Link href={ORDER_ROUTE}>
+								<button className={styles.orderBtn}>
+									To ordering
+									<div className={styles.arrow}>
+										<IconArrowRight />
+									</div>
+								</button>
+							</Link>
+
 						</div>
 					</div>
 					:

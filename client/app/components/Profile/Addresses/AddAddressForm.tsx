@@ -56,8 +56,10 @@ const AddAddressForm: FC<IAddAddressFormProps> = ({ address, userId, setEditMode
 		setEditMode(false)
 		setAddMode(false)
 
-		{editMode ?
+		{
+			editMode ?
 			updateAddress(values1) :
+				// @ts-ignore
 			createAddress(values)
 		}
 	}
