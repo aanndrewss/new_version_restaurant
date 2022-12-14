@@ -6,6 +6,9 @@ import { userAPI } from '../../../services/UserService'
 import OrderCartItem from './OrderCartItem'
 import OrderAddresses from './OrderAddresses'
 import Contacts from './Contacts'
+import TermsOfPolicy from './TermsOfPolicy'
+import { useOutside } from '../../hooks/useOutside'
+import ModalOrderComplete from './ModalOrderComplete'
 
 const OrderComponent = () => {
 
@@ -13,6 +16,7 @@ const OrderComponent = () => {
 	const { data: dishes } = cartAPI.useFetchCartQuery(id)
 	const { user } = useAppSelector(state => state.userReducer)
 	const { data: userInfo } = userAPI.useFetchUserQuery(user.id)
+	const {ref, isShow, setIsShow} = useOutside(false)
 
 	return (
 		<div className={styles.orderWrapper}>
@@ -33,9 +37,11 @@ const OrderComponent = () => {
 					<Contacts phone={user.phone} />
 				</div>
 				<OrderAddresses addresses={user.addresses} />
+				<TermsOfPolicy />
 			</div>
-			<div className={styles.btnWrapper}>
-				<button>Checkout</button>
+			<div className={styles.btnWrapper} ref={ref}>
+				<button onClick={() => setIsShow(!isShow)}>Checkout</button>
+				{isShow && <ModalOrderComplete setIsShow={setIsShow} />}
 			</div>
 		</div>
 	)

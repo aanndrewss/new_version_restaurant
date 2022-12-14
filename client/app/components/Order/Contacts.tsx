@@ -11,9 +11,9 @@ const Contacts: FC<IContactsProps> = ({ phone }) => {
 		<>
 			<h2>Your contacts</h2>
 			<h3>Phone number</h3>
-			<div className={styles.phoneNumber}>
-				{phone}
-			</div>
+			<input className={styles.phoneNumber}
+				value={phone}
+			/>
 		</>
 
 	)
