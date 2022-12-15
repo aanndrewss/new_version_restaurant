@@ -11,7 +11,7 @@ interface CartItemProps {
 const OrderCartItem: FC<CartItemProps> = ({item}) => {
 	return (
 		<div className={styles.cartItemWrapper}>
-			<Image className={styles.img} src={'http://localhost:5000/' + item.cartDish.img} width={65} height={50} />
+			<Image className={styles.img} src={'http://localhost:5000/' + item.cartDish.img} width={85} height={60} />
 			<div className={styles.count}><IconCross2 /> {item.count}</div>
 		</div>
 	)

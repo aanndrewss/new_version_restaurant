@@ -1,24 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import wrapper from '../../../styles/Home.module.scss'
 import styles from './HeroBlock.module.scss'
-import Link from 'next/link'
 import { useOutside } from '../../hooks/useOutside'
-import cn from 'classnames'
 import BookForm from '../BookForm/BookForm'
 
 const HeroBlock = () => {
 
-	const {ref, isShow, setIsShow} = useOutside(false)
+ const [isOpen, setIsOpen] = useState<boolean>(false)
 
 	return (
 		<div className={styles.heroBlock}>
 			<div className={wrapper.wrapper}>
 				<div className={styles.contentWrapper}>
-					<div className={styles.parent} ref={ref}>
-						<button onClick={() => setIsShow(!isShow)}>
+					<div className={styles.parent} >
+						<button onClick={() => setIsOpen(true)}>
 							Reserve a table
 						</button>
-						{isShow && <BookForm setIsShow={setIsShow}/>}
+						{isOpen && <BookForm setIsOpen={setIsOpen} isOpen={isOpen}/>}
 					</div>
 					<div className={styles.titlesWrapper}>
 						<div className={styles.titles}>

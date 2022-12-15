@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './Order.module.scss'
 import { useAppSelector } from '../../hooks/redux'
 import { cartAPI } from '../../../services/CartService'
@@ -16,7 +16,7 @@ const OrderComponent = () => {
 	const { data: dishes } = cartAPI.useFetchCartQuery(id)
 	const { user } = useAppSelector(state => state.userReducer)
 	const { data: userInfo } = userAPI.useFetchUserQuery(user.id)
-	const {ref, isShow, setIsShow} = useOutside(false)
+	const [isOpen, setIsOpen] = useState(false)
 
 	return (
 		<div className={styles.orderWrapper}>
@@ -39,9 +39,9 @@ const OrderComponent = () => {
 				<OrderAddresses addresses={user.addresses} />
 				<TermsOfPolicy />
 			</div>
-			<div className={styles.btnWrapper} ref={ref}>
-				<button onClick={() => setIsShow(!isShow)}>Checkout</button>
-				{isShow && <ModalOrderComplete setIsShow={setIsShow} />}
+			<div className={styles.btnWrapper}>
+				<button onClick={() => setIsOpen(true)}>Checkout</button>
+				{isOpen && <ModalOrderComplete setIsOpen={setIsOpen} isOpen={isOpen} />}
 			</div>
 		</div>
 	)

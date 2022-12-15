@@ -1,0 +1,19 @@
+.bg {
+  @apply z-[70] top-0 left-0 right-0 bottom-0 flex items-center justify-center fixed;
+  background: rgba(0, 0, 0, 0.7);
+
+  .popupWindow {
+    @apply animate-scaleIn shadow-[1px_2px_15px_1px_rgba(0,0,0,0.3)] bg-white rounded-[7px] px-10 py-6;
+      .heading {
+        @apply text-[18px] font-semibold text-center;
+      }
+
+      .details {
+        @apply text-center m-2;
+      }
+
+      > button {
+        @apply bg-primary rounded-layout hover:bg-secondary transition-colors duration-[0.33s] text-white text-[20px] font-semibold py-1 mt-5 w-full;
+      }
+    }
+  }

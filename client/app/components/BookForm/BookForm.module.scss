@@ -1,23 +1,35 @@
-.popupWindow {
-  @apply  animate-scaleIn w-[30%] bg-white z-50 fixed top-[20vh] left-[75vh] shadow-[1px_2px_15px_1px_rgba(0,0,0,0.3)] rounded-[7px] px-10 py-6;
-  .heading {
-    @apply text-center text-3xl font-semibold mb-4 mt-1;
-  }
-  .form {
-    @apply flex flex-col gap-6;
-    .textField {
-      @apply w-full;
-    }
-    > button {
-      @apply bg-primary rounded-layout hover:bg-secondary transition-colors duration-[0.33s] text-white text-[20px] font-semibold py-1;
-    }
-  }
-  .terms {
-    @apply mt-3 text-center text-[14px];
 
-    > a{
-      @apply text-primary hover:underline cursor-pointer;
+.bg {
+  @apply animate-opacityIn z-[70] top-0 left-0 right-0 bottom-0 flex items-center justify-center fixed;
+  background: rgba(0, 0, 0, 0.7);
+
+  .closeBtn {
+    @apply absolute top-5 right-5 z-[80] text-white;
+  }
+  .popupWindow {
+    @apply animate-scaleIn shadow-[1px_2px_15px_1px_rgba(0,0,0,0.3)] bg-white rounded-[7px] px-10 py-6;
+
+    .heading {
+      @apply text-center text-3xl font-semibold mb-4 mt-1;
+    }
+
+    .form {
+      @apply flex flex-col gap-6;
+      .textField {
+        @apply w-full;
+      }
+
+      > button {
+        @apply bg-primary rounded-layout hover:bg-secondary transition-colors duration-[0.33s] text-white text-[20px] font-semibold py-1;
+      }
+    }
+
+    .terms {
+      @apply mt-3 text-center text-[14px];
+
+      > a {
+        @apply text-primary hover:underline cursor-pointer;
+      }
     }
   }
 }
-

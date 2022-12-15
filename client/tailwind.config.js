@@ -30,10 +30,22 @@ module.exports = {
             opacity: 1,
             transform: 'scale(1)',
           }
+        },
+        opacityIn: {
+          '0%': {
+            opacity: 0,
+          },
+          '50%': {
+            opacity: 0.3,
+          },
+          '100%': {
+            opacity: 1,
+          }
         }
       },
       animation: {
-        scaleIn: 'scaleIn .35s ease-in-out'
+        scaleIn: 'scaleIn .35s ease-in-out',
+        opacityIn: 'opacityIn .35s ease-in-out'
       }
     }
   },

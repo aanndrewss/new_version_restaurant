@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './AboutUs.module.scss'
 import IconHomeMapMarker from '../../../public/icons/HomeMap'
 import Link from 'next/link'
@@ -8,7 +8,7 @@ import BookForm from '../BookForm/BookForm'
 
 const AboutUs = () => {
 
-	const {ref, isShow, setIsShow} = useOutside(false)
+	const [isOpen, setIsOpen] = useState(false)
 
 	return (
 		<div className={styles.aboutUs}>
@@ -64,11 +64,11 @@ const AboutUs = () => {
 						<div className={styles.bookBtnInfo}>
 							Manager will callback to you
 						</div>
-						<div ref={ref} className={styles.parent}>
-							<button onClick={() => setIsShow(!isShow)}>
+						<div className={styles.parent}>
+							<button onClick={() => setIsOpen(true)}>
 								Reserve a table
 							</button>
-							{isShow && <BookForm setIsShow={setIsShow}/>}
+							{isOpen && <BookForm setIsOpen={setIsOpen} isOpen={isOpen}/>}
 						</div>
 
 					</div>

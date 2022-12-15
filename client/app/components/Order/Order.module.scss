@@ -71,20 +71,5 @@
     > button {
       @apply bg-primary px-4 py-1.5 rounded-layout hover:bg-secondary transition-all duration-[0.33s] text-white hover:scale-[1.05] text-xl;
     }
-    .popupWindow {
-      @apply animate-scaleIn w-[30%] bg-white z-50 fixed top-[30vh] left-[75vh] shadow-[1px_2px_15px_1px_rgba(0,0,0,0.3)] rounded-[7px] px-10 py-6;
-      .popupWrapper {
-        @apply flex flex-col;
-        > h2 {
-          @apply text-[18px] font-semibold text-center;
-        }
-        .details {
-          @apply text-center m-2;
-        }
-        > button {
-          @apply bg-primary rounded-layout hover:bg-secondary transition-colors duration-[0.33s] text-white text-[20px] font-semibold py-1 mt-5;
-        }
-      }
-    }
   }
 }
