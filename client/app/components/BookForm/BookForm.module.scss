@@ -7,7 +7,7 @@
     @apply absolute top-5 right-5 z-[80] text-white;
   }
   .popupWindow {
-    @apply animate-scaleIn shadow-[1px_2px_15px_1px_rgba(0,0,0,0.3)] bg-white rounded-[7px] px-10 py-6;
+    @apply shadow-[1px_2px_15px_1px_rgba(0,0,0,0.3)] bg-white rounded-[7px] px-10 py-6;
 
     .heading {
       @apply text-center text-3xl font-semibold mb-4 mt-1;

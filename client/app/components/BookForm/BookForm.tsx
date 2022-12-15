@@ -6,6 +6,7 @@ import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment'
 import { ScssTextField } from '../../utils/ScssTextField'
 import { Dialog } from '@headlessui/react'
 import IconCross2 from '../../../public/icons/Cross'
+import ModalOrderComplete from '../Order/ModalOrderComplete'
 
 interface IBookFormProps {
 	setIsOpen: (isOpen: boolean) => void
@@ -16,6 +17,7 @@ const BookForm: FC<IBookFormProps> = ({ setIsOpen, isOpen }) => {
 
 	const [date, setDate] = useState()
 	const [time, setTime] = useState()
+	const [isShow, setIsShow] = useState(false)
 
 	const {
 		register,
@@ -26,8 +28,7 @@ const BookForm: FC<IBookFormProps> = ({ setIsOpen, isOpen }) => {
 	})
 
 	const onSubmit = () => {
-		setIsOpen(false)
-		alert('We will callback you later!')
+		setIsShow(true)
 	}
 
 	return (
@@ -48,6 +49,7 @@ const BookForm: FC<IBookFormProps> = ({ setIsOpen, isOpen }) => {
 								label='Name'
 								placeholder='Name'
 								fullWidth
+								autoComplete='off'
 								size={'small'}
 								className={styles.textField}
 								error={!!errors.name}
@@ -60,6 +62,7 @@ const BookForm: FC<IBookFormProps> = ({ setIsOpen, isOpen }) => {
 								label='Phone'
 								placeholder='Phone'
 								fullWidth
+								autoComplete='off'
 								size={'small'}
 								error={!!errors.phone}
 								helperText={errors?.phone?.message}
@@ -82,6 +85,7 @@ const BookForm: FC<IBookFormProps> = ({ setIsOpen, isOpen }) => {
 							<button>
 								Reserve
 							</button>
+							{isShow && <ModalOrderComplete setIsOpen={setIsShow} isOpen={isShow} setIsOpen1={setIsOpen}/>}
 						</form>
 						<div className={styles.terms}>By clicking on the button, you agree to the <a>policy of personal data
 							processing</a></div>

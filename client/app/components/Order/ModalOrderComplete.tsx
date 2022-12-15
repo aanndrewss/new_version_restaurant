@@ -4,10 +4,17 @@ import { Dialog } from '@headlessui/react'
 
 interface IProps {
 	setIsOpen: (isOpen: boolean) => void
+	setIsOpen1: (isOpen: boolean) => void
 	isOpen: boolean
 }
 
-const ModalOrderComplete: FC<IProps> = ({ setIsOpen, isOpen }) => {
+const ModalOrderComplete: FC<IProps> = ({ setIsOpen, isOpen, setIsOpen1 }) => {
+
+	const handleClick = () => {
+		setIsOpen(false)
+		setIsOpen1 && setIsOpen1(false)
+	}
+
 	return (
 		<Dialog open={isOpen} onClose={() => setIsOpen(false)}>
 			<div className={styles.bg}>
@@ -18,7 +25,7 @@ const ModalOrderComplete: FC<IProps> = ({ setIsOpen, isOpen }) => {
 					<div className={styles.details}>
 						Manager will callback to you later!
 					</div>
-					<button onClick={() => setIsOpen(false)}>Close</button>
+					<button onClick={handleClick}>Close</button>
 				</Dialog.Panel>
 			</div>
 		</Dialog>
