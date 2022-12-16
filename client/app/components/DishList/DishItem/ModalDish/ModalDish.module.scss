@@ -1,0 +1,24 @@
+.bg {
+  @apply z-[70] top-0 left-0 right-0 bottom-0 flex items-center justify-center fixed;
+  background: rgba(0, 0, 0, 0.7);
+
+  .popupWindow {
+    @apply animate-scaleIn shadow-[1px_2px_15px_1px_rgba(0,0,0,0.3)] bg-white rounded-[7px] px-10 py-6;
+    .wrapperDish {
+      @apply flex flex-row gap-5;
+      .details {
+        @apply flex flex-col justify-between;
+        .heading {
+          @apply text-[22px] font-semibold text-center w-[200px];
+        }
+        > button {
+          @apply rounded-layout text-black font-bold bg-primary hover:bg-secondary p-1.5 text-[15px] text-white transition-all duration-[0.33s] w-full;
+        }
+      }
+      .img {
+        @apply rounded-2xl object-cover;
+      }
+    }
+
+  }
+}

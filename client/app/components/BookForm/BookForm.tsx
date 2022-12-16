@@ -6,7 +6,7 @@ import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment'
 import { ScssTextField } from '../../utils/ScssTextField'
 import { Dialog } from '@headlessui/react'
 import IconCross2 from '../../../public/icons/Cross'
-import ModalOrderComplete from '../Order/ModalOrderComplete'
+import ModalOrderComplete from '../Order/ModalOrder/ModalOrderComplete'
 
 interface IBookFormProps {
 	setIsOpen: (isOpen: boolean) => void

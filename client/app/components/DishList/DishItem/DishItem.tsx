@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import { IDish } from '../../../models/IDish'
 import styles from './DishItem.module.scss'
 import Link from 'next/link'
@@ -7,6 +7,7 @@ import { useAppSelector } from '../../../hooks/redux'
 import { IAddDish } from '../../../models/IAddDish'
 import { cartAPI } from '../../../../services/CartService'
 import Image from 'next/image'
+import ModalDish from './ModalDish/ModalDish'
 
 interface DishItemProps {
 	dish: IDish
@@ -15,6 +16,7 @@ interface DishItemProps {
 const DishItem: FC<DishItemProps> = ({ dish }) => {
 
 	const { user } = useAppSelector(state => state.userReducer)
+	const [isOpen, setIsOpen] = useState(false)
 
 	const values: IAddDish = {
 		dishId: dish.id,
@@ -26,9 +28,8 @@ const DishItem: FC<DishItemProps> = ({ dish }) => {
 
 	return (
 		<div className={styles.card}>
-			<Link href={DISH_ROUTE + `/${dish.id}`}>
-				<Image width={250} height={200} className={styles.img} src={'http://localhost:5000/' + dish.img} alt='' />
-			</Link>
+			<Image onClick={() => setIsOpen(true)} width={250} height={200} className={styles.img} src={'http://localhost:5000/' + dish.img} alt='' />
+			{isOpen && <ModalDish isOpen={isOpen} setIsOpen={setIsOpen} dish={dish} addItem={addItem} values={values}/>}
 			<div className={styles.cardInfoWrapper}>
 				<div className={styles.name}>{dish.name}</div>
 				<div className={styles.btnWrapper}>

@@ -8,7 +8,7 @@ import OrderAddresses from './OrderAddresses'
 import Contacts from './Contacts'
 import TermsOfPolicy from './TermsOfPolicy'
 import { useOutside } from '../../hooks/useOutside'
-import ModalOrderComplete from './ModalOrderComplete'
+import ModalOrderComplete from './ModalOrder/ModalOrderComplete'
 
 const OrderComponent = () => {
 
