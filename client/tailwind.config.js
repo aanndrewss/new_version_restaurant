@@ -44,8 +44,8 @@ module.exports = {
         }
       },
       animation: {
-        scaleIn: 'scaleIn .35s ease-in-out',
-        opacityIn: 'opacityIn .35s ease-in-out'
+        scaleIn: 'scaleIn .3s ease-in-out',
+        opacityIn: 'opacityIn .3s ease-out'
       }
     }
   },

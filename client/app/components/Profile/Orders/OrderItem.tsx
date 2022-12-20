@@ -37,7 +37,7 @@ const OrderItem: FC<IOrderItemProps> = ({ order }) => {
 					</div>
 				}
 				{isOpen ?
-					<div style={{marginTop: '1rem'}}>
+					<div className={styles.orderDetails}>
 						{order.cart.items.map(item => <OrderDetails key={item.id} item={item}/>)}
 					</div>
 					: null
