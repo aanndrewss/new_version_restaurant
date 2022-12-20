@@ -28,7 +28,7 @@ const DishItem: FC<DishItemProps> = ({ dish }) => {
 
 	return (
 		<div className={styles.card}>
-			<Image onClick={() => setIsOpen(true)} width={250} height={200} className={styles.img} src={'http://localhost:5000/' + dish.img} alt='' />
+			<Image onClick={() => setIsOpen(true)} width={250} height={200} className={styles.img} src={process.env.APP_URL1 + dish.img} alt='' />
 			{isOpen && <ModalDish isOpen={isOpen} setIsOpen={setIsOpen} dish={dish} addItem={addItem} values={values}/>}
 			<div className={styles.cardInfoWrapper}>
 				<div className={styles.name}>{dish.name}</div>

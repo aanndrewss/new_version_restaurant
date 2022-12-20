@@ -5,8 +5,8 @@ function IconUser(props: React.SVGProps<SVGSVGElement>) {
 		<svg
 			viewBox='0 0 1024 1024'
 			fill='currentColor'
-			height='1.5em'
-			width='1.5em'
+			height='1.2em'
+			width='1.2em'
 			{...props}
 		>
 			<path

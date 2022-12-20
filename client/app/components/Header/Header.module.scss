@@ -35,32 +35,21 @@
   .cart {
     @apply text-[18px] font-bold cursor-pointer bg-primary rounded-layout px-5 py-1 text-white hover:bg-secondary transition-all duration-300 flex flex-row items-center gap-2;
     .textCount {
-      @apply w-[20px]
+      @apply w-[20px];
     }
   }
 
 }
 
 .dropdown {
-  @apply relative inline-block flex flex-col items-center;
-  .user {
-    @apply hover:text-primary transition-all duration-300 cursor-pointer;
-    .avatar {
-      @apply w-[50px] h-[50px] object-cover rounded-full border-[3px] border-gray-200;
-    }
-  }
-
-  .dropdownContent {
-    @apply invisible absolute z-50 mt-14 shadow-md max-w-[160px] bg-white rounded-2xl -translate-y-[10px] opacity-0 transition-all duration-[0.33s];
-    .btnContent {
-      @apply p-2 block rounded-2xl w-full hover:bg-primary transition-all duration-[0.33s];
-    }
-  }
-  &:hover {
-    .dropdownContent {
-      @apply visible opacity-100 translate-y-0;
+  @apply relative flex flex-col items-center;
+  .dropdownContent{
+    @apply animate-scaleIn mt-[60px] absolute flex flex-col origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none px-1 py-1;
+    .menuItem {
+      @apply flex flex-row gap-1 items-center hover:bg-gray-200 transition-colors duration-[0.33s] px-2 py-1 rounded-[7px];
     }
   }
 }
+
 
 

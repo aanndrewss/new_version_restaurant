@@ -1,16 +1,22 @@
-import React, { useEffect, useState } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import styles from './Header.module.scss'
 import Link from 'next/link'
 import { BASKET_ROUTE, HOME_ROUTE, LOGIN_ROUTE, PROFILE_ROUTE } from '../../utils/contstants'
 import { useAppSelector } from '../../hooks/redux'
 import { userAPI } from '../../../services/UserService'
-import IconUser from '../../../public/icons/User'
 import { cartAPI } from '../../../services/CartService'
 import Image from 'next/image'
+import { Menu, Transition } from '@headlessui/react'
+import IconUser from '../../../public/icons/User'
+import IconLogout from '../../../public/icons/LogoutIcon'
+import { useRouter } from 'next/router'
+
 
 const Header = () => {
 
 	const [refresh, { isLoading }] = userAPI.useCheckAuthMutation()
+
+	const router = useRouter()
 
 	useEffect(() => {
 		if (localStorage.getItem('token')) {
@@ -71,23 +77,29 @@ const Header = () => {
 												<div>Cart</div>}
 										</button>
 									</Link>
-									<div className={styles.dropdown}>
-										<div className={styles.user}>
+									<Menu as='div' className={styles.dropdown}>
+										<Menu.Button>
 											{user.avatarPath ?
 												<Image width={50} height={50} className={styles.avatar}
-															 src={'http://localhost:5000/' + user.avatarPath}
+															 src={process.env.APP_URL1 + user.avatarPath}
 															 alt='Avatar' /> :
 												<img className={styles.avatar} src={'../../assets/default_avatar.jpg'}
 														 alt='Avatar' />}
-										</div>
-										<div className={styles.dropdownContent}>
-											<Link href={PROFILE_ROUTE + `/${user.id}`}>
-												<button className={styles.btnContent}>Profile</button>
-											</Link>
-											<button className={styles.btnContent}>Settings</button>
-											<button onClick={() => logOut('')} className={styles.btnContent}>Logout</button>
-										</div>
-									</div>
+										</Menu.Button>
+
+										<Menu.Items className={styles.dropdownContent}>
+											<Menu.Item>
+												<button className={styles.menuItem} onClick={() => router.push(PROFILE_ROUTE + `/${user.id}`)}>
+													Profile <IconUser />
+												</button>
+											</Menu.Item>
+											<Menu.Item>
+												<button onClick={() => logOut('')} className={styles.menuItem}>
+													Logout <IconLogout />
+												</button>
+											</Menu.Item>
+										</Menu.Items>
+									</Menu>
 								</>
 								:
 								<Link href={LOGIN_ROUTE}>

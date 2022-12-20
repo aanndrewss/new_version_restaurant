@@ -89,7 +89,7 @@ const ProfileInfo: FC<IProfileProps>= ({ user }) => {
 			<div className={styles.avatarWrapper}>
 				{
 					user.avatarPath ?
-						<img className={styles.avatar} src={'http://localhost:5000/' + user.avatarPath} alt='Avatar' /> :
+						<img className={styles.avatar} src={process.env.APP_URL1 + user.avatarPath} alt='Avatar' /> :
 						<img className={styles.avatar} src={'../../assets/default_avatar.jpg'} alt='Avatar' />
 				}
 				<div className={styles.tooltipText}>Change your avatar</div>
